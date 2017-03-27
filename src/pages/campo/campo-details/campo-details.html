@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg">
+    <ion-card class="adv-map">
+        <div>
+            <div #map id="map"></div>
+        </div>
+        <ion-item>
+            <ion-icon color="subtle" large item-left name='football'></ion-icon>
+            <h2>{{model.NOME}}</h2>
+            <p>{{model.ENDERECO}}</p>
+            <p>{{model.TELEFONE}}</p>
+            <p>Valor: {{model.VALOR |  currency:'BRL':true}}</p>
+            <p>Valor Mensal: {{model.VALORMENSAL |  currency:'BRL':'true'}}</p>
+            <p *ngIf="model.SOCIETY">Society</p>
+            <p *ngIf="model.CAMPO11">Campo de 11</p>
+        </ion-item>
+
+        <ion-item actions>
+            <button ion-button color="primary" clear item-left icon-left (click)="directions()">
+                <ion-icon name='navigate'></ion-icon>
+                Iniciar
+            </button>
+
+            <span class="distancia" item-right><strong>{{model.DISTANCIA}}</strong></span>
+            <span item-right>{{model.TEMPO}}</span>
+        </ion-item>
+    </ion-card>
+</ion-content>

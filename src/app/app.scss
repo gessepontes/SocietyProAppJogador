@@ -1,0 +1,124 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+page-app {
+
+    #sidenav {
+        ion-item-group[submenu] {
+            overflow: hidden;
+            display: block;
+            height: 0;
+            transition: height .3s linear;
+
+            &.visible {
+                height: inherit;
+                // this is just sample value, calculate how much space you need for your menu items
+            }
+        }
+    }
+
+
+    .menu-inner {
+        .scroll-content {
+            background: #222d32 !important;
+        }
+
+        .fixed-content {
+            background: #222d32 !important;
+        }
+    }
+
+
+    .content-modelo {
+        background-size: 100%;
+        background-position-y: 50%;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+        background: #37414a;
+        color: #efefef;
+
+        ion-item {
+            background: #37414a;
+            color: #efefef;
+        }
+
+        .cor {
+            background-color: #1a2226;
+            margin: auto;
+            margin-bottom: 5px;
+            color: white;
+        }
+    }
+
+    .menu-o {
+        ion-content {
+            background-color: #1a2226;
+
+            ion-row {
+                margin-top: -7px;
+            }
+
+            button {
+                height: 20vh;
+
+                &.img-bg {
+                    background-size: cover;
+                }
+
+                label {
+                    display: block;
+                    padding-top: 5px;
+                }
+
+                ion-icon {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        ion-item {
+            background-color: transparent;
+            color: white;
+
+            h2 {
+                text-align: right;
+            }
+        }
+
+        .menu-inner {
+            width: 100%;
+            background-color: transparent;
+        }
+
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
+
+    .leftMenu {
+        margin-left: 30px;
+    }
+
+    .menu {
+        ion-item {
+            background-color: #222d32;
+            border-color: transparent;
+            color: #b8c7ce;
+
+            h2 {
+                text-align: right;
+            }
+        }
+    }
+}

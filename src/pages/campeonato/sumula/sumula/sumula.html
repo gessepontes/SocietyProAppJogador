@@ -1,0 +1,106 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="sumula-content">
+    <div *ngFor="let group of sumula">
+        <ion-row *ngFor="let item of group.partidaCampeonato" class="bodyTable">
+            <ion-col width-100>
+                <ion-row>
+                    <ion-col width-100 class="local">
+                        <strong>Rodada - {{item.sRodada}}</strong>
+                        <p>LOCAL:{{item.Campo}}</p>
+                        <strong>Data da partida - {{item.DataPartida | data}} {{item.Hora}}</strong>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-40>
+                        <ion-row>
+                            <ion-col width-33>
+                                <ion-avatar>
+                                    <img ion-fab mini class="simbolo" [src]="imagemSimbolo+item.SIMBOLO1">
+                                </ion-avatar>
+                            </ion-col>
+                            <ion-col width-66 class="texto">
+                                <p>{{item.Time1}}</p>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col width-20 class="texto">
+                        <p>{{item.Gol}}</p>
+                    </ion-col>
+                    <ion-col width-40>
+                        <ion-row>
+                            <ion-col width-66 class="texto">
+                                <p>{{item.Time2}}</p>
+                            </ion-col>
+                            <ion-col width-33>
+                                <ion-avatar>
+                                    <img ion-fab mini class="simbolo" [src]="imagemSimbolo+item.SIMBOLO2">
+                                </ion-avatar>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+                <hr />
+                <ion-row>
+                    <ion-col width-50>
+                        <div *ngFor="let item2 of group.inscrito1">
+                            <ion-row>
+                                <ion-col width-100>
+                                    <ion-avatar>
+                                        <img ion-fab mini class="simbolo" [src]="imagemJogador+item2.FOTO">
+                                    </ion-avatar>
+                                </ion-col>
+                                <ion-col width-66 class="texto">
+                                    <ion-row>
+                                        <ion-col width-100>
+                                            <p>{{item2.sNome}}</p>
+                                            <img class="cartaoBola" [src]="imagemCartaoBola+'camisabranca.png'" /> - {{item2.iNumCamisa}}<br />
+                                            <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item2.IDQuantidade}}<br />
+                                            <img *ngIf="item2.ITIPOCARTAO == 2" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
+                                            <img *ngIf="item2.ITIPOCARTAO == 1" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-col>
+                    <ion-col width-50>
+                        <div *ngFor="let item3 of group.inscrito2">
+                            <ion-row>
+                                <ion-col width-100>
+                                    <ion-avatar>
+                                        <img ion-fab mini class="simbolo" [src]="imagemJogador+item3.FOTO">
+                                    </ion-avatar>
+                                </ion-col>
+                                <ion-col width-66 class="texto">
+                                    <ion-row>
+                                        <ion-col width-100>
+                                            <p>{{item3.sNome}}</p>
+                                            <img class="cartaoBola" [src]="imagemCartaoBola+'camisabranca.png'" /> - {{item3.iNumCamisa}}<br />
+                                            <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item3.IDQuantidade}}<br />
+                                            <img *ngIf="item3.ITIPOCARTAO == 2" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
+                                            <img *ngIf="item3.ITIPOCARTAO == 1" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-100 class="local">
+                        <strong>.:Observação:.</strong>
+                        <p>{{item.Observacao}}</p>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <br />
+    </div>
+</ion-content>

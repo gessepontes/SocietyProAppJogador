@@ -1,0 +1,39 @@
+﻿<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-list>
+        <ion-item-sliding *ngFor="let item of times">
+            <ion-item>
+                <ion-avatar item-left>
+                    <img [src]="imagemSimbolo+item.SIMBOLO">
+                </ion-avatar>
+                <h2>{{item.NOME}}</h2>
+            </ion-item>
+            <ion-item-options side="right">
+                <div *ngIf!="item.AUTORIZACAO">
+                    <button ion-button color="light">
+                        <ion-icon name="checkmark-circle"></ion-icon>Aguardando Aprovação
+                    </button>
+                </div>
+                <div *ngIf="item.AUTORIZACAO">
+                    <button ion-button color="light" *ngIf="item.ATIVO" (click)="status(item.ID)">
+                        <ion-icon name="checkmark-circle-outline"></ion-icon>Desativar
+                    </button>
+                    <button ion-button color="dark" *ngIf!="item.ATIVO" (click)="status(item.ID)">
+                        <ion-icon name="checkmark-circle"></ion-icon>Ativar
+                    </button>
+                </div>
+                <button ion-button color="danger" (click)="deleteTime(item.ID)"> <ion-icon name="remove"></ion-icon>Excluir</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <ion-fab right bottom style="margin-right: 20px;">
+        <button ion-fab mini (click)="newTime()" class="cor"><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+    </ion-fab>
+</ion-content>

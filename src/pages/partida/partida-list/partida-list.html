@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="partida-list-content">
+    <ion-row *ngFor="let item of partidas" class="bodyTable">
+        <ion-col width-100>
+            <ion-row>
+                <ion-col width-40>
+                    <ion-row>
+                        <ion-col width-33>
+                            <ion-avatar>
+                                <img class="simbolo" [src]="imagemSimbolo+item.sFoto">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col width-66 class="texto">
+                            <p>{{item.sTime}}</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col width-20 class="texto">
+                    {{item.GOL1}} x {{item.GOL2}}
+                </ion-col>
+                <ion-col width-40>
+                    <ion-row>
+                        <ion-col width-66 class="texto">
+                            <p>{{item.sTime2}}</p>
+                        </ion-col>
+                        <ion-col width-33>
+                            <ion-avatar>
+                                <img class="simbolo" [src]="imagemSimbolo+item.sFoto2">
+                            </ion-avatar>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col width-100 class="local">
+                    <p>LOCAL:{{item.sCampo}}</p>
+                    <strong>{{item.DATAPARTIDA | data}} {{item.HORAPARTIDA}}</strong>
+                    <p>STATUS: {{item.STATUS}}</p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col center text-center>
+                    <button ion-button icon-left clear small (click)="jogadorPartida(item.ID)">
+                        <ion-icon name="walk"></ion-icon>
+                        <div>Jogadores</div>
+                    </button>
+                </ion-col>
+                <ion-col center text-center>
+                    <button ion-button icon-left clear small (click)="golPartida(item.ID)">
+                        <ion-icon name="football"></ion-icon>
+                        <div>Gols</div>
+                    </button>
+                </ion-col>
+            </ion-row>
+
+        </ion-col>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-menu [content]="content">
+    <ion-header class="menu-o">
+        <ion-toolbar color="menu-o-t">
+            <div align="left">
+                <ion-title><b>Society</b>PRO</ion-title>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="menu">
+        <ion-list no-lines>
+            <ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon [name]="p.icon" item-left></ion-icon>
+                {{p.title}}
+            </ion-item>
+            <ion-item (click)="menuItemHandler()">
+                <ion-icon name="globe" item-left></ion-icon>
+                Campeonato
+            </ion-item>
+            <ng-container *ngIf="showSubmenu">
+                <ion-item *ngFor="let p of pages2" (click)="openPage(p)" class="leftMenu">
+                    <ion-icon [name]="p.icon" item-left></ion-icon>
+                    {{p.title}}
+                </ion-item>
+            </ng-container>
+            <ion-item (click)="logout()">
+                <ion-icon name="exit" item-left></ion-icon>
+                Sair
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

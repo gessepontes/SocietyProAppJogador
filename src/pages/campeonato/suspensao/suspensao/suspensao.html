@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+        <ion-item-group *ngFor="let group of suspensos">
+            <ion-item-divider color="menu-o-t">Rodada - {{group.sRodada}}</ion-item-divider>
+            <ion-row *ngFor="let item of group.jogadorSuspenso" class="bodyTable">
+                <ion-col width-100>
+                    <ion-row class="nomeSimbolo">
+                        <ion-col width-20>
+                            <ion-avatar>
+                                <img ion-fab mini [src]="imagemJogador+item.FOTO">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col width-20 class="simboloTime">
+                            <ion-avatar>
+                                <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col width-60 class="texto">
+                            {{item.Jogador}}
+                            <p>{{item.Time}}</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-item-group>
+</ion-content>

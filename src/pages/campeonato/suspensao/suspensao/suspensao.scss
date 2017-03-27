@@ -1,0 +1,46 @@
+page-suspensao {
+    .margin {
+        margin-top: 10px;
+    }
+
+    ion-col {
+        padding: 1px;
+        /*border: 1px solid #ddd;
+        border-radius: 2px;
+        text-align: left;*/
+        font-size: 1.2rem;
+    }
+
+    .headTable {
+        background-color: #1a2226;
+        color: white;
+        text-align: center;
+    }
+
+    .bodyTable {
+        padding: 1px;
+        border: 0px solid #b8c7ce;
+        text-align: center;
+    }
+
+    .nomeSimbolo {
+        text-align: left !important;
+    }
+
+    .simboloTime {
+        margin: auto;
+    }
+
+    .texto {
+        margin-top: auto;
+    }
+
+    .simbolo {
+        height: 30px;
+        width: 30px;
+        border-radius: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title><b>Society</b>PRO</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-fab top right edge>
+        <ion-avatar item-right>
+            <img ion-fab class="logout" [src]="FOTO" (click)="logout()">
+        </ion-avatar>
+    </ion-fab>
+    <ion-slides [options]="{pager:true}">
+        <ion-slide>
+            <ion-item>
+                <ion-label>{{TIME}}</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>Temporada</ion-label>
+                <ion-select [(ngModel)]="IANOTEMPORADA" required name="IANOTEMPORADA" (ionChange)="temporada(IANOTEMPORADA)">
+                    <ion-option *ngFor="let item of listAno" [value]="item">{{item}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <hr />
+            <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [colors]="doughnutChartColors"
+                    (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+        </ion-slide>
+        <ion-slide>
+            <ion-item>
+                <ion-label>{{TIME}}</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label>Ultimas Partidas</ion-label>
+            </ion-item>
+            <ion-grid>
+                <ion-row wrap>
+                    <ion-col width-33 *ngFor="let item of partidas">
+                        <div align="center">
+                            <ion-avatar>
+                                <img ion-fab mini [src]="imagemSimbolo+item.sSimbolo">
+                            </ion-avatar>
+                            <h6>{{item.sNome}}</h6>
+                            <p>{{item.dDataPartida | data}} {{item.sHoraPartida}}</p>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

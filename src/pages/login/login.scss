@@ -1,0 +1,64 @@
+page-login {
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;    
+
+  .societypro{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: #ffffff;
+  }
+
+  ion-input{
+     font-size: 0.8em !important; 
+  }
+
+  ion-label{
+     font-size: 0.8em !important;
+  }
+
+  .textoLogin{
+    margin-top: 5%;
+    margin-bottom:5%
+  }
+
+  .textoNew{
+    color: #ffffff;
+    border-color:  #080715;
+    background-color: #080715;
+    font-size: 1.0em !important; 
+    margin: -5px
+  }
+
+ .login-content {   
+  background-size: 100%;
+  background-position-y: 50%;
+  background-color: #080715;
+ }
+
+ .check{
+     background-color: #080715;
+          color: #ffffff;
+ }
+
+   .facebook-btn {
+    background-color: #3b5998;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 5px;
+    height: 30px;
+    color: white;
+  }
+
+   .log-in-btn {
+    background-color: #3b5998;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 5px;
+    height: 30px;
+    color: white;
+  }    
+
+  .item-ios.item-block .item-inner{
+   border-bottom: 0px solid #eeeeee !important;
+}
+
+}

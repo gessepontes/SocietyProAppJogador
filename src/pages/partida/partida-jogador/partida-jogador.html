@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar color="menu-o-t">
+        <ion-title>
+            {{TITULO}}
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <span color="light" showWhen="ios">Cancelar</span>
+                <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-list>
+        <ion-item *ngFor="let item of jogadores">
+            <ion-avatar item-left>
+                <img [src]="imagemJogador+item.FOTO">
+            </ion-avatar>
+            <h3>{{item.Nome}}</h3>
+        </ion-item>
+    </ion-list>
+</ion-content>

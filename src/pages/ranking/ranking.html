@@ -1,0 +1,68 @@
+﻿<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-item no-lines>
+        <ion-label>Ano Temporada</ion-label>
+        <ion-select [(ngModel)]="IANOTEMPORADA" required name="IANOTEMPORADA" (ionChange)="listRanking(IANOTEMPORADA,IDPESSOA)">
+            <ion-option *ngFor="let item of listAno" [value]="item">{{item}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-row class="headTable">
+        <ion-col width-67>
+            TIME
+        </ion-col>
+        <ion-col width-10>
+            PT
+        </ion-col>
+        <ion-col width-5>
+            P
+        </ion-col>
+        <ion-col width-5>
+            V
+        </ion-col>
+        <ion-col width-5>
+            E
+        </ion-col>
+        <ion-col width-5>
+            D
+        </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of ranking; let i = index" class="bodyTable">
+        <ion-col width-67>
+            <ion-row>
+                <ion-col width-10>
+                    {{i+1}}
+                </ion-col>
+                <ion-col width-20>
+                    <ion-avatar>
+                        <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col width-67 class="nomeTime">
+                    {{item.sNome}}
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col width-10>
+            {{item.iPontuacao}}
+        </ion-col>
+        <ion-col width-5>
+            {{item.partidas}}
+        </ion-col>
+        <ion-col width-5>
+            {{item.vitorias}}
+        </ion-col>
+        <ion-col width-5>
+            {{item.empates}}
+        </ion-col>
+        <ion-col width-5>
+            {{item.derrotas}}
+        </ion-col>
+    </ion-row>
+</ion-content>

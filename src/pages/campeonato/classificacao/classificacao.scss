@@ -1,0 +1,47 @@
+page-classificacao {
+
+    .classificacao-content {
+        background-size: 100%;
+        background-position-y: 50%;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
+
+    .cor {
+        background-color: #1a2226;
+    }
+
+    ion-col {
+        padding: 0px;
+        /*border: 1px solid #ddd;
+        border-radius: 2px;
+        text-align: left;*/
+        font-size: 1.2rem;
+        margin:auto;
+    }
+
+    .headTable {
+        background-color: #1a2226;
+        color: white;
+        text-align: center;
+        height:35px;
+        margin-top: 5px;
+    }
+
+    .bodyTable {
+        padding: 5px;
+        border: 0px solid #b8c7ce;
+        text-align: center;
+    }
+
+
+    .nomeTime {
+        margin: auto;
+        text-align: left !important;
+    }
+
+    .simbolo {
+        height: 20px;
+        width: 20px;
+        border-radius: 10px;
+    }
+}

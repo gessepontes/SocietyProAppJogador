@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-item no-lines>
+        <ion-label>Ano Temporada</ion-label>
+        <ion-select [(ngModel)]="IANOTEMPORADA" required name="IANOTEMPORADA" (ionChange)="listArtilharia(IANOTEMPORADA)">
+            <ion-option *ngFor="let item of listAno" [value]="item">{{item}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-row class="headTable">
+        <ion-col width-66>
+            JOGADOR
+        </ion-col>
+        <ion-col width-15>
+            GOLS
+        </ion-col>
+        <ion-col width-15>
+            PARTIDAS
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let item of jogadores; let i=index" class="bodyTable">
+        <ion-col width-66>
+            <ion-row class="nomeSimbolo">
+                <ion-col width-10>
+                    {{i + 1}}
+                </ion-col>
+
+                <ion-col width-20>
+                    <ion-avatar item-left>
+                        <img class="simbolo" [src]="imagemJogador+item.FOTO">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col width-66 class="texto">
+                    {{item.sNome}}
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col width-15 class="textoGol">
+            {{item.iQuantidade}}
+        </ion-col>
+        <ion-col width-15 class="textoGol">
+            {{item.iTotalPartidaJogador}}/{{item.iTotalPartida}}
+        </ion-col>
+    </ion-row>
+</ion-content>

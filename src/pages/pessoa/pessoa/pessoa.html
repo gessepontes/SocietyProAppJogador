@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-row>
+        <ion-col width-100 class="simboloheight">
+            <ion-col width-100>
+                <img ion-fab class="simbolo" [src]="imagem"  (click)="openGallery()">
+            </ion-col>
+        </ion-col>
+    </ion-row>
+
+    <ion-item>
+        <ion-label color="primary" stacked>Nome</ion-label>
+        <ion-input type="text" [(ngModel)]="model.NOME"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Email</ion-label>
+        <ion-input type="text" readonly [(ngModel)]="model.EMAIL"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Rg</ion-label>
+        <ion-input type="text" [(ngModel)]="model.RG"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Telefone</ion-label>
+        <ion-input type="text" [(ngModel)]="model.TELEFONE"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Data de Nascimento</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="model.DATANASCIMENTO"></ion-datetime>
+    </ion-item>
+    <ion-row>
+        <ion-col width-100>
+            <button class="cor" ion-button icon-left block (click)="savePessoa()">
+                <ion-icon name="checkmark-circle"></ion-icon>
+                Salvar
+            </button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <button block icon-left class="facebook-btn" (click)="associarFacebook()">
+                <ion-icon name="logo-facebook"></ion-icon>
+                Associar ao Facebook
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-content>

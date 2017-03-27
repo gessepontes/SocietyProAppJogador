@@ -1,0 +1,54 @@
+﻿<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="partida-list-content-campeonato">
+    <ion-row *ngFor="let item of partidas" class="bodyTable">
+        <ion-col width-100>
+            <ion-row>
+                <ion-col width-40>
+                    <ion-row>
+                        <ion-col width-33>
+                            <ion-avatar>
+                                <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO1">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col width-66 class="texto">
+                            <p>{{item.Time1}}</p>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col width-20 class="texto">
+                    <p>{{item.Gol}}</p>
+                </ion-col>
+                <ion-col width-40>
+                    <ion-row>
+                        <ion-col width-66 class="texto">
+                            <p>{{item.Time2}}</p>
+                        </ion-col>
+                        <ion-col width-33>
+                            <ion-avatar>
+                                <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO2">
+                            </ion-avatar>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col width-100 class="local">
+                    <p>LOCAL: {{item.Campo}}</p>
+                    <strong>DATA: {{item.DataPartida | data}} as {{item.Hora}}</strong>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col width-100 class="local">
+                    <p>RODADA: {{item.sRodada}}</p>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-content>

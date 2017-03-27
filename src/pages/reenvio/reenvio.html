@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <ion-title>Reenvio de senha</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="content-modelo">
+    <form (ngSubmit)="reenvio()" #registerForm="ngForm">
+        <ion-row>
+            <ion-col>
+                <div class="societypro" align="center">
+                    Digite seu email.
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-item>
+                <ion-icon name="ios-mail-outline" item-left primary></ion-icon>
+                <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+            </ion-item>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <button ion-button class="cor" full type="submit" [disabled]="!registerForm.form.valid">Reenviar senha</button>
+            </ion-col>
+        </ion-row>
+
+    </form>
+</ion-content>

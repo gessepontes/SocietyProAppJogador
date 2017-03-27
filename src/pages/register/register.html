@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar color="menu-o-t">
+    <ion-title>Novo usuário</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-modelo">
+  <form (ngSubmit)="register()" #registerForm="ngForm">
+    <ion-row>
+      <ion-item>
+        <ion-icon name="ios-person-outline" item-left primary></ion-icon>
+        <ion-input type="text" placeholder="Nome completo" name="NOME" [(ngModel)]="registerCredentials.NOME" required></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item>
+        <ion-icon name="ios-mail-outline" item-left primary></ion-icon>
+        <ion-input type="text" placeholder="Email" name="EMAIL" [(ngModel)]="registerCredentials.EMAIL" required></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item>
+        <ion-icon name="ios-document-outline" item-left primary></ion-icon>
+        <ion-input type="text" placeholder="Rg" name="RG" [(ngModel)]="registerCredentials.RG" required></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item>
+        <ion-icon name="ios-call-outline" item-left primary></ion-icon>
+        <ion-input type="text" placeholder="Telefone" name="TELEFONE" [(ngModel)]="registerCredentials.TELEFONE" required></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item>
+        <ion-icon name="ios-lock-outline" item-left primary></ion-icon>
+        <ion-input type="password" placeholder="Senha" name="SENHA" [(ngModel)]="registerCredentials.SENHA" required></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item>
+        <ion-icon name="ios-lock-outline" item-left primary></ion-icon>
+        <ion-input type="password" placeholder="Repita a senha" name="CONFIRMACAO" [(ngModel)]="registerCredentials.CONFIRMACAO"
+          required></ion-input>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button class="cor" full type="submit" [disabled]="!registerForm.form.valid">Registrar</button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+  <ion-row>
+    <ion-col class="societypro">
+      OU
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <button block icon-left class="facebook-btn" (click)="registerFacebook()">
+      <ion-icon name="logo-facebook"></ion-icon>
+      Registrar com Facebook
+    </button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

@@ -1,0 +1,38 @@
+page-time {
+
+    .simbolo {
+        position: absolute;
+        margin-top: 120px;
+    }
+
+    .fotooficial {
+        width: 98%;
+        height: 210px;
+        position: absolute;
+        opacity: 0.6;
+    }
+
+    .fotooficialheight {
+        height: 210px;
+    }
+
+    .content-modelo {
+        background-size: 100%;
+        background-position-y: 50%;
+        font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+        background: #37414a;
+        color: #efefef;
+
+        ion-item {
+            background: #37414a;
+            color: #efefef;
+        }
+
+        .cor {
+            background-color: #1a2226;
+            margin: auto;
+            margin-bottom: 5px;
+            color: white;
+        }
+    }
+}

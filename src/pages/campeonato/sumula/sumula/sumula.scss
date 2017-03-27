@@ -1,0 +1,65 @@
+page-sumula {
+    .sumula-content {
+        background-size: 100%;
+        background-position-y: 50%;
+        background-color: #37414a;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+
+        strong {
+            font-size: 1.0rem;
+        }
+
+        p {
+            font-size: 1.0rem;
+            margin: 2px;
+        }
+    }
+
+
+    ion-col {
+        padding: 1px;
+        //text-align:center;
+        //color:#616469;
+        //border: 1px solid #ddd;
+        /*border-radius: 2px;
+        text-align: left;*/
+        //font-size: 1.2rem;
+    }
+
+    .headTable {
+        background-color: #1a2226;
+        color: white;
+        text-align: center;
+    }
+
+    .bodyTable {
+        padding: 1px;
+        border: 1px solid #b8c7ce;
+        text-align: center;
+    }
+
+    .texto {
+        margin: auto;
+        color: #efefef;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .simbolo {
+        height: 30px !important;
+        width: 30px !important;
+        //border-radius: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .local {
+        margin: 0px;
+        color: #efefef;
+    }
+
+    .cartaoBola {
+        width: 15%;
+    }
+}

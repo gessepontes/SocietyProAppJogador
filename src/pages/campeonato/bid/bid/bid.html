@@ -1,0 +1,20 @@
+﻿<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-list>
+        <ion-item *ngFor="let item of jogadores">
+            <ion-avatar item-left>
+                <img [src]="imagemJogador+item.FOTO">
+            </ion-avatar>
+            <h2>{{item.Jogador}}</h2>
+            <p>{{item.Time}}</p>
+            <p>Data de Inscrição:{{item.dDataCadastro | data}}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

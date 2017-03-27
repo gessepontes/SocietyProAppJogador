@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-row class="headTable">
+        <ion-col width-90>
+            JOGADOR
+        </ion-col>
+        <ion-col width-10>
+            GOLS
+        </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of jogadores; let i = index" class="bodyTable">
+        <ion-col width-90>
+            <ion-row class="nomeSimbolo">
+                <ion-col width-10>
+                        {{i+1}}
+                </ion-col>
+                <ion-col width-10>
+                    <ion-avatar>
+                        <img class="simbolo" [src]="imagemJogador+item.FOTO">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col width-20 class="simboloTime">
+                    <ion-avatar>
+                        <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col width-60 class="texto">
+                    {{item.sNome}}
+                    <p>{{item.sTime}}</p>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col width-10 class="textoGol">
+            {{item.iQuantidade}}
+        </ion-col>
+    </ion-row>
+</ion-content>
