@@ -14,7 +14,7 @@ export class TimePage {
     TITULO: string;
     texto: string;
 
-    model = { ID: '', NOME: '', IDTIME: '', SIMBOLO: '', ATIVO: false, AUTORIZACAO: false, IDPESSOA: '' };
+    model = { ID: '', NOME: '', IDTIME: '', SIMBOLO: '', ATIVO: false, AUTORIZACAO: false, IDPESSOA: '', TIPO: 0 };
 
     get diagnostic() { return JSON.stringify(this.model); }
 
@@ -24,7 +24,7 @@ export class TimePage {
     }
 
     ionViewDidLoad() {
-        this.listTime();
+        this.listTime(this.model.TIPO);
     }
 
     carregando() {
@@ -43,8 +43,8 @@ export class TimePage {
         this.viewCtrl.dismiss(data);
     }
 
-    listTime() {
-        this.societyService.listTipoCampo().subscribe(
+    listTime(tipo) {
+        this.societyService.listTipoCampo(tipo).subscribe(
             data => {
                 this.tipotime = data;
             },

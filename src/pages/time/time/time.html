@@ -13,6 +13,16 @@
 </ion-header>
 <ion-content class="content-modelo">
     <form #registerForm="ngForm">
+        <ion-list radio-group [(ngModel)]="model.TIPO" [ngModelOptions]="{standalone: true}">
+            <ion-item>
+                <ion-label>Society</ion-label>
+                <ion-radio value="0" (ionSelect)="listTime(0)" checked></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>Campo 11</ion-label>
+                <ion-radio value="1" (ionSelect)="listTime(1)"></ion-radio>
+            </ion-item>
+        </ion-list>
         <ion-item>
             <ion-label>Time</ion-label>
             <ion-select [(ngModel)]="model.IDTIME" required name="IDTIME">
