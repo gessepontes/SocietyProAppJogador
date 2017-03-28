@@ -44,6 +44,9 @@ export class TimePage {
     }
 
     listTime(tipo) {
+
+        this.model.IDTIME = '';
+
         this.societyService.listTipoCampo(tipo).subscribe(
             data => {
                 this.tipotime = data;
@@ -58,6 +61,7 @@ export class TimePage {
     saveTime() {
         this.carregando();
 
+        debugger;
         this.societyService.addTime(this.model).subscribe(
             data => {
                 this.limpaCarregando();
