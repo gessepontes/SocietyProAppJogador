@@ -56,4 +56,5 @@
     <variable name="APP_NAME" value="SocietyProApp"/>
   </plugin>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
+  <allow-navigation href="http://192.168.25.7:8100"/>
 </widget>

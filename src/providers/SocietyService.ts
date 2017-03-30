@@ -6,8 +6,8 @@ import { Network } from 'ionic-native';
 import { Platform } from 'ionic-angular';
 
 //let url = 'http://gessepontes-001-site3.gtempurl.com/api/'
-let url = 'http://localhost:51833/api/'
-//let url = 'http://societypro.com.br/api/'
+//let url = 'http://localhost:51833/api/'
+let url = 'http://societypro.com.br/api/'
 
 let imagemResponsavel = 'http://www.societypro.com.br/imagens/foto/'
 let imagemSimbolo = 'http://www.societypro.com.br/imagens/simbolo/'

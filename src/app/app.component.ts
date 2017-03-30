@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, AlertController, MenuController } from 'ionic-angular';
-import {Splashscreen, NativeStorage, StatusBar } from 'ionic-native';
+import {Splashscreen, NativeStorage, StatusBar, AdMob } from 'ionic-native';
 
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
@@ -21,7 +21,6 @@ import { SumulaCampeonatoListPage } from '../pages/campeonato/sumula/sumula-list
 import { RankingPage } from '../pages/ranking/ranking';
 import { PartidaCampeonatoListPage } from '../pages/campeonato/partida/partida-list-campeonato/partida-list-campeonato';
 
-
 @Component({
     selector: 'page-app',
     templateUrl: 'app.html'
@@ -40,6 +39,19 @@ export class MyApp {
 
     constructor(public platform: Platform, public alertCtrl: AlertController, public menu: MenuController) {
 
+        platform.ready().then(() => {
+
+            let options = {
+                adId: 'ca-app-pub-5732334124058455/7973166445',
+                adSize: 'SMART_BANNER',
+                isTesting: false
+            };
+
+            AdMob.createBanner(options).then(() => {
+                AdMob.showBanner(8);
+            });
+
+        });
         //this.initializeApp();
 
         // used for an example of ngFor and navigation
@@ -50,7 +62,7 @@ export class MyApp {
             { title: 'Jogador', component: JogadorListPage, icon: 'man' },
             { title: 'Artilharia', component: ArtilhariaPage, icon: 'football' },
             { title: 'Campo', component: CampoListPage, icon: 'map' },
-            { title: 'Partidas', component: PartidaListPage, icon: 'game-controller-b' },
+            { title: 'Amistoso', component: PartidaListPage, icon: 'game-controller-b' },
             { title: 'Ranking', component: RankingPage, icon: 'aperture' },
             { title: 'Árbitros', component: ArbitroListPage, icon: 'contact' },
         ];
@@ -63,7 +75,7 @@ export class MyApp {
             { title: 'Suspensos', component: SuspensaoListPage, icon: 'card' },
             { title: 'Artilharia', component: ArtilhariaCampeonatoListPage, icon: 'football' },
         ];
-        
+
         platform.ready().then(() => {
 
             // Here we will check if the user is already logged in
