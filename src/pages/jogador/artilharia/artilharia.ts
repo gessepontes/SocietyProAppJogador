@@ -32,7 +32,7 @@ export class ArtilhariaPage {
 
         //this.IDPESSOA = 4;
         //this.listArtilharia(this.IANOTEMPORADA);
-        //this.imagemJogador = societyService.imagemJogador();
+        this.imagemJogador = societyService.imagemJogador();
     }
 
     ionViewDidLoad() {
