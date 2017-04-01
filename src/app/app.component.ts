@@ -69,17 +69,17 @@ export class MyApp {
             if (/(android)/i.test(navigator.userAgent)) {
                 admobid = { // for Android
                     banner: 'ca-app-pub-7516616142146754/8243844620',
-                    interstitial: 'ca-app-pub-7516616142146754/8243844620'
+                    interstitial: 'ca-app-pub-7516616142146754/8147943026'
                 };
             } else if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
                 admobid = { // for iOS
                     banner: 'ca-app-pub-7516616142146754/8243844620',
-                    interstitial: 'ca-app-pub-7516616142146754/8243844620'
+                    interstitial: 'ca-app-pub-7516616142146754/8147943026'
                 };
             } else {
                 admobid = { // for Windows Phone
                     banner: 'ca-app-pub-7516616142146754/8243844620',
-                    interstitial: 'ca-app-pub-7516616142146754/8243844620'
+                    interstitial: 'ca-app-pub-7516616142146754/8147943026'
                 };
             }
 
