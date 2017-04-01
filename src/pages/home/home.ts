@@ -1,7 +1,7 @@
 import { Component, Compiler} from '@angular/core';
 import { LoginPage } from '../login/login';
 import { SocietyService } from '../../providers/SocietyService';
-import { Facebook, NativeStorage, AdMob} from 'ionic-native';
+import { Facebook, NativeStorage} from 'ionic-native';
 import { MenuController, NavController, ModalController, AlertController, NavParams, LoadingController } from 'ionic-angular';
 import "../../../node_modules/chart.js/src/chart.js"
 
@@ -67,19 +67,7 @@ export class HomePage {
         //this.carregaUltimasPartidas(4);
 
         this.menuCtrl.enable(true);
-        this.loadAd();
     }
-
-    loadAd() {
-        let options = {
-            adId: 'ca-app-pub-5732334124058455/7216350441',
-            isTesting: false
-        };
-        AdMob.prepareRewardVideoAd(options)
-            .then(() => {
-                AdMob.showRewardVideoAd();
-            });
-    };
 
     carregaEstatistica(ID, IANOTEMPORADA): void {
         let _doughnutChartData: number[] = new Array(this.doughnutChartData.length);

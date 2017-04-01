@@ -38,20 +38,6 @@ export class MyApp {
 
 
     constructor(public platform: Platform, public alertCtrl: AlertController, public menu: MenuController) {
-
-        platform.ready().then(() => {
-
-            let options = {
-                adId: 'ca-app-pub-5732334124058455/7973166445',
-                adSize: 'SMART_BANNER',
-                isTesting: false
-            };
-
-            AdMob.createBanner(options).then(() => {
-                AdMob.showBanner(8);
-            });
-
-        });
         //this.initializeApp();
 
         // used for an example of ngFor and navigation
@@ -77,6 +63,31 @@ export class MyApp {
         ];
 
         platform.ready().then(() => {
+
+            var admobid = {};
+            // select the right Ad Id according to platform
+            if (/(android)/i.test(navigator.userAgent)) {
+                admobid = { // for Android
+                    banner: 'ca-app-pub-7516616142146754/8243844620',
+                    interstitial: 'ca-app-pub-7516616142146754/8243844620'
+                };
+            } else if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+                admobid = { // for iOS
+                    banner: 'ca-app-pub-7516616142146754/8243844620',
+                    interstitial: 'ca-app-pub-7516616142146754/8243844620'
+                };
+            } else {
+                admobid = { // for Windows Phone
+                    banner: 'ca-app-pub-7516616142146754/8243844620',
+                    interstitial: 'ca-app-pub-7516616142146754/8243844620'
+                };
+            }
+
+            AdMob.createBanner({
+                isTesting: false,
+                autoShow: true
+            });
+
 
             // Here we will check if the user is already logged in
             // because we don't want to ask users to log in each time they open the app
