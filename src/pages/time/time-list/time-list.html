@@ -13,20 +13,13 @@
                 <ion-avatar item-left>
                     <img [src]="imagemSimbolo+item.SIMBOLO">
                 </ion-avatar>
-                <h2>{{item.NOME}}</h2>
+                <ion-label>{{item.NOME}}</ion-label>
+                <ion-toggle item-right *ngIf="item.AUTORIZACAO" color="dark" checked={{item.ATIVO}} (click)="status(item.ID)"></ion-toggle>
             </ion-item>
             <ion-item-options side="right">
                 <div *ngIf!="item.AUTORIZACAO">
                     <button ion-button color="light">
                         <ion-icon name="checkmark-circle"></ion-icon>Aguardando Aprovação
-                    </button>
-                </div>
-                <div *ngIf="item.AUTORIZACAO">
-                    <button ion-button color="light" *ngIf="item.ATIVO" (click)="status(item.ID)">
-                        <ion-icon name="checkmark-circle-outline"></ion-icon>Desativar
-                    </button>
-                    <button ion-button color="dark" *ngIf!="item.ATIVO" (click)="status(item.ID)">
-                        <ion-icon name="checkmark-circle"></ion-icon>Ativar
                     </button>
                 </div>
                 <button ion-button color="danger" (click)="deleteTime(item.ID)"> <ion-icon name="remove"></ion-icon>Excluir</button>
