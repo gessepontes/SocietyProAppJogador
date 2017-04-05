@@ -14,7 +14,7 @@
                     <img [src]="imagemSimbolo+item.SIMBOLO">
                 </ion-avatar>
                 <ion-label>{{item.NOME}}</ion-label>
-                <ion-toggle item-right *ngIf="item.AUTORIZACAO" color="dark" checked={{item.ATIVO}} (click)="status(item.ID)"></ion-toggle>
+                <ion-toggle item-right *ngIf="item.AUTORIZACAO" color="dark" checked={{item.ATIVO}} (ionChange)="status(item.ID)"></ion-toggle>
             </ion-item>
             <ion-item-options side="right">
                 <div *ngIf!="item.AUTORIZACAO">

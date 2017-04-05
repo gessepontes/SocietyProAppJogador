@@ -84,6 +84,7 @@ export class MyApp {
             }
 
             AdMob.createBanner({
+                adId: admobid,
                 isTesting: false,
                 autoShow: true
             });
