@@ -115,7 +115,7 @@ export class TimeListPage {
         this.societyService.status(ID).subscribe(
             data => {
                 this.listTime();
-                this.showAlert(data);
+                //this.showAlert(data);
             },
             err => {
                 this.limpaCarregando();

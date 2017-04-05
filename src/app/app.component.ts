@@ -64,30 +64,36 @@ export class MyApp {
 
         platform.ready().then(() => {
 
-            var admobid = {};
-            // select the right Ad Id according to platform
-            if (/(android)/i.test(navigator.userAgent)) {
-                admobid = { // for Android
+            var admobid = { banner: '', interstitial: '' };
+            if (/(android)/i.test(navigator.userAgent)) { // for android & amazon-fireos
+                admobid = {
                     banner: 'ca-app-pub-7516616142146754/8243844620',
                     interstitial: 'ca-app-pub-7516616142146754/8147943026'
                 };
-            } else if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
-                admobid = { // for iOS
+            } else if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+                admobid = {
                     banner: 'ca-app-pub-7516616142146754/8243844620',
                     interstitial: 'ca-app-pub-7516616142146754/8147943026'
                 };
-            } else {
-                admobid = { // for Windows Phone
+            } else { // for windows phone
+                admobid = {
                     banner: 'ca-app-pub-7516616142146754/8243844620',
                     interstitial: 'ca-app-pub-7516616142146754/8147943026'
                 };
             }
 
-            AdMob.createBanner({
-                adId: admobid,
-                isTesting: false,
+            // it will display smart banner at top center, using the default options
+            if (AdMob) AdMob.createBanner({
+                adId: admobid.banner,
                 autoShow: true
             });
+
+            // preppare and load ad resource in background, e.g. at begining of game level
+            if (AdMob) AdMob.prepareInterstitial({ adId: admobid.interstitial, autoShow: false });
+
+            // show the interstitial later, e.g. at end of game level
+            if (AdMob) AdMob.showInterstitial();
+
 
 
             // Here we will check if the user is already logged in
