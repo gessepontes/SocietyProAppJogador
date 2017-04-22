@@ -381,6 +381,11 @@ export class SocietyService {
         return response;
     }
 
+    tipoCampeonato(IDPESSOA) {
+        var response = this.http.get(url + 'campeonatoAPI/?IDCAMPEONATOTIPO=' + IDPESSOA).map(res => res.json());
+        return response;
+    }
+
     listCampeonatoClassificacao(IDCAMPEONATO,IDGRUPO) {
         var response = this.http.get(url + 'CampeonatoAPI/?IDCAMPEONATO=' + IDCAMPEONATO + "&IDGRUPO=" + IDGRUPO).map(res => res.json());
         return response;

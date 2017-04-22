@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ModalController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, ModalController, AlertController, NavParams, ToastController } from 'ionic-angular';
 import { SocietyService } from '../../../../providers/SocietyService';
 
 @Component({
@@ -19,9 +19,9 @@ export class SumulaPage {
     imagemCartaoBola: string;
 
 
-    constructor(public navCtrl: NavController, public params: NavParams, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, public params: NavParams, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public toastCtrl: ToastController) {
         this.IDSumula = this.params.get('IDSumula');
-        //this.IDSumula = 32;
+        //this.IDSumula = 1061;
         this.carregando();
         this.detailsSumulas();
         this.imagemJogador = societyService.imagemJogador();
@@ -38,7 +38,7 @@ export class SumulaPage {
             err => {
                 this.limpaCarregando();
                 console.log(err);
-                this.showAlert("Erro ao realizar a operação.");
+                this.showToast("Erro ao realizar a operação.");
             },
             () => console.log('Listar Partidas')
         );
@@ -60,6 +60,25 @@ export class SumulaPage {
             buttons: ['OK']
         });
         alert.present();
+    }
+
+
+    showToast(erro: string) {
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
+
+
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present(toast);
     }
 
     carregando() {

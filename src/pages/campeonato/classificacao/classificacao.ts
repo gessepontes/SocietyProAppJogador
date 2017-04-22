@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { ViewController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { SocietyService } from '../../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
 
@@ -16,13 +16,14 @@ export class ClassificacaoPage {
     texto: string;
     IDPESSOA;
     imagemSimbolo: string;
+    TIPOCAMPEONATO: boolean;
 
     campeonatos: Array<any>;
     grupos: Array<any>;
     classificacao: Array<any>;
     model = { IDCAMPEONATO: 0, IDGRUPO: 0, visible: false };
 
-    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
         this.carregando();
         this.imagemSimbolo = societyService.imagemSimbolo();
         this.TITULO = "Classificação";
@@ -35,7 +36,7 @@ export class ClassificacaoPage {
             this.listGrupos();
         });
 
-        //this.IDPESSOA = 4;
+        //this.IDPESSOA = 64;
         //this.listCampeonatos();
         //this.listGrupos();
 
@@ -58,6 +59,19 @@ export class ClassificacaoPage {
     }
 
 
+    tipoCampeonato(ID) {
+        this.societyService.tipoCampeonato(ID).subscribe(
+            data => {
+                this.TIPOCAMPEONATO = data;
+            },
+            err => {
+                this.TIPOCAMPEONATO = false;
+                this.showToast(err);
+            },
+            () => console.log('List Campeonato')
+        );
+    }
+
     listCampeonatos() {
         this.societyService.listCampeonatoInscricao(this.IDPESSOA).subscribe(
             data => {
@@ -65,7 +79,7 @@ export class ClassificacaoPage {
             },
             err => {
                 this.limpaCarregando();
-                this.showAlert(err);
+                this.showToast("Erro ao realizar a operação.");
             },
             () => console.log('List Campeonato')
         );
@@ -80,7 +94,7 @@ export class ClassificacaoPage {
             },
             err => {
                 this.limpaCarregando();
-                this.showAlert(err);
+               // this.showToast(err);
             },
             () => console.log('List Grupos')
         );
@@ -91,6 +105,11 @@ export class ClassificacaoPage {
         this.model.visible = true;
 
         if (this.model.IDCAMPEONATO != 0) {
+
+            if (!this.TIPOCAMPEONATO) {
+                this.model.IDGRUPO = 0;
+            }
+
             this.societyService.listCampeonatoClassificacao(this.model.IDCAMPEONATO, this.model.IDGRUPO).subscribe(
                 data => {
                     this.classificacao = data;
@@ -98,12 +117,12 @@ export class ClassificacaoPage {
                 },
                 err => {
                     this.limpaCarregando();
-                    this.showAlert(err);
+                    this.showToast(err);
                 },
                 () => console.log('List Classificacao')
             );
         } else {
-            this.showAlert("Campeonato é um campo obrigatório.");
+            this.showToast("Campeonato é um campo obrigatório.");
             this.limpaCarregando();
         }
     }
@@ -127,5 +146,21 @@ export class ClassificacaoPage {
         alert.present();
     }
 
+    showToast(erro: string) {
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
 
+
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present(toast);
+    }
 }

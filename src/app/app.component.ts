@@ -8,11 +8,6 @@ import { PessoaPage } from '../pages/pessoa/pessoa/pessoa';
 import { ArbitroListPage } from '../pages/pessoa/arbitro-list/arbitro-list';
 import { CampoListPage } from '../pages/campo/campo-list/campo-list';
 
-import { TimeListPage } from '../pages/time/time-list/time-list';
-import { JogadorListPage } from '../pages/jogador/jogador-list/jogador-list';
-import { ArtilhariaPage } from '../pages/jogador/artilharia/artilharia';
-
-import { PartidaListPage } from '../pages/partida/partida-list/partida-list';
 import { ArtilhariaCampeonatoListPage } from '../pages/campeonato/artilharia/artilharia-list/artilharia-list';
 import { ClassificacaoPage } from '../pages/campeonato/classificacao/classificacao';
 import { BidListPage } from '../pages/campeonato/bid/bid-list/bid-list';
@@ -20,6 +15,9 @@ import { SuspensaoListPage } from '../pages/campeonato/suspensao/suspensao-list/
 import { SumulaCampeonatoListPage } from '../pages/campeonato/sumula/sumula-list-campeonato/sumula-list-campeonato';
 import { RankingPage } from '../pages/ranking/ranking';
 import { PartidaCampeonatoListPage } from '../pages/campeonato/partida/partida-list-campeonato/partida-list-campeonato';
+
+import { TabsPage } from '../pages/tabs/tabs';
+
 
 @Component({
     selector: 'page-app',
@@ -44,11 +42,7 @@ export class MyApp {
         this.pages = [
             { title: 'Home', component: HomePage, icon: 'home' },
             { title: 'Usuário', component: PessoaPage, icon: 'contact' },
-            { title: 'Time', component: TimeListPage, icon: 'finger-print' },
-            { title: 'Jogador', component: JogadorListPage, icon: 'man' },
-            { title: 'Artilharia', component: ArtilhariaPage, icon: 'football' },
             { title: 'Campo', component: CampoListPage, icon: 'map' },
-            { title: 'Amistoso', component: PartidaListPage, icon: 'game-controller-b' },
             { title: 'Ranking', component: RankingPage, icon: 'aperture' },
             { title: 'Árbitros', component: ArbitroListPage, icon: 'contact' },
         ];
@@ -106,11 +100,11 @@ export class MyApp {
                     //this.IDPESSOA = data.IDPESSOA;
 
                     Splashscreen.hide();
-                    env.nav.push(HomePage, { IDPESSOA: data.IDPESSOA });
+                    env.nav.push(TabsPage);
                 }, function (error) {
                     //we don't have the user data so we will ask him to log in
                     Splashscreen.hide();
-                    env.nav.push(LoginPage);
+                    env.nav.push(TabsPage);
                     //env.nav.push(HomePage,{ IDPESSOA: 1});
                 });
         });

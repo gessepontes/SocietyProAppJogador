@@ -7,7 +7,6 @@ import { CampoListPage } from '../pages/campo/campo-list/campo-list';
 import { CampoDetailsPage } from '../pages/campo/campo-details/campo-details';
 import { TimeListPage } from '../pages/time/time-list/time-list';
 import { TimePage } from '../pages/time/time/time';
-import { JogadorListPage } from '../pages/jogador/jogador-list/jogador-list';
 import { ArtilhariaPage } from '../pages/jogador/artilharia/artilharia';
 import { PartidaListPage } from '../pages/partida/partida-list/partida-list';
 import { PartidaJogadorPage } from '../pages/partida/partida-jogador/partida-jogador';
@@ -36,6 +35,9 @@ import { ChartsModule } from 'ng2-charts/components/charts/charts';
 import { CepPipe } from '../pipe/cep-pipe';
 import { DataPipe } from '../pipe/data-pipe';
 
+import { TabsPage } from '../pages/tabs/tabs';
+
+
 @NgModule({
     declarations: [
         MyApp,
@@ -44,7 +46,6 @@ import { DataPipe } from '../pipe/data-pipe';
         CampoListPage,
         TimeListPage,
         TimePage,
-        JogadorListPage,
         PartidaListPage,
         PartidaJogadorPage,
         PartidaGolPage,
@@ -69,11 +70,15 @@ import { DataPipe } from '../pipe/data-pipe';
         PartidaCampeonatoListPage,
         ArbitroListPage,
         CepPipe,
-        DataPipe
+        DataPipe,
+        TabsPage
     ],
     imports: [
         ChartsModule,
-        IonicModule.forRoot(MyApp)
+        IonicModule.forRoot(MyApp, {
+            iconMode: 'md',
+            tabsPlacement: 'top'
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -83,7 +88,6 @@ import { DataPipe } from '../pipe/data-pipe';
         CampoListPage,
         TimeListPage,
         TimePage,
-        JogadorListPage,
         PartidaListPage,
         PartidaGolPage,
         PartidaJogadorPage,
@@ -106,7 +110,8 @@ import { DataPipe } from '../pipe/data-pipe';
         BidTimeListPage,
         PartidaCampeonatoPage,
         PartidaCampeonatoListPage,
-        ArbitroListPage
+        ArbitroListPage,
+        TabsPage
     ],
     providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
 })

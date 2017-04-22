@@ -28,7 +28,7 @@ export class SumulaCampeonatoListPage {
             this.listCampeonato();
         });
 
-        //this.IDPESSOA = 1;
+        //this.IDPESSOA = 64;
         //this.carregando();
         //this.listCampeonato();
 

@@ -20,23 +20,23 @@ export class PartidaListPage {
     IDPESSOA = 0;
     IDTIME = 0;
     TIME = '';
-    TITULO = "Partidas";
+    TITULO = "AMISTOSO";
 
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public params: NavParams) {
         this.imagemSimbolo = societyService.imagemSimbolo();
         this.carregando();
 
-        NativeStorage.getItem('IDPESSOA').then(data => {
-        	let IDPESSOA = data.IDPESSOA;
+        //NativeStorage.getItem('IDPESSOA').then(data => {
+        //	let IDPESSOA = data.IDPESSOA;
 
-        	this.IDPESSOA = IDPESSOA;
-        	this.timeAtivo();
-        	this.listPartidas();
-        });
+        //	this.IDPESSOA = IDPESSOA;
+        //	this.timeAtivo();
+        //	this.listPartidas();
+        //});
 
-        //this.IDPESSOA = 4;
-        //this.timeAtivo();
-        //this.listPartidas();
+        this.IDPESSOA = 64;
+        this.timeAtivo();
+        this.listPartidas();
     }
 
     timeAtivo() {

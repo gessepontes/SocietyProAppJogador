@@ -22,21 +22,21 @@ export class ArtilhariaPage {
     constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
         this.IANOTEMPORADA = new Date().getFullYear();
 
-        NativeStorage.getItem('IDPESSOA').then(data => {
-            let IDPESSOA = data.IDPESSOA;
+        //NativeStorage.getItem('IDPESSOA').then(data => {
+        //    let IDPESSOA = data.IDPESSOA;
 
-            this.IDPESSOA = IDPESSOA;
-            this.listArtilharia(this.IANOTEMPORADA);
+        //    this.IDPESSOA = IDPESSOA;
+        //    this.listArtilharia(this.IANOTEMPORADA);
 
-        });
+        //});
 
-        //this.IDPESSOA = 4;
-        //this.listArtilharia(this.IANOTEMPORADA);
+        this.IDPESSOA = 64;
+        this.listArtilharia(this.IANOTEMPORADA);
         this.imagemJogador = societyService.imagemJogador();
     }
 
     ionViewDidLoad() {
-        this.TITULO = "Artilharia da temporada";
+        this.TITULO = "ARTILHARIA";
     }
 
     dismiss() {

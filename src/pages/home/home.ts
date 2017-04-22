@@ -1,10 +1,9 @@
 import { Component, Compiler} from '@angular/core';
 import { LoginPage } from '../login/login';
 import { SocietyService } from '../../providers/SocietyService';
-import { Facebook, NativeStorage} from 'ionic-native';
-import { MenuController, NavController, ModalController, AlertController, NavParams, LoadingController } from 'ionic-angular';
+import { Facebook, NativeStorage } from 'ionic-native';
+import { MenuController, NavController, ModalController, AlertController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import "../../../node_modules/chart.js/src/chart.js"
-
 
 @Component({
     selector: 'page-home',
@@ -25,6 +24,9 @@ export class HomePage {
     imagemResponsavel: string;
     imagemSimbolo: string;
     FOTO = this.societyService.imagemResponsavel() + "semimagem.png";
+    SIMBOLO = "semimagem.png";
+    TITULO = "SOCIETYPRO";
+
 
     public doughnutChartLabels: string[] = ['Vitorias', 'Derrotas', 'Empates'];
     public doughnutChartData: number[] = [0, 0, 0];
@@ -45,29 +47,31 @@ export class HomePage {
     ];
 
 
-    constructor(private _compiler: Compiler, public navCtrl: NavController, public modalCtrl: ModalController, private societyService: SocietyService, public alertCtrl: AlertController, public params: NavParams, public menuCtrl: MenuController, public loadingCtrl: LoadingController) {
+    constructor(private _compiler: Compiler, public navCtrl: NavController, public modalCtrl: ModalController, private societyService: SocietyService, public alertCtrl: AlertController, public params: NavParams, public menuCtrl: MenuController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
 
-        this.imagemResponsavel = societyService.imagemResponsavel();
         this.imagemSimbolo = societyService.imagemSimbolo();
         this.IANOTEMPORADA = new Date().getFullYear();
-        this.carregando();
 
-        NativeStorage.getItem('IDPESSOA').then(data => {
-            this.IDPESSOA = data.IDPESSOA;
-            this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
-            this.carregaUltimasPartidas(this.IDPESSOA);
-        });
-
-        NativeStorage.getItem('FOTO').then(data => {
-            this.FOTO = this.imagemResponsavel + data.FOTO;
-        });
-
-        //this.IDPESSOA = 4;
-        //this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
-        //this.carregaUltimasPartidas(4);
+        //NativeStorage.getItem('FOTO').then(data => {
+        //    this.FOTO = this.imagemResponsavel + data.FOTO;
+        //});
 
         this.menuCtrl.enable(true);
     }
+
+    ionViewWillEnter() {
+        this.carregando();
+
+        //NativeStorage.getItem('IDPESSOA').then(data => {
+        //    this.IDPESSOA = data.IDPESSOA;
+        //    this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
+        //});
+
+        this.IDPESSOA = 64;
+        this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
+
+    }
+
 
     carregaEstatistica(ID, IANOTEMPORADA): void {
         let _doughnutChartData: number[] = new Array(this.doughnutChartData.length);
@@ -78,6 +82,8 @@ export class HomePage {
                     this.TIME = "Não existe time ativo";
                 } else {
                     this.TIME = data[3];
+                    this.SIMBOLO = data[4];
+
                     _doughnutChartData[0] = data[0];
                     _doughnutChartData[1] = data[1];
                     _doughnutChartData[2] = data[2];
@@ -88,7 +94,7 @@ export class HomePage {
             },
             err => {
                 this.limpaCarregando();
-                this.showAlert("Erro ao realizar a operação.");
+                this.showToast("Erro ao realizar a operação.");
             },
             () => console.log('Listar Estatistica')
         );
@@ -101,7 +107,7 @@ export class HomePage {
                 this.partidas = data;
             },
             err => {
-                this.showAlert("Erro ao realizar a operação.");
+                this.showToast("Erro ao realizar a operação.");
             },
             () => console.log('Listar Ultimas Partidas')
         );
@@ -114,7 +120,7 @@ export class HomePage {
                 this.jogadores = data;
             },
             err => {
-                this.showAlert("Erro ao realizar a operação.");
+                this.showToast("Erro ao realizar a operação.");
             },
             () => console.log('Listar Jogadores')
         );
@@ -148,6 +154,24 @@ export class HomePage {
             buttons: ['OK']
         });
         alert.present();
+    }
+
+    showToast(erro: string) {
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
+
+
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present(toast);
     }
 
     // events

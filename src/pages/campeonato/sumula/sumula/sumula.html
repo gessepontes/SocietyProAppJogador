@@ -61,9 +61,17 @@
                                         <ion-col width-100>
                                             <p>{{item2.sNome}}</p>
                                             <img class="cartaoBola" [src]="imagemCartaoBola+'camisabranca.png'" /> - {{item2.iNumCamisa}}<br />
-                                            <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item2.IDQuantidade}}<br />
+                                            
+                                            <div *ngIf="item2.IDQuantidade > 0">
+                                                <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item2.IDQuantidade}}<br />
+                                            </div>
+                                            
                                             <img *ngIf="item2.ITIPOCARTAO == 2" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
                                             <img *ngIf="item2.ITIPOCARTAO == 1" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
+                                            <img *ngIf="item2.ITIPOCARTAO == 3" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
+                                            <img *ngIf="item2.ITIPOCARTAO == 3" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
+                                            <img *ngIf="item2.ITIPOCARTAO == 4" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
+                                            <img *ngIf="item2.ITIPOCARTAO == 4" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
                                         </ion-col>
                                     </ion-row>
                                 </ion-col>
@@ -83,9 +91,17 @@
                                         <ion-col width-100>
                                             <p>{{item3.sNome}}</p>
                                             <img class="cartaoBola" [src]="imagemCartaoBola+'camisabranca.png'" /> - {{item3.iNumCamisa}}<br />
-                                            <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item3.IDQuantidade}}<br />
+
+                                            <div *ngIf="item3.IDQuantidade > 0">
+                                                <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item3.IDQuantidade}}<br />
+                                            </div>
+
                                             <img *ngIf="item3.ITIPOCARTAO == 2" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
                                             <img *ngIf="item3.ITIPOCARTAO == 1" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
+                                            <img *ngIf="item3.ITIPOCARTAO == 3" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
+                                            <img *ngIf="item3.ITIPOCARTAO == 3" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
+                                            <img *ngIf="item3.ITIPOCARTAO == 4" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
+                                            <img *ngIf="item3.ITIPOCARTAO == 4" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
                                         </ion-col>
                                     </ion-row>
                                 </ion-col>

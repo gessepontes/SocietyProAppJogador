@@ -9,12 +9,12 @@
 <ion-content class="content-modelo">
     <ion-item no-lines>
         <ion-label>Campeonato</ion-label>
-        <ion-select [(ngModel)]="model.IDCAMPEONATO" required name="IDCAMPEONATO">
+        <ion-select [(ngModel)]="model.IDCAMPEONATO" required name="IDCAMPEONATO" (ionChange)="tipoCampeonato(model.IDCAMPEONATO)">
             <ion-option *ngFor="let item of campeonatos" [value]="item.ID">{{item.NOME}}</ion-option>
         </ion-select>
     </ion-item>
 
-    <ion-item no-lines>
+    <ion-item no-lines *ngIf='TIPOCAMPEONATO'>
         <ion-label>Grupo</ion-label>
         <ion-select [(ngModel)]="model.IDGRUPO" required name="IDGRUPO">
             <ion-option *ngFor="let item of grupos" [value]="item.ID">{{item.NOME}}</ion-option>
@@ -30,13 +30,13 @@
     <div *ngIf="model.visible">
         <ion-row class="headTable">
             <ion-col width-67>
-                TIME
+                Time
             </ion-col>
             <ion-col width-10>
-                PT
+                Pts
             </ion-col>
             <ion-col width-5>
-                P
+                J
             </ion-col>
             <ion-col width-5>
                 V
