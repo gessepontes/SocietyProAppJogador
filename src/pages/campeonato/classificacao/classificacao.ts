@@ -36,7 +36,7 @@ export class ClassificacaoPage {
             this.listGrupos();
         });
 
-        //this.IDPESSOA = 64;
+        //this.IDPESSOA = 1;
         //this.listCampeonatos();
         //this.listGrupos();
 

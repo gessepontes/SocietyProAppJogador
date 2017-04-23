@@ -1,11 +1,4 @@
 <ion-menu [content]="content">
-    <ion-header class="menu-o">
-        <ion-toolbar color="menu-o-t">
-            <div align="left">
-                <ion-title><b>Society</b>PRO</ion-title>
-            </div>
-        </ion-toolbar>
-    </ion-header>
     <ion-content class="menu">
         <ion-list no-lines>
             <ion-item *ngFor="let p of pages" (click)="openPage(p)">

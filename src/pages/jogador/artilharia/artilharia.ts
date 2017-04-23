@@ -21,6 +21,13 @@ export class ArtilhariaPage {
 
     constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
         this.IANOTEMPORADA = new Date().getFullYear();
+        this.imagemJogador = societyService.imagemJogador();
+        this.TITULO = "SOCIETYPRO";
+    }
+
+    ionViewWillEnter() {
+        //this.IDPESSOA = 64;
+        //this.listArtilharia(this.IANOTEMPORADA);
 
         NativeStorage.getItem('IDPESSOA').then(data => {
             let IDPESSOA = data.IDPESSOA;
@@ -29,15 +36,8 @@ export class ArtilhariaPage {
             this.listArtilharia(this.IANOTEMPORADA);
 
         });
-
-        //this.IDPESSOA = 64;
-        //this.listArtilharia(this.IANOTEMPORADA);
-        this.imagemJogador = societyService.imagemJogador();
     }
 
-    ionViewDidLoad() {
-        this.TITULO = "SOCIETYPRO";
-    }
 
     dismiss() {
         this.viewCtrl.dismiss();

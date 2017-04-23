@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { ViewController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { ViewController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { SocietyService } from '../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
 
@@ -20,7 +20,7 @@ export class RankingPage {
     IDTIME = 0;
     listAno = [2016, 2017, 2018];
 
-    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
         this.imagemSimbolo = societyService.imagemSimbolo();
         this.TITULO = "Ranking";
         this.IANOTEMPORADA = new Date().getFullYear();
@@ -33,10 +33,10 @@ export class RankingPage {
 
         });
 
-            //this.IDPESSOA = 4;
-            //this.listRanking(this.IANOTEMPORADA, 1);
+        //this.IDPESSOA = 1;
+        //this.listRanking(this.IANOTEMPORADA, 1);
     }
-   
+
 
     carregando() {
         this.loading = this.loadingCtrl.create({
@@ -66,7 +66,8 @@ export class RankingPage {
             },
             err => {
                 this.limpaCarregando();
-                this.showAlert(err);
+                //this.showAlert(err);
+                this.showToast("Erro ao realizar a operação.");
             },
             () => console.log('List Ranking')
         );
@@ -88,6 +89,24 @@ export class RankingPage {
             buttons: ['OK']
         });
         alert.present();
+    }
+
+    showToast(erro: string) {
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
+
+
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present(toast);
     }
 
 
