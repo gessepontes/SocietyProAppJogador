@@ -62,13 +62,13 @@ export class HomePage {
     ionViewWillEnter() {
         this.carregando();
 
-        //NativeStorage.getItem('IDPESSOA').then(data => {
-        //    this.IDPESSOA = data.IDPESSOA;
-        //    this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
-        //});
+        NativeStorage.getItem('IDPESSOA').then(data => {
+            this.IDPESSOA = data.IDPESSOA;
+            this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
+        });
 
-        this.IDPESSOA = 64;
-        this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
+        //this.IDPESSOA = 64;
+        //this.carregaEstatistica(this.IDPESSOA, this.IANOTEMPORADA);
 
     }
 

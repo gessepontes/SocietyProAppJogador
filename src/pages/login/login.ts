@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MenuController, NavController, AlertController, LoadingController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { SocietyService } from '../../providers/SocietyService';
 import { RegisterPage } from '../register/register';
 import { ReenvioPage } from '../reenvio/reenvio';
 import { Facebook, NativeStorage } from 'ionic-native';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
     selector: 'page-login',
@@ -53,7 +53,7 @@ export class LoginPage {
                     NativeStorage.setItem('IDPESSOA', { IDPESSOA: data.ID })
                     NativeStorage.setItem('FOTO', { FOTO: data.FOTO })
 
-                    this.navCtrl.setRoot(HomePage, { IDPESSOA: data.ID });
+                    this.navCtrl.setRoot(TabsPage, { IDPESSOA: data.ID });
 
                 } else {
                     this.showAlert("Usuário ou senha incorretos.");
@@ -125,7 +125,7 @@ export class LoginPage {
 
                                     carregandoFace.dismiss();
 
-                                    nav.setRoot(HomePage, { IDPESSOA: data.ID });
+                                    nav.setRoot(TabsPage);
                                 } else {
 
                                     carregandoFace.dismiss();

@@ -8,15 +8,13 @@
 </ion-header>
 <ion-content class="content-modelo">
     <ion-list>
-            <ion-item *ngFor="let item of arbitros">
-                <ion-avatar item-left>
-                    <img [src]="imagemResponsavel+item.FOTO">
-                </ion-avatar>
-
-                <h2>{{item.NOME}}</h2>
-                <p *ngIf='item.CAMPO11'>Campo oficial</p>
-                <p *ngIf='item.SOCIETY'>Campo Society</p>
-                <p>{{item.TELEFONE}}</p>
-            </ion-item>
+        <ion-item *ngFor="let item of arbitros" (click)="openMenu(item.TELEFONE)">
+            <ion-avatar item-left>
+                <img [src]="imagemResponsavel+item.FOTO">
+            </ion-avatar>
+            <h2>{{item.NOME}}</h2>
+            <p *ngIf='item.CAMPO11'>Campo oficial</p>
+            <p *ngIf='item.SOCIETY'>Campo Society</p>
+        </ion-item>
     </ion-list>
 </ion-content>

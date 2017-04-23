@@ -1,5 +1,5 @@
 import { Component  } from '@angular/core';
-import { ViewController, NavParams, AlertController, LoadingController, NavController } from 'ionic-angular';
+import { ViewController, NavParams, AlertController, LoadingController, NavController, ToastController  } from 'ionic-angular';
 import { SocietyService } from '../../../providers/SocietyService';
 import { Camera, NativeStorage, Facebook } from 'ionic-native';
 
@@ -22,7 +22,7 @@ export class PessoaPage {
 
     get diagnostic() { return JSON.stringify(this.model); }
 
-    constructor(private nav: NavController, public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    constructor(private nav: NavController, public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
         this.TITULO = "Usuário";
 
         this.imagemResponsavel = societyService.imagemResponsavel();
@@ -48,16 +48,36 @@ export class PessoaPage {
             },
             err => {
                 this.limpaCarregando();
-                this.showAlert("Erro ao realizar a operação.");
+                //this.showAlert("Erro ao realizar a operação.");
+                this.showToast('Erro ao realizar a operação.');
             },
             () => console.log('Listar Pessoa')
         );
     }
 
+    showToast(erro: string) {
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
+
+
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present(toast);
+    }
+
     associarFacebook() {
         let permissions = new Array();
         let authService = this.societyService;
-        let alert = this.alertCtrl;
+        //let alert = this.alertCtrl;
+        let toast = this.toastCtrl;
         let model = this.model;
 
         let carregandoFace = this.loadingCtrl.create({
@@ -79,14 +99,23 @@ export class PessoaPage {
                     .then(function (user) {
                         //user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
 
-                        if (model.EMAIL != user.email){
+                        if (model.EMAIL != user.email) {
                             carregandoFace.dismiss();
 
-                            alert.create({
-                                title: 'Pessoa',
-                                subTitle: "Você não pode associar esta conta por que o usuário cadastrado possui um email diferente que o informado pelo facebook!",
-                                buttons: ['OK']
+                            //alert.create({
+                            //    title: 'Pessoa',
+                            //    subTitle: "Você não pode associar esta conta por que o usuário cadastrado possui um email diferente que o informado pelo facebook!",
+                            //    buttons: ['OK']
+                            //}).present();
+
+
+                            toast.create({
+                                message: 'Você não pode associar esta conta por que o usuário cadastrado possui um email diferente que o informado pelo facebook!',
+                                duration: 3000,
+                                position: 'bottom'
                             }).present();
+
+
                         } else {
                             //now we have the users info, let's save it in the NativeStorage                  
                             authService.associarFacebook(user.email, user.id).subscribe(
@@ -94,18 +123,30 @@ export class PessoaPage {
                                     if (data == 'Ok') {
                                         carregandoFace.dismiss();
 
-                                        alert.create({
-                                            title: 'Pessoa',
-                                            subTitle: "Operação realizada com sucesso!",
-                                            buttons: ['OK']
+                                        //alert.create({
+                                        //    title: 'Pessoa',
+                                        //    subTitle: "Operação realizada com sucesso!",
+                                        //    buttons: ['OK']
+                                        //}).present();
+
+                                        toast.create({
+                                            message: 'Operação realizada com sucesso!',
+                                            duration: 3000,
+                                            position: 'bottom'
                                         }).present();
                                     } else {
                                         carregandoFace.dismiss();
 
-                                        alert.create({
-                                            title: 'Pessoa',
-                                            subTitle: "Erro ao realizar a operação.",
-                                            buttons: ['OK']
+                                        //alert.create({
+                                        //    title: 'Pessoa',
+                                        //    subTitle: "Erro ao realizar a operação.",
+                                        //    buttons: ['OK']
+                                        //}).present();
+
+                                        toast.create({
+                                            message: 'Erro ao realizar a operação.',
+                                            duration: 3000,
+                                            position: 'bottom'
                                         }).present();
                                     }
 
@@ -113,10 +154,15 @@ export class PessoaPage {
                                 err => {
                                     carregandoFace.dismiss();
 
-                                    alert.create({
-                                        title: 'Pessoa',
-                                        subTitle: "Erro ao realizar a operação.",
-                                        buttons: ['OK']
+                                    //alert.create({
+                                    //    title: 'Pessoa',
+                                    //    subTitle: "Erro ao realizar a operação.",
+                                    //    buttons: ['OK']
+                                    //}).present();
+                                    toast.create({
+                                        message: 'Erro ao realizar a operação.',
+                                        duration: 3000,
+                                        position: 'bottom'
                                     }).present();
                                 },
                                 () => console.log('Acesso Registro')
@@ -126,12 +172,17 @@ export class PessoaPage {
             }, function (error) {
                 carregandoFace.dismiss();
 
-                alert.create({
-                    title: 'Login',
-                    subTitle: "Erro ao realizar a operação.",
-                    buttons: ['OK']
-                }).present();
+                //alert.create({
+                //    title: 'Login',
+                //    subTitle: "Erro ao realizar a operação.",
+                //    buttons: ['OK']
+                //}).present();
 
+                toast.create({
+                    message: 'Erro ao realizar a operação.',
+                    duration: 3000,
+                    position: 'bottom'
+                }).present();
 
                 console.log(error);
 
@@ -182,7 +233,8 @@ export class PessoaPage {
                     this.limpaCarregando();
                 }
 
-                this.showAlert(data);
+                //this.showAlert(data);
+                this.showToast(data);
             },
             err => {
                 this.limpaCarregando();

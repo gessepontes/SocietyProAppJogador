@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, AlertController, MenuController } from 'ionic-angular';
+import { Nav, Platform, AlertController, MenuController, ActionSheetController } from 'ionic-angular';
 import {Splashscreen, NativeStorage, StatusBar, AdMob } from 'ionic-native';
 
 import { LoginPage } from '../pages/login/login';
-import { HomePage } from '../pages/home/home';
+//import { HomePage } from '../pages/home/home';
 import { PessoaPage } from '../pages/pessoa/pessoa/pessoa';
 import { ArbitroListPage } from '../pages/pessoa/arbitro-list/arbitro-list';
 import { CampoListPage } from '../pages/campo/campo-list/campo-list';
@@ -17,6 +17,7 @@ import { RankingPage } from '../pages/ranking/ranking';
 import { PartidaCampeonatoListPage } from '../pages/campeonato/partida/partida-list-campeonato/partida-list-campeonato';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @Component({
@@ -35,12 +36,15 @@ export class MyApp {
     pages4: Array<{ title: string, component: any, icon: string }>;
 
 
-    constructor(public platform: Platform, public alertCtrl: AlertController, public menu: MenuController) {
+    constructor(public platform: Platform, public alertCtrl: AlertController, public menu: MenuController,
+        private social: SocialSharing,
+        public actionsheetCtrl: ActionSheetController) {
+
         //this.initializeApp();
 
         // used for an example of ngFor and navigation
         this.pages = [
-            { title: 'Home', component: HomePage, icon: 'home' },
+            { title: 'Home', component: TabsPage, icon: 'home' },
             { title: 'Usuário', component: PessoaPage, icon: 'contact' },
             { title: 'Campo', component: CampoListPage, icon: 'map' },
             { title: 'Ranking', component: RankingPage, icon: 'aperture' },
@@ -104,7 +108,7 @@ export class MyApp {
                 }, function (error) {
                     //we don't have the user data so we will ask him to log in
                     Splashscreen.hide();
-                    env.nav.push(TabsPage);
+                    env.nav.push(LoginPage);
                     //env.nav.push(HomePage,{ IDPESSOA: 1});
                 });
         });
@@ -128,6 +132,30 @@ export class MyApp {
     openPage(page) {
         this.nav.setRoot(page.component);
         this.menu.close();
+    }
+
+
+    whatsapp() {
+        this.social.shareViaWhatsAppToReceiver('8596590632', "Mensagem iniciada pelo App SocietyPro", null, "www.societypro.com.br")
+            .then(() => {
+            },
+            () => {
+            })
+    }
+
+    openMenu() {
+        let actionSheet = this.actionsheetCtrl.create({
+            cssClass: 'action-sheets-basic-page',
+            buttons: [
+                {
+                    text: 'WhatsApp',
+                    handler: () => {
+                        this.whatsapp();
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
     }
 
     public logout() {

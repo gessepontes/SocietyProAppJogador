@@ -1,69 +1,117 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ModalController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, ModalController, AlertController, NavParams, ToastController, ActionSheetController} from 'ionic-angular';
 import { SocietyService } from '../../../providers/SocietyService';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 @Component({
-	selector: 'page-arbitro-list',
+    selector: 'page-arbitro-list',
     templateUrl: 'arbitro-list.html',
-	providers: [SocietyService]
+    providers: [SocietyService]
 })
 export class ArbitroListPage {
 
-	loading: any;
-	texto: string;
+    loading: any;
+    texto: string;
     imagemResponsavel: string;
-	arbitros: Array<any>;
-	IDPESSOA = 0;
-	TITULO = "Árbitros";
+    arbitros: Array<any>;
+    IDPESSOA = 0;
+    TITULO = "Árbitros";
 
-	constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public params: NavParams) {
+    constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController,
+        public alertCtrl: AlertController, public params: NavParams, public toastCtrl: ToastController, private social: SocialSharing,
+        public actionsheetCtrl: ActionSheetController) {
         this.imagemResponsavel = societyService.imagemResponsavel();
         this.carregando();
         this.listArbitro();
-	}
+    }
 
-	listArbitro() {
+    whatsapp(numero) {
+        this.social.shareViaWhatsAppToReceiver(numero, "Mensagem iniciada pelo App SocietyPro", null, "www.societypro.com.br")
+            .then(() => {
+            },
+            () => {
+            })
+    }
+
+    listArbitro() {
         this.societyService.listArbitro().subscribe(
-			data => {
+            data => {
                 this.arbitros = data;
-				this.limpaCarregando();
-			},
-			err => {
-				console.log(err);
-				this.showAlert("Erro ao realizar a operação.");
-				this.limpaCarregando();
-			},
-			() => console.log('Listar Arbitro')
-		);
-	}
+                this.limpaCarregando();
+            },
+            err => {
+                console.log(err);
+                //this.showAlert("Erro ao realizar a operação.");
+                this.showToast("Erro ao realizar a operação.");
 
-	showAlert(erro) {
+                this.limpaCarregando();
+            },
+            () => console.log('Listar Arbitro')
+        );
+    }
 
-		if (erro == 'Ok') {
-			this.texto = 'Operação realizada com sucesso!';
-		}
-		else {
-			this.texto = erro;
-		}
+    openMenu(numero) {
+        let actionSheet = this.actionsheetCtrl.create({
+            cssClass: 'action-sheets-basic-page',
+            buttons: [
+                {
+                    text: 'WhatsApp',
+                    handler: () => {
+                        this.whatsapp(numero);
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    }
 
 
-		let alert = this.alertCtrl.create({
-			title: 'Arbitro',
-			subTitle: this.texto,
-			buttons: ['OK']
-		});
-		alert.present();
-	}
+    showAlert(erro) {
 
-	carregando() {
-		this.loading = this.loadingCtrl.create({
-			content: 'Carregando...'
-		});
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
 
-		this.loading.present();
-	}
 
-	limpaCarregando() {
-		this.loading.dismiss();
-	}
+        let alert = this.alertCtrl.create({
+            title: 'Arbitro',
+            subTitle: this.texto,
+            buttons: ['OK']
+        });
+        alert.present();
+    }
+
+    showToast(erro: string) {
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
+
+
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present(toast);
+    }
+
+    carregando() {
+        this.loading = this.loadingCtrl.create({
+            content: 'Carregando...'
+        });
+
+        this.loading.present();
+    }
+
+    limpaCarregando() {
+        this.loading.dismiss();
+    }
 }

@@ -1,4 +1,4 @@
-page-pessoa {   
+page-pessoa {
     .simbolo {
         width: 120px;
         height: 120px;
@@ -16,13 +16,14 @@ page-pessoa {
         height: 165px;
         clear: both;
         padding-top: 10px;
+        background-color: #000000 !important;
     }
 
     .botaocamera {
         position: absolute;
         top: 60%;
         left: 60%;
-        border-radius: 50%;        
+        border-radius: 50%;
     }
 
     .facebook-btn {
@@ -32,6 +33,5 @@ page-pessoa {
         margin-bottom: 5px;
         height: 30px;
         color: white;
-    }  
-
+    }
 }

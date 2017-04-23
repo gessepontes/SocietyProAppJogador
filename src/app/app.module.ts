@@ -36,6 +36,7 @@ import { CepPipe } from '../pipe/cep-pipe';
 import { DataPipe } from '../pipe/data-pipe';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 @NgModule({
@@ -113,6 +114,8 @@ import { TabsPage } from '../pages/tabs/tabs';
         ArbitroListPage,
         TabsPage
     ],
-    providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }]
+    providers: [                
+        SocialSharing,
+        { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
 export class AppModule { }

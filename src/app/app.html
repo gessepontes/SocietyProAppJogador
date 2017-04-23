@@ -22,6 +22,10 @@
                     {{p.title}}
                 </ion-item>
             </ng-container>
+            <ion-item (click)="openMenu()">
+                <ion-icon name="help-circle" item-left></ion-icon>
+                Ajuda
+            </ion-item>
             <ion-item (click)="logout()">
                 <ion-icon name="exit" item-left></ion-icon>
                 Sair

@@ -21,13 +21,12 @@
         </ion-item>
 
         <ion-item actions>
-            <button ion-button color="primary" clear item-left icon-left (click)="directions()">
+            <button ion-button color="primary" clear item-right icon-right (click)="directions()">
                 <ion-icon name='navigate'></ion-icon>
-                Iniciar
+                Ir
             </button>
-
-            <span class="distancia" item-right><strong>{{model.DISTANCIA}}</strong></span>
-            <span item-right>{{model.TEMPO}}</span>
+            <span class="tempo" item-left>{{model.TEMPO}}</span>
+            <span item-left><strong>{{model.DISTANCIA}}</strong></span>
         </ion-item>
     </ion-card>
 </ion-content>
