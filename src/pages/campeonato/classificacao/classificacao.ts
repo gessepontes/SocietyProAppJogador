@@ -58,18 +58,19 @@ export class ClassificacaoPage {
         this.viewCtrl.dismiss(data);
     }
 
-
     tipoCampeonato(ID) {
-        this.societyService.tipoCampeonato(ID).subscribe(
-            data => {
-                this.TIPOCAMPEONATO = data;
-            },
-            err => {
-                this.TIPOCAMPEONATO = false;
-                this.showToast(err);
-            },
-            () => console.log('List Campeonato')
-        );
+        if (typeof ID === "number") {
+            this.societyService.tipoCampeonato(ID).subscribe(
+                data => {
+                    this.TIPOCAMPEONATO = data;
+                },
+                err => {
+                    this.TIPOCAMPEONATO = false;
+                    this.showToast(err);
+                },
+                () => console.log('List Campeonato')
+            );
+        }
     }
 
     listCampeonatos() {
@@ -94,7 +95,7 @@ export class ClassificacaoPage {
             },
             err => {
                 this.limpaCarregando();
-               // this.showToast(err);
+                // this.showToast(err);
             },
             () => console.log('List Grupos')
         );
@@ -104,23 +105,28 @@ export class ClassificacaoPage {
         this.carregando();
         this.model.visible = true;
 
-        if (this.model.IDCAMPEONATO != 0) {
+        if (typeof this.model.IDCAMPEONATO === "number") {
+            if (this.model.IDCAMPEONATO != 0) {
 
-            if (!this.TIPOCAMPEONATO) {
-                this.model.IDGRUPO = 0;
+                if (!this.TIPOCAMPEONATO) {
+                    this.model.IDGRUPO = 0;
+                }
+
+                this.societyService.listCampeonatoClassificacao(this.model.IDCAMPEONATO, this.model.IDGRUPO).subscribe(
+                    data => {
+                        this.classificacao = data;
+                        this.limpaCarregando();
+                    },
+                    err => {
+                        this.limpaCarregando();
+                        this.showToast(err);
+                    },
+                    () => console.log('List Classificacao')
+                );
+            } else {
+                this.showToast("Campeonato é um campo obrigatório.");
+                this.limpaCarregando();
             }
-
-            this.societyService.listCampeonatoClassificacao(this.model.IDCAMPEONATO, this.model.IDGRUPO).subscribe(
-                data => {
-                    this.classificacao = data;
-                    this.limpaCarregando();
-                },
-                err => {
-                    this.limpaCarregando();
-                    this.showToast(err);
-                },
-                () => console.log('List Classificacao')
-            );
         } else {
             this.showToast("Campeonato é um campo obrigatório.");
             this.limpaCarregando();
