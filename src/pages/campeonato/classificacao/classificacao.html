@@ -6,7 +6,7 @@
         <ion-title>{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-modelo">
+<ion-content class="content-modelo" (window:orientationchange)="changeOrientation($event)">
     <ion-item no-lines>
         <ion-label>Campeonato</ion-label>
         <ion-select [(ngModel)]="model.IDCAMPEONATO" required name="IDCAMPEONATO" (ionChange)="tipoCampeonato(model.IDCAMPEONATO)">
@@ -28,57 +28,143 @@
         </button>
     </ion-row>
     <div *ngIf="model.visible">
-        <ion-row class="headTable">
-            <ion-col width-67>
-                Time
-            </ion-col>
-            <ion-col width-10>
-                Pts
-            </ion-col>
-            <ion-col width-5>
-                J
-            </ion-col>
-            <ion-col width-5>
-                V
-            </ion-col>
-            <ion-col width-5>
-                E
-            </ion-col>
-            <ion-col width-5>
-                D
-            </ion-col>
-        </ion-row>
-        <ion-row *ngFor="let item of classificacao; let i = index" class="bodyTable">
-            <ion-col width-67>
-                <ion-row>
-                    <ion-col width-10>
-                        {{i+1}}
-                    </ion-col>
-                    <ion-col width-20>
-                        <ion-avatar>
-                            <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO">
-                        </ion-avatar>
-                    </ion-col>
-                    <ion-col width-67 class="nomeTime">
-                        {{item.sNome}}
-                    </ion-col>
-                </ion-row>
-            </ion-col>
-            <ion-col width-10>
-                {{item.iPontuacao}}
-            </ion-col>
-            <ion-col width-5>
-                {{item.partidas}}
-            </ion-col>
-            <ion-col width-5>
-                {{item.vitorias}}
-            </ion-col>
-            <ion-col width-5>
-                {{item.empates}}
-            </ion-col>
-            <ion-col width-5>
-                {{item.derrotas}}
-            </ion-col>
-        </ion-row>
+        <div *ngIf="screenOrientation.type=='portrait-primary' || screenOrientation.type=='portrait-secondary'">
+
+            <ion-row class="headTable">
+                <ion-col width-67>
+                    Time
+                </ion-col>
+                <ion-col width-10>
+                    Pts
+                </ion-col>
+                <ion-col width-5>
+                    J
+                </ion-col>
+                <ion-col width-5>
+                    V
+                </ion-col>
+                <ion-col width-5>
+                    E
+                </ion-col>
+                <ion-col width-5>
+                    D
+                </ion-col>
+            </ion-row>
+            <ion-row *ngFor="let item of classificacao; let i = index" class="bodyTable">
+                <ion-col width-67>
+                    <ion-row>
+                        <ion-col width-10>
+                            {{i+1}}
+                        </ion-col>
+                        <ion-col width-20>
+                            <ion-avatar>
+                                <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col width-67 class="nomeTime">
+                            {{item.sNome}}
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col width-10>
+                    {{item.iPontuacao}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.partidas}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.vitorias}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.empates}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.derrotas}}
+                </ion-col>
+            </ion-row>
+
+        </div>
+
+        <div *ngIf="screenOrientation.type=='landscape-primary' || screenOrientation.type=='landscape-secondary'">
+
+            <ion-row class="headTable">
+                <ion-col width-50>
+                    Time
+                </ion-col>
+                <ion-col width-10>
+                    Pts
+                </ion-col>
+                <ion-col width-5>
+                    J
+                </ion-col>
+                <ion-col width-5>
+                    V
+                </ion-col>
+                <ion-col width-5>
+                    E
+                </ion-col>
+                <ion-col width-5>
+                    D
+                </ion-col>
+                <ion-col width-5>
+                    GP
+                </ion-col>
+                <ion-col width-5>
+                    GC
+                </ion-col>
+                <ion-col width-5>
+                    S
+                </ion-col>
+                <ion-col width-5>
+                    %
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngFor="let item of classificacao; let i = index" class="bodyTable">
+                <ion-col width-50>
+                    <ion-row>
+                        <ion-col width-10>
+                            {{i+1}}
+                        </ion-col>
+                        <ion-col width-20>
+                            <ion-avatar>
+                                <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col width-67 class="nomeTime">
+                            {{item.sNome}}
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+                <ion-col width-10>
+                    {{item.iPontuacao}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.partidas}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.vitorias}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.empates}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.derrotas}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.golsP}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.golsC}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.saldo}}
+                </ion-col>
+                <ion-col width-5>
+                    {{item.porcentagem}}
+                </ion-col>
+            </ion-row>
+
+        </div>
     </div>
 </ion-content>

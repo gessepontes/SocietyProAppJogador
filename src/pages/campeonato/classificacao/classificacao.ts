@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ViewController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { ViewController, NavParams, AlertController, LoadingController, ToastController, NavController } from 'ionic-angular';
 import { SocietyService } from '../../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class ClassificacaoPage {
     classificacao: Array<any>;
     model = { IDCAMPEONATO: 0, IDGRUPO: 0, visible: false };
 
-    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController,
+        public loadingCtrl: LoadingController, public toastCtrl: ToastController, private screenOrientation: ScreenOrientation, public navCtrl: NavController) {
         this.carregando();
         this.imagemSimbolo = societyService.imagemSimbolo();
         this.TITULO = "Classificação";
@@ -41,6 +43,11 @@ export class ClassificacaoPage {
         //this.listGrupos();
 
     }
+
+    changeOrientation() {
+        this.navCtrl.setRoot(ClassificacaoPage, { IDCAMPEONATO: this.model.IDCAMPEONATO, IDGRUPO: this.model.IDGRUPO});
+    }
+
 
     carregando() {
         this.loading = this.loadingCtrl.create({
@@ -62,7 +69,7 @@ export class ClassificacaoPage {
         if (typeof ID === "number") {
             this.societyService.tipoCampeonato(ID).subscribe(
                 data => {
-                    this.TIPOCAMPEONATO = data;
+                    this.TIPOCAMPEONATO = data;                   
                 },
                 err => {
                     this.TIPOCAMPEONATO = false;
@@ -77,6 +84,16 @@ export class ClassificacaoPage {
         this.societyService.listCampeonatoInscricao(this.IDPESSOA).subscribe(
             data => {
                 this.campeonatos = data;
+
+                if (this.params.get('IDCAMPEONATO') != undefined || this.params.get('IDCAMPEONATO') != 0) {
+                    this.model.IDCAMPEONATO = this.params.get('IDCAMPEONATO');
+
+                    this.tipoCampeonato(this.model.IDCAMPEONATO);
+
+                    if (this.params.get('IDGRUPO') != undefined) {
+                        this.model.IDGRUPO = this.params.get('IDGRUPO');
+                    }
+                }
             },
             err => {
                 this.limpaCarregando();

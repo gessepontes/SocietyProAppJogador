@@ -61,11 +61,11 @@
                                         <ion-col width-100>
                                             <p>{{item2.sNome}}</p>
                                             <img class="cartaoBola" [src]="imagemCartaoBola+'camisabranca.png'" /> - {{item2.iNumCamisa}}<br />
-                                            
+
                                             <div *ngIf="item2.IDQuantidade > 0">
                                                 <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item2.IDQuantidade}}<br />
                                             </div>
-                                            
+
                                             <img *ngIf="item2.ITIPOCARTAO == 2" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
                                             <img *ngIf="item2.ITIPOCARTAO == 1" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
                                             <img *ngIf="item2.ITIPOCARTAO == 3" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
@@ -91,11 +91,9 @@
                                         <ion-col width-100>
                                             <p>{{item3.sNome}}</p>
                                             <img class="cartaoBola" [src]="imagemCartaoBola+'camisabranca.png'" /> - {{item3.iNumCamisa}}<br />
-
                                             <div *ngIf="item3.IDQuantidade > 0">
                                                 <img class="cartaoBola" [src]="imagemCartaoBola+'bola.png'" />- {{item3.IDQuantidade}}<br />
                                             </div>
-
                                             <img *ngIf="item3.ITIPOCARTAO == 2" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
                                             <img *ngIf="item3.ITIPOCARTAO == 1" class="cartaoBola" [src]="imagemCartaoBola+'cartaoamarelo.png'" />
                                             <img *ngIf="item3.ITIPOCARTAO == 3" class="cartaoBola" [src]="imagemCartaoBola+'cartaovermelho.png'" />
@@ -109,14 +107,34 @@
                         </div>
                     </ion-col>
                 </ion-row>
+                <ion-row class="barra">
+                    <ion-col width-100>
+                        <strong>.:Quadro de Arbitragem:.</strong>
+                    </ion-col>
+                </ion-row>
                 <ion-row>
                     <ion-col width-100 class="local">
+                        <div *ngFor="let item4 of group.arbitragem">
+                            <ion-row>
+                                <ion-col width-100>
+                                    <strong>{{item4.sNome}}</strong>
+                                    <p>{{item4.sFuncao}}</p>
+                                </ion-col>
+                            </ion-row>
+                        </div>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-100 class="barra">
                         <strong>.:Observação:.</strong>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col width-100 class="local">
                         <p>{{item.Observacao}}</p>
                     </ion-col>
                 </ion-row>
             </ion-col>
         </ion-row>
-        <br />
     </div>
 </ion-content>

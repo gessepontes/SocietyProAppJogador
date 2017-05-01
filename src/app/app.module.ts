@@ -38,6 +38,7 @@ import { DataPipe } from '../pipe/data-pipe';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @NgModule({
     declarations: [
@@ -115,7 +116,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
         TabsPage
     ],
     providers: [                
-        SocialSharing,
+        SocialSharing, ScreenOrientation,
         { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
 export class AppModule { }

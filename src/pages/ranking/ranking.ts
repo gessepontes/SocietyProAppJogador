@@ -1,7 +1,8 @@
 ﻿import { Component } from '@angular/core';
-import { ViewController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { ViewController, NavParams, AlertController, LoadingController, ToastController, NavController} from 'ionic-angular';
 import { SocietyService } from '../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
     selector: 'page-ranking',
@@ -19,8 +20,10 @@ export class RankingPage {
     IDPESSOA = 0;
     IDTIME = 0;
     listAno = [2016, 2017, 2018];
+    horizontal: boolean = false;
 
-    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController,
+        public loadingCtrl: LoadingController, public toastCtrl: ToastController, private screenOrientation: ScreenOrientation, public navCtrl: NavController) {
         this.imagemSimbolo = societyService.imagemSimbolo();
         this.TITULO = "Ranking";
         this.IANOTEMPORADA = new Date().getFullYear();
@@ -37,6 +40,9 @@ export class RankingPage {
         //this.listRanking(this.IANOTEMPORADA, 1);
     }
 
+    changeOrientation() {
+        this.navCtrl.setRoot(RankingPage);
+    }
 
     carregando() {
         this.loading = this.loadingCtrl.create({
