@@ -22,7 +22,7 @@ export class ArtilhariaPage {
     constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
         this.IANOTEMPORADA = new Date().getFullYear();
         this.imagemJogador = societyService.imagemJogador();
-        this.TITULO = "SOCIETYPRO";
+        this.TITULO = "Artilharia";
     }
 
     ionViewWillEnter() {

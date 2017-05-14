@@ -2,18 +2,14 @@ page-partida-jogador {
     .content-modelo {
         background-size: 100%;
         background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
-        background: #37414a;
-        color: #efefef;
 
         ion-item {
-            background: #37414a;
-            color: #efefef;
+            color: #000000;
+            font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
         }
 
         .cor {
-            background-color: #1a2226;
-            color: white;
+            color: #000000;
         }
     }
 }

@@ -15,7 +15,7 @@ export class CampoListPage {
     loading: any;
     texto: string;
     campos: Array<any>;
-    TITULO = "Campo";
+    TITULO = "Campos";
     imagemCampo: string;
     IDPESSOA;
 

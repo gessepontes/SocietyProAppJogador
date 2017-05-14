@@ -16,14 +16,12 @@ export class TimeListPage {
     texto: string;
     times: Array<any>;
     IDPESSOA = 0;
-    TITULO = "SOCIETYPRO";
+    TITULO = "Times";
     imagemSimbolo: string;
 
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public params: NavParams) {
         this.imagemSimbolo = societyService.imagemSimbolo();
-    }
 
-    ionViewWillEnter() {
         this.carregando();
 
         NativeStorage.getItem('IDPESSOA').then(data => {
@@ -32,8 +30,10 @@ export class TimeListPage {
             this.IDPESSOA = IDPESSOA;
             this.listTime();
         });
-    }
+        //this.IDPESSOA = 64;
+        //this.listTime();
 
+    }
 
     listTime() {
         this.societyService.listTime(this.IDPESSOA).subscribe(

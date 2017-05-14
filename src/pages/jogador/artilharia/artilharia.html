@@ -1,14 +1,15 @@
-<ion-header>
-    <ion-navbar color="menu-o-t">
+﻿<ion-header>
+    <ion-navbar color="dark">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-modelo">
+<ion-content>
+    
     <ion-item no-lines>
-        <ion-label color="light">TEMPORADA</ion-label>
+        <ion-label>Ano Temporada</ion-label>
         <ion-select [(ngModel)]="IANOTEMPORADA" required name="IANOTEMPORADA" (ionChange)="listArtilharia(IANOTEMPORADA)">
             <ion-option *ngFor="let item of listAno" [value]="item">{{item}}</ion-option>
         </ion-select>
@@ -27,27 +28,34 @@
     </ion-row>
 
     <ion-row *ngFor="let item of jogadores; let i=index" class="bodyTable">
-        <ion-col width-66>
-            <ion-row class="nomeSimbolo">
-                <ion-col width-10>
-                    {{i + 1}}
-                </ion-col>
 
-                <ion-col width-20>
-                    <ion-avatar item-left>
-                        <img class="simbolo" [src]="imagemJogador+item.FOTO">
-                    </ion-avatar>
-                </ion-col>
-                <ion-col width-66 class="texto">
-                    {{item.sNome}}
-                </ion-col>
-            </ion-row>
-        </ion-col>
-        <ion-col width-15 class="textoGol">
-            {{item.iQuantidade}}
-        </ion-col>
-        <ion-col width-15 class="textoGol">
-            {{item.iTotalPartidaJogador}}/{{item.iTotalPartida}}
-        </ion-col>
+        <ion-card>
+            <ion-card-content class="pading">
+                <ion-row>
+                    <ion-col width-66>
+                        <ion-row class="texto">
+                            <ion-col width-10 class="texto">
+                                {{i + 1}}º
+                            </ion-col>
+
+                            <ion-col width-20>
+                                <ion-avatar item-left>
+                                    <img class="simbolo" [src]="imagemJogador+item.FOTO">
+                                </ion-avatar>
+                            </ion-col>
+                            <ion-col width-66 class="texto">
+                                {{item.sNome}}
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col width-15 class="texto">
+                        {{item.iQuantidade}}
+                    </ion-col>
+                    <ion-col width-15 class="texto">
+                        {{item.iTotalPartidaJogador}}/{{item.iTotalPartida}}
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
     </ion-row>
 </ion-content>

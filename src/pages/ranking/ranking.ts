@@ -41,7 +41,7 @@ export class RankingPage {
     }
 
     changeOrientation() {
-        this.navCtrl.setRoot(RankingPage);
+        this.navCtrl.push(RankingPage);
     }
 
     carregando() {

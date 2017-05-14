@@ -1,14 +1,43 @@
 page-artilharia {
     .headTable {
-        background-color: #1a2226;
+        background-color: dark;
         color: white;
         text-align: center;
         height: 35px;
+        font-size: xx-small !important;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
     }
+
+    .content {
+        background: #f8f8f8 !important;
+    }
+
 
     .bodyTable {
         padding: 1px;
         border: 0px solid #b8c7ce;
-        text-align: center;
+        text-align: left;
+    }
+
+    .texto {
+        font-size: x-small !important;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
+
+    .simbolo {
+        height: 35px;
+        width: 35px;
+        border-radius: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pading {
+        padding: 1px;
+    }
+
+    .card-md {
+        margin: 5px 1px 1px 10px;
     }
 }

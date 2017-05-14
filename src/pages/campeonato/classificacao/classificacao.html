@@ -1,8 +1,5 @@
-<ion-header>
-    <ion-navbar color="menu-o-t">
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
+﻿<ion-header>
+    <ion-navbar color="dark">
         <ion-title>{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
@@ -53,8 +50,8 @@
             <ion-row *ngFor="let item of classificacao; let i = index" class="bodyTable">
                 <ion-col width-67>
                     <ion-row>
-                        <ion-col width-10>
-                            {{i+1}}
+                        <ion-col width-10 class="nomeTime">
+                            {{i+1}}º
                         </ion-col>
                         <ion-col width-20>
                             <ion-avatar>
@@ -66,19 +63,19 @@
                         </ion-col>
                     </ion-row>
                 </ion-col>
-                <ion-col width-10>
+                <ion-col width-10 class="nomeTime">
                     {{item.iPontuacao}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.partidas}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.vitorias}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.empates}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.derrotas}}
                 </ion-col>
             </ion-row>
@@ -123,8 +120,8 @@
             <ion-row *ngFor="let item of classificacao; let i = index" class="bodyTable">
                 <ion-col width-50>
                     <ion-row>
-                        <ion-col width-10>
-                            {{i+1}}
+                        <ion-col width-10 class="nomeTime">
+                            {{i+1}}º
                         </ion-col>
                         <ion-col width-20>
                             <ion-avatar>
@@ -136,31 +133,31 @@
                         </ion-col>
                     </ion-row>
                 </ion-col>
-                <ion-col width-10>
+                <ion-col width-10 class="nomeTime">
                     {{item.iPontuacao}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.partidas}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.vitorias}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.empates}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.derrotas}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.golsP}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.golsC}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.saldo}}
                 </ion-col>
-                <ion-col width-5>
+                <ion-col width-5 class="nomeTime">
                     {{item.porcentagem}}
                 </ion-col>
             </ion-row>

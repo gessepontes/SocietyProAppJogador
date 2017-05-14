@@ -1,4 +1,6 @@
 page-pessoa {
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+
     .simbolo {
         width: 120px;
         height: 120px;
@@ -16,7 +18,7 @@ page-pessoa {
         height: 165px;
         clear: both;
         padding-top: 10px;
-        background-color: #000000 !important;
+        background-color: #f8f8f8 !important;
     }
 
     .botaocamera {
@@ -33,5 +35,9 @@ page-pessoa {
         margin-bottom: 5px;
         height: 30px;
         color: white;
+    }
+
+    .cor {
+        background: #000000;
     }
 }

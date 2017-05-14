@@ -16,14 +16,23 @@
         border-radius: 2px;
         text-align: left;*/
         font-size: 1.2rem;
-        margin:auto;
+        margin: auto;
+    }
+
+    .simbolo {
+        height: 35px;
+        width: 35px;
+        border-radius: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .headTable {
         background-color: #1a2226;
         color: white;
         text-align: center;
-        height:35px;
+        height: 35px;
         margin-top: 5px;
     }
 
@@ -37,6 +46,7 @@
     .nomeTime {
         margin: auto;
         text-align: left !important;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
     }
 
     .simbolo {

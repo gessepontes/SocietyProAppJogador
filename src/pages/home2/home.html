@@ -1,0 +1,67 @@
+﻿<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="">
+    <br />
+    <ion-grid>
+        <ion-row>
+            <ion-col (click)="pessoa()">
+                <img src="assets/img/pessoa.png" class="imagem">
+                <p>USUÁRIO</p>
+            </ion-col>
+            <ion-col (click)="times()">
+                <img src="assets/img/bandeira.png" class="imagem">
+                <p>TIMES</p>
+            </ion-col>
+            <ion-col  (click)="jogadores()">
+                <img src="assets/img/jogador.png" class="imagem">
+                <p>ATLETAS</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="campeonato()">
+                <img src="assets/img/taca.png" class="imagem">
+                <p>CAMPEONATOS</p>
+            </ion-col>
+            <ion-col (click)="amistoso()">
+                <img src="assets/img/partida.png" class="imagem">
+                <p>AMISTOSOS</p>
+            </ion-col>
+            <ion-col (click)="ranking()">
+                <img src="assets/img/ranking.png" class="imagem">
+                <p>RANKING</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="artilharia()">
+                <img src="assets/img/gols.png" class="imagem">
+                <p>ARTILHARIA</p>
+            </ion-col>
+            <ion-col (click)="estatistica()">
+                <img src="assets/img/estatistica.png" class="imagem">
+                <p>ESTATISTICAS</p>
+            </ion-col>
+            <ion-col (click)="campo()">
+                <img src="assets/img/campo.png" class="imagem">
+                <p>CAMPOS</p>
+            </ion-col>
+        </ion-row>
+        <ion-row >
+            <ion-col (click)="arbitro()">
+                <img src="assets/img/arbitro.png" class="imagem">
+                <p>ÁRBITROS</p>
+            </ion-col>
+            <ion-col (click)="ajuda()">
+                <img src="assets/img/ajuda.png" class="imagem">
+                <p>AJUDA</p>
+            </ion-col>
+            <ion-col (click)="sair()">
+                <img src="assets/img/sair.png" class="imagem">
+                <p>SAIR</p>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+</ion-content>

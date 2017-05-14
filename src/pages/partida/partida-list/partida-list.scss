@@ -2,7 +2,7 @@ page-partida-list {
     .partida-list-content {
         background-size: 100%;
         background-position-y: 50%;
-        background-color: #37414a;
+        /*background-color: #37414a;*/        
         font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
 
         strong {
@@ -19,7 +19,7 @@ page-partida-list {
         background-color: #1a2226;
         margin: auto;
         margin-bottom: 5px;
-        color: white;
+        color:#000000;
     }
 
     ion-col {
@@ -28,7 +28,7 @@ page-partida-list {
 
     .headTable {
         background-color: #1a2226;
-        color: white;
+        color:#000000;
         text-align: center;
     }
 
@@ -40,7 +40,7 @@ page-partida-list {
 
     .texto {
         margin: auto;
-        color: #efefef;
+        color:#000000;
         text-align: center;
     }
 
@@ -57,7 +57,7 @@ page-partida-list {
 
     .local {
         margin: 0px;
-        color: #efefef;
+        color:#000000;
         text-align: center;
         font-weight: bold;
     }

@@ -1,0 +1,39 @@
+page-estatistica {
+    .imagem {
+        height: 50px;
+        width: 50px;
+    }
+
+    .content {
+        background: #f8f8f8;
+    }
+
+    ion-grid{
+        text-align: center;
+        font-size:x-small;
+        /*font-weight: bold;*/
+    }
+
+    ion-label{
+        color:#000000;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
+    .content-modelo {
+        background-size: 100%;
+        background-position-y: 50%;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+        color: #000000;
+
+        ion-item {
+            background: #37414a;
+            color: #000000;
+        }
+
+        .cor {
+            background-color: #1a2226;
+            margin: auto;
+            margin-bottom: 5px;
+            color: white;
+        }
+    }
+}

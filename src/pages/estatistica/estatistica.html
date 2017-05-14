@@ -1,0 +1,24 @@
+﻿<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <!--<ion-item no-lines>
+        <ion-avatar item-left>
+            <img [src]="imagemSimbolo+SIMBOLO">
+        </ion-avatar>
+        {{TIME}}
+    </ion-item>-->
+    <ion-item no-lines>
+        <ion-label>Ano Temporada</ion-label>
+        <ion-select [(ngModel)]="IANOTEMPORADA" required name="IANOTEMPORADA" (ionChange)="temporada(IANOTEMPORADA)">
+            <ion-option *ngFor="let item of listAno" [value]="item">{{item}}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <hr />
+    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [colors]="doughnutChartColors"
+            (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)" no-lines></canvas>
+
+</ion-content>

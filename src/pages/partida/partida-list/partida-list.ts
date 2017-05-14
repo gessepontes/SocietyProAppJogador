@@ -20,10 +20,14 @@ export class PartidaListPage {
     IDPESSOA = 0;
     IDTIME = 0;
     TIME = '';
-    TITULO = "SOCIETYPRO";
+    TITULO = "Amistosos";
 
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public params: NavParams) {
         this.imagemSimbolo = societyService.imagemSimbolo();
+
+        //this.IDPESSOA = 64;
+        //this.timeAtivo();
+        //this.listPartidas();
     }
 
     ionViewWillEnter() {
@@ -36,11 +40,6 @@ export class PartidaListPage {
             this.timeAtivo();
             this.listPartidas();
         });
-
-
-        //this.IDPESSOA = 1;
-        //this.timeAtivo();
-        //this.listPartidas();
     }
 
 

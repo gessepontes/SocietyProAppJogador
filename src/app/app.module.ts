@@ -29,6 +29,7 @@ import { RankingPage } from '../pages/ranking/ranking';
 import { PartidaCampeonatoListPage } from '../pages/campeonato/partida/partida-list-campeonato/partida-list-campeonato';
 import { PartidaCampeonatoPage } from '../pages/campeonato/partida/partida-list/partida-list';
 import { ArbitroListPage } from '../pages/pessoa/arbitro-list/arbitro-list';
+import { JogadorListPage } from '../pages/jogador/jogador-list/jogador-list';
 
 import { ChartsModule } from 'ng2-charts/components/charts/charts';
 
@@ -39,6 +40,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { HomePage2 } from '../pages/home2/home';
+import { CampeonatoPage } from '../pages/campeonato/campeonato/campeonato';
+import { EstatisticaPage } from '../pages/estatistica/estatistica';
+
 
 @NgModule({
     declarations: [
@@ -73,7 +78,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
         ArbitroListPage,
         CepPipe,
         DataPipe,
-        TabsPage
+        TabsPage, HomePage2, JogadorListPage, CampeonatoPage, EstatisticaPage
     ],
     imports: [
         ChartsModule,
@@ -113,7 +118,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
         PartidaCampeonatoPage,
         PartidaCampeonatoListPage,
         ArbitroListPage,
-        TabsPage
+        TabsPage, HomePage2, JogadorListPage, CampeonatoPage, EstatisticaPage
     ],
     providers: [                
         SocialSharing, ScreenOrientation,

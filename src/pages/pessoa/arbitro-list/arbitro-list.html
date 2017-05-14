@@ -1,12 +1,9 @@
 <ion-header>
-    <ion-navbar color="menu-o-t">
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
+    <ion-navbar color="dark">
         <ion-title>{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content class="content-modelo">
+<ion-content class="">
     <ion-list>
         <ion-item *ngFor="let item of arbitros" (click)="openMenu(item.TELEFONE)">
             <ion-avatar item-left>

@@ -4,9 +4,12 @@ import {Splashscreen, NativeStorage, StatusBar, AdMob } from 'ionic-native';
 
 import { LoginPage } from '../pages/login/login';
 //import { HomePage } from '../pages/home/home';
+import { HomePage2 } from '../pages/home2/home';
 import { PessoaPage } from '../pages/pessoa/pessoa/pessoa';
 import { ArbitroListPage } from '../pages/pessoa/arbitro-list/arbitro-list';
 import { CampoListPage } from '../pages/campo/campo-list/campo-list';
+
+//import { ArtilhariaPage } from '../pages/jogador/artilharia/artilharia';
 
 import { ArtilhariaCampeonatoListPage } from '../pages/campeonato/artilharia/artilharia-list/artilharia-list';
 import { ClassificacaoPage } from '../pages/campeonato/classificacao/classificacao';
@@ -104,7 +107,7 @@ export class MyApp {
                     //this.IDPESSOA = data.IDPESSOA;
 
                     Splashscreen.hide();
-                    env.nav.push(TabsPage);
+                    env.nav.push(HomePage2);
                 }, function (error) {
                     //we don't have the user data so we will ask him to log in
                     Splashscreen.hide();

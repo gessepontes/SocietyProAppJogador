@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { ViewController, NavParams, AlertController, LoadingController, ToastController, NavController } from 'ionic-angular';
 import { SocietyService } from '../../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
@@ -45,7 +45,7 @@ export class ClassificacaoPage {
     }
 
     changeOrientation() {
-        this.navCtrl.setRoot(ClassificacaoPage, { IDCAMPEONATO: this.model.IDCAMPEONATO, IDGRUPO: this.model.IDGRUPO});
+        this.navCtrl.push(ClassificacaoPage, { IDCAMPEONATO: this.model.IDCAMPEONATO, IDGRUPO: this.model.IDGRUPO});
     }
 
 

@@ -1,0 +1,38 @@
+﻿<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="">
+    <br />
+    <ion-grid>
+        <ion-row>
+            <ion-col (click)="classificacao()">
+                <img src="assets/img/ranking.png" class="imagem">
+                <p>CLASSIFICAÇÃO</p>
+            </ion-col>
+            <ion-col (click)="bid()">
+                <img src="assets/img/bid.png" class="imagem">
+                <p>BID</p>
+            </ion-col>
+            <ion-col (click)="partidas()">
+                <img src="assets/img/partida.png" class="imagem">
+                <p>PARTIDAS</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="sumulas()">
+                <img src="assets/img/sumulas.jpg" class="imagem">
+                <p>SÚMULAS</p>
+            </ion-col>
+            <ion-col (click)="suspensos()">
+                <img src="assets/img/cartao.png" class="imagem">
+                <p>SUSPENSOS</p>
+            </ion-col>
+            <ion-col (click)="artilharia()">
+                <img src="assets/img/gols.png" class="imagem">
+                <p>ARTILHARIA</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

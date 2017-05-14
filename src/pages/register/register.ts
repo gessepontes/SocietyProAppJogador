@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { SocietyService } from '../../providers/SocietyService';
 import { Facebook, NativeStorage } from 'ionic-native';
-import { HomePage } from '../home/home';
+//import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
+import { HomePage2 } from '../home2/home';
+
 
 @Component({
     selector: 'page-register',
@@ -45,7 +47,7 @@ export class RegisterPage {
                     this.showPopup("Registro", "Usuário criado com sucesso.");
                     NativeStorage.setItem('IDPESSOA', { IDPESSOA: data[0] })
                     NativeStorage.setItem('FOTO', { FOTO: data[1] })
-                    this.nav.setRoot(HomePage);
+                    this.nav.setRoot(HomePage2);
                 }
             },
                 error => {
@@ -94,7 +96,7 @@ export class RegisterPage {
 
                                     carregandoFace.dismiss();
 
-                                    nav.setRoot(HomePage);
+                                    nav.setRoot(HomePage2);
                                 } else if (data[0] = "0") {
                                     alert.create({
                                         title: 'Registro',

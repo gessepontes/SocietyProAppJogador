@@ -1,3 +1,13 @@
 page-time-list {
-    font-family: 'Arial','sans-serif';
+    .cor {
+        background-color: #1a2226;
+        margin: auto;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    ion-label {
+        font-size: small;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
 }
