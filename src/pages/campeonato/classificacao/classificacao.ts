@@ -3,7 +3,7 @@ import { ViewController, NavParams, AlertController, LoadingController, ToastCon
 import { SocietyService } from '../../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-
+import { CampeonatoPage } from '../campeonato/campeonato';
 
 @Component({
     selector: 'page-classificacao',
@@ -46,6 +46,10 @@ export class ClassificacaoPage {
 
     changeOrientation() {
         this.navCtrl.push(ClassificacaoPage, { IDCAMPEONATO: this.model.IDCAMPEONATO, IDGRUPO: this.model.IDGRUPO});
+    }   
+
+    voltar() {
+        this.navCtrl.push(CampeonatoPage);
     }
 
 

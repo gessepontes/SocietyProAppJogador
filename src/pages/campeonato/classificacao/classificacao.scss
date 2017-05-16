@@ -7,7 +7,7 @@ page-classificacao {
     }
 
     .cor {
-        background-color: #1a2226;
+        background-color: #000000 !important;
     }
 
     ion-col {
@@ -34,6 +34,18 @@ page-classificacao {
         text-align: center;
     }
 
+
+    .voltar {
+        margin-left: 20px;
+        background: black;
+        color: white;
+        font-size: 25px !important;
+    }
+
+    .left {
+        margin-left: 60px;
+        margin-top: -25px;
+    }
 
     .nomeTime {
         margin: auto;

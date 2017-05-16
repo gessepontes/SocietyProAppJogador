@@ -3,6 +3,8 @@ import { ViewController, NavParams, AlertController, LoadingController, ToastCon
 import { SocietyService } from '../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { HomePage2 } from '../home2/home';
+
 
 @Component({
     selector: 'page-ranking',
@@ -44,6 +46,9 @@ export class RankingPage {
         this.navCtrl.push(RankingPage);
     }
 
+    voltar() {
+        this.navCtrl.setRoot(HomePage2);
+    }
     carregando() {
         this.loading = this.loadingCtrl.create({
             content: 'Carregando...'

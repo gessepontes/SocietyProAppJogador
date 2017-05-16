@@ -4,33 +4,9 @@ page-home {
         width: 50px;
     }
 
-    .content {
-        background: #f8f8f8;
-    }
-
     ion-grid{
         text-align: center;
         font-size:x-small;
         /*font-weight: bold;*/
-    }
-
-    .content-modelo {
-        background-size: 100%;
-        background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
-        background: #37414a;
-        color: #efefef;
-
-        ion-item {
-            background: #37414a;
-            color: #efefef;
-        }
-
-        .cor {
-            background-color: #1a2226;
-            margin: auto;
-            margin-bottom: 5px;
-            color: white;
-        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<ion-header>
-    <ion-navbar color="dark">
-        <ion-title>{{TITULO}}</ion-title>
+    <ion-navbar hideBackButton="true" color="dark">
+        <ion-icon name="arrow-back" class="voltar" (click)="voltar()"></ion-icon>
+        <ion-title  class="left">{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content class="content-modelo" (window:orientationchange)="changeOrientation($event)">

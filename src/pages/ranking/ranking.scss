@@ -29,7 +29,7 @@
     }
 
     .headTable {
-        background-color: #1a2226;
+        background-color: black;
         color: white;
         text-align: center;
         height: 35px;
@@ -47,6 +47,18 @@
         margin: auto;
         text-align: left !important;
         font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
+
+    .voltar {
+        margin-left: 20px;
+        background: black;
+        color: white;
+        font-size: 25px !important;
+    }
+
+    .left {
+        margin-left: 60px;
+        margin-top: -25px;
     }
 
     .simbolo {

@@ -5,6 +5,7 @@ import { BidListPage } from '../bid/bid-list/bid-list';
 import { SuspensaoListPage } from '../suspensao/suspensao-list/suspensao-list';
 import { SumulaCampeonatoListPage } from '../sumula/sumula-list-campeonato/sumula-list-campeonato';
 import { PartidaCampeonatoListPage } from '../partida/partida-list-campeonato/partida-list-campeonato';
+import { HomePage2 } from '../../home2/home';
 
 import { NavController} from 'ionic-angular';
 
@@ -18,6 +19,10 @@ export class CampeonatoPage {
     TITULO = "CAMPEONATOS";   
 
     constructor(public navCtrl: NavController) {        
+    }
+
+    voltar() {
+        this.navCtrl.setRoot(HomePage2);
     }
 
     classificacao() {
