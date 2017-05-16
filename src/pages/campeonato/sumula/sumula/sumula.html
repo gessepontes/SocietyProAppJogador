@@ -10,14 +10,14 @@
     <div *ngFor="let group of sumula">
         <ion-row *ngFor="let item of group.partidaCampeonato" class="bodyTable">
             <ion-col width-100>
-                <ion-row>
+                <ion-row class="cinza">
                     <ion-col width-100 class="local">
                         <strong>Rodada - {{item.sRodada}}</strong>
                         <p>LOCAL:{{item.Campo}}</p>
                         <strong>Data da partida - {{item.DataPartida | data}} {{item.Hora}}</strong>
                     </ion-col>
                 </ion-row>
-                <ion-row>
+                <ion-row class="cinza">
                     <ion-col width-40>
                         <ion-row>
                             <ion-col width-33>
@@ -46,7 +46,6 @@
                         </ion-row>
                     </ion-col>
                 </ion-row>
-                <hr />
                 <ion-row>
                     <ion-col width-50>
                         <div *ngFor="let item2 of group.inscrito1">
