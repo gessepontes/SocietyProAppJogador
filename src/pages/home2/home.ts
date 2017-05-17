@@ -15,7 +15,7 @@ import { AlertController} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import {NativeStorage } from 'ionic-native';
 
-import { NavController} from 'ionic-angular';
+import { NavController, ActionSheetController} from 'ionic-angular';
 
 @Component({
     selector: 'page-home',
@@ -26,7 +26,7 @@ import { NavController} from 'ionic-angular';
 export class HomePage2 {
     TITULO = "SOCIETYPRO";
 
-    constructor(public navCtrl: NavController, private social: SocialSharing, public alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, private social: SocialSharing, public alertCtrl: AlertController, public actionsheetCtrl: ActionSheetController) {
     }
 
     times() {
@@ -65,10 +65,6 @@ export class HomePage2 {
         this.navCtrl.push(ArbitroListPage);
     }
 
-    ajuda() {
-        this.whatsapp();
-    }
-
     estatistica() {
         this.navCtrl.push(EstatisticaPage);
     }
@@ -105,5 +101,19 @@ export class HomePage2 {
             })
     }
 
+    ajuda() {
+        let actionSheet = this.actionsheetCtrl.create({
+            cssClass: 'action-sheets-basic-page',
+            buttons: [
+                {
+                    text: 'WhatsApp',
+                    handler: () => {
+                        this.whatsapp();
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    }
 
 }

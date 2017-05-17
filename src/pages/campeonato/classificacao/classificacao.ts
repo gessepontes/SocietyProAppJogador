@@ -45,7 +45,7 @@ export class ClassificacaoPage {
     }
 
     changeOrientation() {
-        this.navCtrl.push(ClassificacaoPage, { IDCAMPEONATO: this.model.IDCAMPEONATO, IDGRUPO: this.model.IDGRUPO});
+        this.navCtrl.setRoot(ClassificacaoPage, { IDCAMPEONATO: this.model.IDCAMPEONATO, IDGRUPO: this.model.IDGRUPO});
     }   
 
     voltar() {
