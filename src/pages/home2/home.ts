@@ -15,7 +15,7 @@ import { AlertController} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import {NativeStorage } from 'ionic-native';
 
-import { NavController, ActionSheetController} from 'ionic-angular';
+import { NavController, ActionSheetController, MenuController} from 'ionic-angular';
 
 @Component({
     selector: 'page-home',
@@ -26,7 +26,11 @@ import { NavController, ActionSheetController} from 'ionic-angular';
 export class HomePage2 {
     TITULO = "SOCIETYPRO";
 
-    constructor(public navCtrl: NavController, private social: SocialSharing, public alertCtrl: AlertController, public actionsheetCtrl: ActionSheetController) {
+    constructor(public navCtrl: NavController, private social: SocialSharing, public alertCtrl: AlertController,
+        public actionsheetCtrl: ActionSheetController, public menuCtrl: MenuController) {
+        this.menuCtrl.close();
+        this.menuCtrl.enable(false);
+
     }
 
     times() {

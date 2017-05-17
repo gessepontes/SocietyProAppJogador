@@ -23,7 +23,8 @@ export class LoginPage {
     modelUsuario = { ID: 0, NOME: '', EMAIL: '', IDTIME: 0, TIME: '', CODFACEBOOK: '' };
     loading: any;
 
-    constructor(private navCtrl: NavController, private auth: SocietyService, private alertCtrl: AlertController, public loadingCtrl: LoadingController, public menuCtrl: MenuController) {
+    constructor(private navCtrl: NavController, private auth: SocietyService, private alertCtrl: AlertController,
+        public loadingCtrl: LoadingController, public menuCtrl: MenuController) {
         //Facebook.browserInit(this.FB_APP_ID, "v2.8");
         this.menuCtrl.close();
         this.menuCtrl.enable(false);
