@@ -41,7 +41,9 @@ export class LoginPage {
     public login() {
 
         let loading = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
+
         });
 
         loading.present();
@@ -97,7 +99,8 @@ export class LoginPage {
         let model = this.modelUsuario;
         let alert = this.alertCtrl;
         let carregandoFace = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
         });
 
         carregandoFace.present();

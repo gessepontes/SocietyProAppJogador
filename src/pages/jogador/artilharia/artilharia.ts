@@ -63,7 +63,9 @@ export class ArtilhariaPage {
 
     listArtilharia(IANOTEMPORADA) {
         let loading = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
+
         });
 
         loading.present();

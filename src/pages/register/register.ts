@@ -67,7 +67,8 @@ export class RegisterPage {
         permissions = ["public_profile", "email"];
 
         let carregandoFace = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
         });
 
         carregandoFace.present();

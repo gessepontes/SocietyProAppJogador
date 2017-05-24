@@ -65,9 +65,11 @@ export class BidTimeListPage {
     }
 
 	carregando(){
-		this.loading = this.loadingCtrl.create({
-			content: 'Carregando...'
-		});
+        this.loading = this.loadingCtrl.create({
+            content: 'Carregando...',
+            spinner: 'circles',
+
+        });
 
 		this.loading.present();
 	}
