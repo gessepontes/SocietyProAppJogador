@@ -74,7 +74,9 @@ export class CampoListPage {
 
     carregando() {
         this.loading = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
+
         });
 
         this.loading.present();

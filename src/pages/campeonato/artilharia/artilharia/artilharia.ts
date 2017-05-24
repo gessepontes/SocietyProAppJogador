@@ -49,9 +49,12 @@ export class ArtilhariaCampeonatoPage {
         alert.present();
     }
 
+
     listArtilharia() {
         let loading = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
+
         });
 
         loading.present();

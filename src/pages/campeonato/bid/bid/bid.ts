@@ -54,7 +54,9 @@ export class BidPage {
 
     listBid() {
         let loading = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
+
         });
 
         loading.present();

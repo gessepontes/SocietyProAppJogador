@@ -47,7 +47,9 @@ export class PartidaJogadorPage {
         this.model.IDPARTIDA = this.params.get('IDPARTIDA');
 
         let loading = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
+
         });
 
         loading.present();
