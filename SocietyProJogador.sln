@@ -1,27 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SocietyProJogador", ".", "{A6582CD6-6F96-4C76-A27C-93142E5A177B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SocietyProAppJogador", ".", "{A6582CD6-6F96-4C76-A27C-93142E5A177B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_57849"
-		Debug.AspNetCompiler.PhysicalPath = "..\SocietyProJogador\"
+		Debug.AspNetCompiler.PhysicalPath = "..\SocietyProAppJogador\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57849\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_57849"
-		Release.AspNetCompiler.PhysicalPath = "..\SocietyProJogador\"
+		Release.AspNetCompiler.PhysicalPath = "..\SocietyProAppJogador\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57849\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "57849"
-		SlnRelativePath = "..\SocietyProJogador\"
+		SlnRelativePath = "..\SocietyProAppJogador\"
 	EndProjectSection
 EndProject
 Global
