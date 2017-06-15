@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { ViewController, NavParams, AlertController, LoadingController, ToastController, NavController} from 'ionic-angular';
+import { ViewController, NavParams, AlertController, LoadingController, ToastController, NavController, Platform} from 'ionic-angular';
 import { SocietyService } from '../../providers/SocietyService';
 import { NativeStorage } from 'ionic-native';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -23,8 +23,9 @@ export class RankingPage {
     IDTIME = 0;
     listAno = [2016, 2017, 2018];
     horizontal: boolean = false;
+    devicePlatform = "";
 
-    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController,
+    constructor(public plt: Platform,public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController,
         public loadingCtrl: LoadingController, public toastCtrl: ToastController, private screenOrientation: ScreenOrientation, public navCtrl: NavController) {
         this.imagemSimbolo = societyService.imagemSimbolo();
         this.TITULO = "Ranking";
@@ -36,7 +37,17 @@ export class RankingPage {
             this.IDPESSOA = IDPESSOA;
             this.listRanking(this.IANOTEMPORADA, IDPESSOA);
 
-        });
+        },
+            error => this.limpaCarregando()
+            );
+
+        if (this.plt.is('ios')) {
+            this.devicePlatform = "";
+        } else {
+            this.devicePlatform = "Android";
+        }
+
+        this.screenOrientation.unlock();
 
         //this.IDPESSOA = 1;
         //this.listRanking(this.IANOTEMPORADA, 1);
@@ -53,7 +64,7 @@ export class RankingPage {
         this.loading = this.loadingCtrl.create({
             content: 'Carregando...',
             spinner: 'circles',
-
+             
         });
 
         this.loading.present();
@@ -66,7 +77,6 @@ export class RankingPage {
     dismiss(data) {
         this.viewCtrl.dismiss(data);
     }
-
 
     listRanking(IANOTEMPORADA, IDPESSOA) {
 

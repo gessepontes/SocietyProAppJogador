@@ -1,11 +1,18 @@
 <ion-header>
-    <ion-navbar color="dark">
-        <ion-title>{{TITULO}}</ion-title>
+    <ion-navbar hideBackButton="true" color="dark">
+        <ion-icon name="arrow-back" class="voltar" (click)="voltar()"></ion-icon>
+        <ion-title *ngIf="devicePlatform =='Android'" class="left">{{TITULO}}</ion-title>
+        <ion-title *ngIf="devicePlatform !='Android'">{{TITULO}}</ion-title>
+        <ion-buttons end>
+            <button (click)="localizacao($event)"  ion-button icon-only>
+                <ion-icon name="pin"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content class="content-modelo">
     <ion-list>
-        <ion-item *ngFor="let item of campos" (click)="detailsCampo(item.ID)">
+        <ion-item *ngFor="let item of campos" (click)="openMenu(item.ID)">
             <ion-avatar item-left>
                 <ion-avatar item-left>
                     <img [src]="imagemCampo+item.LOGO">

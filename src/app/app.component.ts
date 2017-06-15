@@ -12,14 +12,13 @@ import { CampoListPage } from '../pages/campo/campo-list/campo-list';
 //import { ArtilhariaPage } from '../pages/jogador/artilharia/artilharia';
 
 import { ArtilhariaCampeonatoListPage } from '../pages/campeonato/artilharia/artilharia-list/artilharia-list';
-import { ClassificacaoPage } from '../pages/campeonato/classificacao/classificacao';
+import { ClassificacaoPage } from '../pages/campeonato/classificacao/classificacao/classificacao';
 import { BidListPage } from '../pages/campeonato/bid/bid-list/bid-list';
 import { SuspensaoListPage } from '../pages/campeonato/suspensao/suspensao-list/suspensao-list';
 import { SumulaCampeonatoListPage } from '../pages/campeonato/sumula/sumula-list-campeonato/sumula-list-campeonato';
 import { RankingPage } from '../pages/ranking/ranking';
 import { PartidaCampeonatoListPage } from '../pages/campeonato/partida/partida-list-campeonato/partida-list-campeonato';
 
-import { TabsPage } from '../pages/tabs/tabs';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 
@@ -47,7 +46,6 @@ export class MyApp {
 
         // used for an example of ngFor and navigation
         this.pages = [
-            { title: 'Home', component: TabsPage, icon: 'home' },
             { title: 'Usuário', component: PessoaPage, icon: 'contact' },
             { title: 'Campo', component: CampoListPage, icon: 'map' },
             { title: 'Ranking', component: RankingPage, icon: 'aperture' },

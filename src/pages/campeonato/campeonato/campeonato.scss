@@ -1,20 +1,29 @@
 page-campeonato {
+    background-size: 100%;
+    background-position-y: 50%;
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+
     .imagem {
-        height: 50px;
-        width: 50px;
+        /*height: 50px;
+        width: 50px;*/
+        font-size: 40px;
+    }
+
+    p {
+        margin: 1px;
     }
 
     .content {
         background: #f8f8f8;
     }
 
-    ion-grid{
+    ion-grid {
         text-align: center;
-        font-size:x-small;
+        font-size: x-small;
         /*font-weight: bold;*/
     }
 
-    
+
     .voltar {
         margin-left: 20px;
         background: black;
@@ -28,9 +37,6 @@ page-campeonato {
     }
 
     .content-modelo {
-        background-size: 100%;
-        background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
         background: #37414a;
         color: #efefef;
 

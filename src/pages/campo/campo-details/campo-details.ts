@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ViewController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { ViewController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { SocietyService } from '../../../providers/SocietyService';
 
 import { Geolocation } from 'ionic-native';
@@ -30,8 +30,8 @@ export class CampoDetailsPage {
 
     //get diagnostic() { return JSON.stringify(this.model); }
 
-    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
-        this.TITULO = "Detalhes do campo";
+    constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+        this.TITULO = "Detalhe do campo";
         this.campo(this.params.get('ID'));
         //this.campo(3);
         this.apiKey = "AIzaSyA1fqsuRfOQmU9oxnoCy1kIuCjBNVm4bOo";
@@ -41,7 +41,7 @@ export class CampoDetailsPage {
         this.loading = this.loadingCtrl.create({
             content: 'Carregando...',
             spinner: 'circles',
-
+             
         });
 
         this.loading.present();
@@ -100,7 +100,8 @@ export class CampoDetailsPage {
     initMap() {
 
         let carregandoMapa = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
         });
 
         carregandoMapa.present();
@@ -141,6 +142,14 @@ export class CampoDetailsPage {
 
         console.log("direcao");
         var modelo = this.model;
+
+        let carregandoMapa = this.loadingCtrl.create({
+            content: 'Carregando...',
+            spinner: 'circles',
+        });
+
+        carregandoMapa.present();
+
         Geolocation.getCurrentPosition().then((position) => {
             var posicaoAtual = { lat: position.coords.latitude, lng: position.coords.longitude };
 
@@ -198,18 +207,25 @@ export class CampoDetailsPage {
                                 window.alert('Directions request failed due to ' + status);
                             }
 
+                            carregandoMapa.dismiss();
+
                         });
                     }
                 }
-            });
-        });
+            },
+                error => carregandoMapa.dismiss()
+                );
+        },
+            error => carregandoMapa.dismiss()
+            );
     }
 
 
     carregarNoMapa() {
 
         let carregandoMapa = this.loadingCtrl.create({
-            content: 'Carregando...'
+            content: 'Carregando...',
+            spinner: 'circles',
         });
 
         carregandoMapa.present();
@@ -307,11 +323,30 @@ export class CampoDetailsPage {
                 this.loadGoogleMaps();
             },
             err => {
-                this.showAlert("Erro ao realizar a operação.");
+                //this.showAlert("Erro ao realizar a operação.");
+                this.showToast("Erro ao realizar a operação.");
                 console.log(err);
             },
             () => console.log('Listar Campo')
         );
+    }
+
+    showToast(erro: string) {
+        if (erro == 'Ok') {
+            this.texto = 'Operação realizada com sucesso!';
+        }
+        else {
+            this.texto = erro;
+        }
+
+
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 3000,
+            position: 'bottom'
+        });
+
+        toast.present(toast);
     }
 
     showAlert(erro) {

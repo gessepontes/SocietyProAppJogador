@@ -1,38 +1,40 @@
 ﻿<ion-header>
     <ion-navbar hideBackButton="true" color="dark">
         <ion-icon name="arrow-back" class="voltar" (click)="voltar()"></ion-icon>
-        <ion-title class="left">{{TITULO}}</ion-title>
+        <ion-title *ngIf="devicePlatform =='Android'" class="left">{{TITULO}}</ion-title>
+        <ion-title *ngIf="devicePlatform !='Android'">{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content class="">
     <br />
+
     <ion-grid>
         <ion-row>
             <ion-col (click)="classificacao()">
-                <img src="assets/img/ranking.png" class="imagem">
-                <p>CLASSIFICAÇÃO</p>
+                <ion-icon name="podium" class="imagem"></ion-icon>
+                <p>Classificação</p>
             </ion-col>
             <ion-col (click)="bid()">
-                <img src="assets/img/bid.png" class="imagem">
+                <ion-icon name="swap" class="imagem"></ion-icon>
                 <p>BID</p>
             </ion-col>
             <ion-col (click)="partidas()">
-                <img src="assets/img/partida.png" class="imagem">
-                <p>PARTIDAS</p>
+                <ion-icon name="game-controller-a" class="imagem"></ion-icon>
+                <p>Partidas</p>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col (click)="sumulas()">
-                <img src="assets/img/sumulas.jpg" class="imagem">
-                <p>SÚMULAS</p>
+                <ion-icon name="list-box" class="imagem"></ion-icon>
+                <p>Súmulas</p>
             </ion-col>
             <ion-col (click)="suspensos()">
-                <img src="assets/img/cartao.png" class="imagem">
-                <p>SUSPENSOS</p>
+                <ion-icon name="hand" class="imagem"></ion-icon>
+                <p>Suspensos</p>
             </ion-col>
             <ion-col (click)="artilharia()">
-                <img src="assets/img/gols.png" class="imagem">
-                <p>ARTILHARIA</p>
+                <ion-icon name="football" class="imagem"></ion-icon>
+                <p>Artilharia</p>
             </ion-col>
         </ion-row>
     </ion-grid>

@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ModalController, AlertController} from 'ionic-angular';
+import { NavController, LoadingController, ModalController, ToastController, ActionSheetController, Platform, PopoverController} from 'ionic-angular';
 import { SocietyService } from '../../../providers/SocietyService';
-import { CampoDetailsPage } from '../campo-details/campo-details';
+import { CampoAgendamentoPage } from '../campo-agendamentos/campo-agendamentos';
+import { CampoHorarioAgendadoPage } from '../campo-horarios/campo-horarios';
+import { CampoDetailsPage } from  '../campo-details/campo-details';
+import { HomePage2 } from '../../home2/home';
+import { CidadesPopover } from './cidades-popover/cidades-popover';
 import { NativeStorage } from 'ionic-native';
 
 
@@ -18,8 +22,13 @@ export class CampoListPage {
     TITULO = "Campos";
     imagemCampo: string;
     IDPESSOA;
+    devicePlatform = "";
 
-    constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController) {
+    constructor(public plt: Platform, public navCtrl: NavController, public popoverCtrl: PopoverController,
+        public actionsheetCtrl: ActionSheetController, private societyService: SocietyService,
+        public loadingCtrl: LoadingController, public modalCtrl: ModalController,
+        public toastCtrl: ToastController) {
+
         this.carregando();
         this.imagemCampo = societyService.imagemCampo();
 
@@ -28,10 +37,35 @@ export class CampoListPage {
 
             this.IDPESSOA = IDPESSOA;
             this.listCampo(this.IDPESSOA);
+        },
+            error => this.limpaCarregando()
+            );
+
+        if (this.plt.is('ios')) {
+            this.devicePlatform = "";
+        } else {
+            this.devicePlatform = "Android";
+        }
+
+        //this.IDPESSOA = 1;
+        //this.listCampo(this.IDPESSOA);
+    }
+
+    localizacao(myEvent) {
+        let popover = this.popoverCtrl.create(CidadesPopover);
+        popover.present({
+            ev: myEvent
         });
 
-        //this.IDPESSOA = 4;
-        //this.listCampo(this.IDPESSOA);
+        popover.onDidDismiss((popoverData) => {
+            if (popoverData != null) {
+                this.listCampoCidade(this.IDPESSOA, popoverData);
+            }            
+        })
+    }
+
+    voltar() {
+        this.navCtrl.setRoot(HomePage2);
     }
 
     listCampo(IDPESSOA) {
@@ -42,19 +76,81 @@ export class CampoListPage {
             },
             err => {
                 console.log(err);
-                this.showAlert("Erro ao realizar a operação.");
+                this.showToast("Erro ao realizar a operação.");
+
                 this.limpaCarregando();
             },
             () => console.log('Listar Campo')
-        );
+            );
     }
 
-    detailsCampo(item) {
-        this.navCtrl.push(CampoDetailsPage, { ID: item });
+    listCampoCidade(IDPESSOA,IDCIDADE) {
+
+        this.carregando();
+
+        this.societyService.listCampoCidade(IDPESSOA, IDCIDADE).subscribe(
+            data => {
+                this.campos = data;
+                this.limpaCarregando();
+            },
+            err => {
+                console.log(err);
+                this.showToast("Erro ao realizar a operação.");
+
+                this.limpaCarregando();
+            },
+            () => console.log('Listar Campo Cidade')
+            );
     }
 
-    showAlert(erro) {
+    openMenu(ID) {
+        let actionSheet = this.actionsheetCtrl.create({
+            cssClass: 'action-sheets-basic-page',
+            buttons: [
+                {
+                    text: 'Localização',
+                    icon: 'pin',
+                    handler: () => {
+                        this.navCtrl.push(CampoDetailsPage, { ID: ID });
+                    }
+                },
+                {
+                    text: 'Agendar horário',
+                    icon: 'time',
+                    handler: () => {
 
+                        this.societyService.verificaCampoAgendamento(ID).subscribe(
+                            data => {
+                                if (data) {
+                                    this.navCtrl.push(CampoHorarioAgendadoPage, { IDCAMPO: ID, IDPESSOA: this.IDPESSOA });
+                                } else {
+                                    this.showToast("Este campo não está disponível para agendamento. Entre em contato com o administrador do campo e sugira a adesão ao aplicativo.");
+                                }
+                            },
+                            err => {
+                                console.log(err);
+                                this.showToast("Erro ao realizar a operação.");
+
+                                this.limpaCarregando();
+                            },
+                            () => console.log('Listar Campo disponivel para agendamento')
+                            );
+
+                    }
+                },
+                {
+                    text: 'Agendamentos',
+                    icon: 'barcode',
+                    handler: () => {
+                        this.navCtrl.push(CampoAgendamentoPage, { IDCAMPO: ID, IDPESSOA: this.IDPESSOA });
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    }
+
+    showToast(erro: string) {
         if (erro == 'Ok') {
             this.texto = 'Operação realizada com sucesso!';
         }
@@ -63,12 +159,13 @@ export class CampoListPage {
         }
 
 
-        let alert = this.alertCtrl.create({
-            title: 'Campo',
-            subTitle: this.texto,
-            buttons: ['OK']
+        let toast = this.toastCtrl.create({
+            message: this.texto,
+            duration: 8000,
+            position: 'bottom'
         });
-        alert.present();
+
+        toast.present(toast);
     }
 
 

@@ -34,7 +34,7 @@
                 <ion-row>
                     <ion-col width-66>
                         <ion-row class="texto">
-                            <ion-col width-10 class="texto">
+                            <ion-col width-10>
                                 {{i + 1}}º
                             </ion-col>
 
@@ -43,15 +43,15 @@
                                     <img class="simbolo" [src]="imagemJogador+item.FOTO">
                                 </ion-avatar>
                             </ion-col>
-                            <ion-col width-66 class="texto">
+                            <ion-col width-66>
                                 {{item.sNome}}
                             </ion-col>
                         </ion-row>
                     </ion-col>
-                    <ion-col width-15 class="texto">
+                    <ion-col width-15 class="textoQuantidade">
                         {{item.iQuantidade}}
                     </ion-col>
-                    <ion-col width-15 class="texto">
+                    <ion-col width-15 class="textoQuantidade">
                         {{item.iTotalPartidaJogador}}/{{item.iTotalPartida}}
                     </ion-col>
                 </ion-row>

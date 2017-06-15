@@ -1,0 +1,9 @@
+<ion-list radio-group [ngModel]="cidadeID">
+    <ion-list-header>Cidades</ion-list-header>
+    <ng-container *ngFor="let item of cidades">
+        <ion-item>
+            <ion-label>{{item.NOME}}</ion-label>
+            <ion-radio [value]="item.ID" [checked]="item.ID == cidadeID" (ionSelect)="onSelect(item.ID)"></ion-radio>
+        </ion-item>
+    </ng-container>
+</ion-list>

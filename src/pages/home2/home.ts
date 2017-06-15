@@ -2,6 +2,7 @@
 import { TimeListPage } from '../time/time-list/time-list';
 import { JogadorListPage } from '../jogador/jogador-list/jogador-list';
 import { ArtilhariaPage } from '../jogador/artilharia/artilharia';
+import { FrequenciaPage } from '../jogador/frequencia/frequencia';
 import { CampeonatoPage } from '../campeonato/campeonato/campeonato';
 import { PartidaListPage } from '../partida/partida-list/partida-list';
 import { RankingPage } from '../ranking/ranking';
@@ -13,9 +14,11 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { EstatisticaPage } from '../estatistica/estatistica';
 import { AlertController} from 'ionic-angular';
 import { LoginPage } from '../login/login';
+
 import {NativeStorage } from 'ionic-native';
 
 import { NavController, ActionSheetController, MenuController} from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
     selector: 'page-home',
@@ -27,10 +30,10 @@ export class HomePage2 {
     TITULO = "SOCIETYPRO";
 
     constructor(public navCtrl: NavController, private social: SocialSharing, public alertCtrl: AlertController,
-        public actionsheetCtrl: ActionSheetController, public menuCtrl: MenuController) {
+        public actionsheetCtrl: ActionSheetController, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
         this.menuCtrl.close();
         this.menuCtrl.enable(false);
-
+        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 
     times() {
@@ -73,6 +76,10 @@ export class HomePage2 {
         this.navCtrl.push(EstatisticaPage);
     }
 
+    frequencia() {
+        this.navCtrl.push(FrequenciaPage);
+    }
+
     public sair() {
 
         let confirm = this.alertCtrl.create({
@@ -101,8 +108,8 @@ export class HomePage2 {
         this.social.shareViaWhatsAppToReceiver('8596590632', "Mensagem iniciada pelo App SocietyPro", null, "www.societypro.com.br")
             .then(() => {
             },
-            () => {
-            })
+                () => {
+                })
     }
 
     ajuda() {

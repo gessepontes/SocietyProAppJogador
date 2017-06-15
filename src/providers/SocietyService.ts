@@ -86,7 +86,16 @@ export class SocietyService {
         return this.http.post(url + 'PESSOAAPI/', body, options).map(res => res.json());
     }
 
+    listFrequencia(IDPESSOA, IANOTEMPORADA) {
+        var response = this.http.get(url + 'golAPI/?IDPESSOAFREQUENCIAJOGADOR=' + IDPESSOA + "&IANOTEMPORADA=" + IANOTEMPORADA).map(res => res.json());
+        return response;
+    }
 
+
+    listCampeonatoGrupos(IDCampeonato) {
+        var response = this.http.get(url + 'campeonatoAPI?IDCAMPEONATOGRUPO=' + IDCampeonato).map(res => res.json());
+        return response;
+    }
 
     public registerFacebook(email, name, id) {
         var response = this.http.get(url + 'PESSOAAPI?EMAIL=' + email + "&NOME=" + name + "&CODFACEBOOK=" + id + "&PERFIL=4").map(res => res.json());
@@ -102,8 +111,62 @@ export class SocietyService {
         return this.currentUser;
     }
 
+
+
     listCampo(IDPESSOA) {
         var response = this.http.get(url + 'campoAPI/?IDPESSOA=' + IDPESSOA).map(res => res.json());
+        return response;
+    }
+
+    listCampoCidade(IDPESSOA, IDCIDADE) {
+        var response = this.http.get(url + 'campoAPI/?IDPESSOA=' + IDPESSOA + "&IDCIDADE=" + IDCIDADE).map(res => res.json());
+        return response;
+    }
+
+    listCidade() {
+        var response = this.http.get(url + 'cidadeAPI/').map(res => res.json());
+        return response;
+    }
+
+    verificaCampoAgendamento(IDCAMPOAGENDAMENTO) {
+        var response = this.http.get(url + 'campoAPI/?IDCAMPOAGENDAMENTO=' + IDCAMPOAGENDAMENTO).map(res => res.json());
+        return response;
+    }
+
+    listRecibo(ID) {
+        var response = this.http.get(url + 'HORARIOAGENDADOAPI/?ID=' + ID).map(res => res.json());
+        return response;
+    }
+
+    listCampoItem(idCampo) {
+        var response = this.http.get(url + 'HORARIOAGENDADOAPI?IDCAMPO=' + idCampo).map(res => res.json());
+        return response;
+    }
+
+    listHorario(idCampoItem, data) {
+        var response = this.http.get(url + 'HORARIOAGENDADOAPI?IDITEMCAMPO=' + idCampoItem + '&DATA=' + data).map(res => res.json());
+        return response;
+    }
+
+    listHorarioAgendados(IDPESSOA, IDCAMPO) {
+        var response = this.http.get(url + 'HORARIOAGENDADOAPI?IDPESSOA=' + IDPESSOA + '&IDCAMPO=' + IDCAMPO).map(res => res.json());
+        return response;
+    }
+
+    listaMes() {
+        var response = this.http.get(url + 'HORARIOAGENDADOAPI?MES=1').map(res => res.json());
+        return response;
+    }
+
+    addHorario(item) {
+        let body = JSON.stringify(item);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(url + 'HORARIOAGENDADOAPI/', body, options).map(res => res.json());
+    }
+
+    cancelaHorario(ID, IDPESSOA) {
+        var response = this.http.get(url + 'HORARIOAGENDADOAPI?ID=' + ID + '&IDPESSOA=' + IDPESSOA).map(res => res.json());
         return response;
     }
 

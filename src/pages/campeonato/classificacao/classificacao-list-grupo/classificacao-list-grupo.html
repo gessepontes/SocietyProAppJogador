@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <!--<ion-list>
+        <ion-item *ngFor="let item of campeonatos" (click)="listClassificacao(item.IDGrupo)" class="lista">
+            <ion-avatar item-left>
+                <img [src]="imagemCampeonato+item.LOGO">
+            </ion-avatar>
+            <h2>{{item.NOME}}</h2>
+        </ion-item>
+    </ion-list>-->
+
+    <ion-grid>
+        <ion-row wrap>
+            <ion-col width-33 *ngFor="let item of campeonatos" (click)="listClassificacao(item.IDGrupo)">
+                <div align="center">
+                    <ion-avatar>
+                        <img src="assets/img/letras/{{item.NOME}}.png" class="imagem">
+                    </ion-avatar>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,13 +1,14 @@
 import { Component} from '@angular/core';
 import { ArtilhariaCampeonatoListPage } from '../artilharia/artilharia-list/artilharia-list';
-import { ClassificacaoPage } from '../classificacao/classificacao';
+import { ClassificacaoCampeonatoListPage } from '../classificacao/classificacao-list-campeonato/classificacao-list-campeonato';
 import { BidListPage } from '../bid/bid-list/bid-list';
 import { SuspensaoListPage } from '../suspensao/suspensao-list/suspensao-list';
 import { SumulaCampeonatoListPage } from '../sumula/sumula-list-campeonato/sumula-list-campeonato';
 import { PartidaCampeonatoListPage } from '../partida/partida-list-campeonato/partida-list-campeonato';
 import { HomePage2 } from '../../home2/home';
 
-import { NavController} from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
     selector: 'page-campeonato',
@@ -16,9 +17,17 @@ import { NavController} from 'ionic-angular';
 
 
 export class CampeonatoPage {
-    TITULO = "CAMPEONATOS";   
+    TITULO = "Campeonatos";
+    devicePlatform = "";
 
-    constructor(public navCtrl: NavController) {        
+    constructor(public navCtrl: NavController, public plt: Platform, private screenOrientation: ScreenOrientation) {
+        if (this.plt.is('ios')) {
+            this.devicePlatform = "";
+        } else {
+            this.devicePlatform = "Android";
+        }
+
+        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 
     voltar() {
@@ -26,7 +35,7 @@ export class CampeonatoPage {
     }
 
     classificacao() {
-        this.navCtrl.push(ClassificacaoPage);
+        this.navCtrl.push(ClassificacaoCampeonatoListPage);
     }
 
     bid() {

@@ -1,0 +1,79 @@
+﻿<ion-header>
+    <ion-navbar color="dark" hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ng-container *ngIf="recibo != null">
+        <div class="ticket-content">
+            <div class="movie-content">
+                <div class="movie-summary">
+                    <div class="poster">
+                        <div class="content">
+                            <img [src]="imagemCampo+recibo.LOGO">
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <span class="title">{{recibo.LOCAL}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="location-content">
+                <ion-icon name="pin"></ion-icon>
+                <div class="cinema">
+                    <div class="name">Campo: {{recibo.CAMPO}}</div>
+                    <address>{{recibo.ENDERECO}}</address>
+                    <span class="genre ">{{recibo.TELEFONE}}</span>
+                </div>
+            </div>
+            <div class="seats-content">
+                <ion-slides pager="true">
+                    <ion-slide class="seat-container">
+                        <div class="seat-info seat-info-main">
+                            <div class="screen">
+                                <span>Cliente</span>
+                                <span>{{recibo.PESSOA}}</span>
+                            </div>
+                            <!--<div class="row">
+                                <span>row</span>
+                                <span>{{recibo.row}}</span>
+                            </div>
+                            <div class="seat">
+                                <span>seat</span>
+                                <span>{{recibo.seat}}</span>
+                            </div>-->
+                        </div>
+                        <div class="seat-info seat-info-other">
+                            <div class="price">
+                                <span>Valor</span>
+                                <span>R${{recibo.VALOR}}</span>
+                            </div>
+                            <div class="date">
+                                <span>Data</span>
+                                <span>{{recibo.DATA | date:"dd/MM/yyyy"}}</span>
+                            </div>
+                            <div class="time">
+                                <span>Horário</span>
+                                <span>{{recibo.HORA}}</span>
+                            </div>
+                        </div>
+                        <div class="seat-barcode">
+                            <!--<barcode [data]="seat.ticketBarcode" format="EAN13" width="2"></barcode>-->
+                        </div>
+                    </ion-slide>
+                </ion-slides>
+            </div>
+        </div>
+    </ng-container>
+
+    <ion-toolbar padding-left padding-right>
+        <button class="checkout" ion-button block color="dark" (click)="sair()" icon-left end>
+            <ion-icon name="exit"></ion-icon>
+            Sair
+        </button>
+    </ion-toolbar>
+</ion-content>

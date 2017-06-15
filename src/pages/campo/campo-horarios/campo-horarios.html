@@ -1,0 +1,59 @@
+﻿<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-card (click)="openCalendar()">
+        <ion-card-content>
+            <ion-row>
+                <ion-col width-33>
+                    <ion-icon name="calendar"></ion-icon>
+                </ion-col>
+                <ion-col width-67>
+                    <ion-label>{{model.DATA | date:'dd/MM/yyyy'}}</ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </ion-card>
+    <div class="booking-time">
+        <div class="tech" [ngClass]="{'center': campos?.length == 1}" radio-group [(ngModel)]="model.IDCAMPOTIME" (ionChange)="onCampoChange($event)">
+            <ng-container *ngFor="let c of campos">
+                <ion-item>
+                    <ion-label>
+                        Campo: {{c.DESCRICAO}}
+                    </ion-label>
+                    <ion-radio [value]="c.ID"></ion-radio>
+                </ion-item>
+            </ng-container>
+        </div>
+
+
+        <div class="time" [ngClass]="{'center': horarios?.length <= 3}" radio-group [(ngModel)]="modelHorario" (ionChange)="onHorarioChange($event)">
+            <ng-container *ngFor="let h of horarios">
+                <ion-item>
+                    <ion-label>
+                        {{h.HORARIO}}
+                    </ion-label>
+                    <ion-radio [value]="h" [disabled]="h.AGENDADO"></ion-radio>
+                </ion-item>
+            </ng-container>
+            <div *ngIf="horarios?.length % 3 == 2">
+                <ion-item style="visibility: hidden">
+                    <ion-label>
+                        00:00
+                    </ion-label>
+                </ion-item>
+            </div>
+        </div>
+    </div>
+
+    <button class="checkout" ion-button block color="dark" (click)="checkoutConfirm()" icon-left [disabled]="model.CHECKOUT == false" end>
+        <ion-icon name="time"></ion-icon>
+        Agendar horário
+    </button>
+
+</ion-content>

@@ -1,11 +1,13 @@
 page-artilharia {
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+
+
     .headTable {
-        background-color: dark;
+        background-color: #000000;
         color: white;
         text-align: center;
         height: 35px;
         font-size: xx-small !important;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
     }
 
     .content {
@@ -21,7 +23,11 @@ page-artilharia {
 
     .texto {
         font-size: x-small !important;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
+
+    .textoQuantidade {
+        text-align: center;
+        font-size: x-small !important;
     }
 
     .simbolo {
@@ -38,6 +44,7 @@ page-artilharia {
     }
 
     .card-md {
-        margin: 5px 1px 1px 10px;
+        margin: 1px 1px 1px 2px;
+        width: inherit;
     }
 }

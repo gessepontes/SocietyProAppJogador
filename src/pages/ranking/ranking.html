@@ -1,7 +1,8 @@
 ﻿<ion-header>
     <ion-navbar hideBackButton="true" color="dark">
         <ion-icon name="arrow-back" class="voltar" (click)="voltar()"></ion-icon>
-        <ion-title class="left">{{TITULO}}</ion-title>
+        <ion-title *ngIf="devicePlatform =='Android'" class="left">{{TITULO}}</ion-title>
+        <ion-title *ngIf="devicePlatform !='Android'">{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content class="ranking-modelo" (window:orientationchange)="changeOrientation($event)">
@@ -12,9 +13,9 @@
         </ion-select>
     </ion-item>
     <div *ngIf="screenOrientation.type=='portrait-primary' || screenOrientation.type=='portrait-secondary'">
-        <ion-row class="headTable">
+        <!--<ion-row class="headTable">
             <ion-col width-67>
-                
+
             </ion-col>
             <ion-col width-10>
                 Pts
@@ -31,12 +32,37 @@
             <ion-col width-5>
                 D
             </ion-col>
-        </ion-row>
-        <ion-row *ngFor="let item of ranking; let i = index" class="bodyTable">
+        </ion-row>-->
+        <ion-item class="headTableportrait">
+            <p item-right>Pts</p>
+            <p item-right>J</p>
+            <p item-right>V</p>
+            <p item-right>E</p>
+            <p item-right>D</p>
+        </ion-item>
+
+        <ion-list class="portrait">
+            <ion-item *ngFor="let item of ranking; let i = index">
+                <h5 item-left>{{i+1}}º</h5>
+                <ion-avatar item-left>
+                    <img [src]="imagemSimbolo+item.SIMBOLO">
+                </ion-avatar>
+
+                <h6>{{item.sNome}}</h6>
+                <p item-right>{{item.iPontuacao}}</p>
+                <p item-right>{{item.partidas}}</p>
+                <p item-right>{{item.vitorias}}</p>
+                <p item-right>{{item.empates}}</p>
+                <p item-right>{{item.derrotas}}</p>
+            </ion-item>
+
+        </ion-list>
+
+        <!--<ion-row *ngFor="let item of ranking; let i = index" class="bodyTable">
             <ion-col width-67>
                 <ion-row>
                     <ion-col width-10 class="nomeTime">
-                        {{i+1}}º
+                        {{i+1}}
                     </ion-col>
                     <ion-col width-20 class="nomeTime">
                         <ion-avatar>
@@ -48,28 +74,62 @@
                     </ion-col>
                 </ion-row>
             </ion-col>
-            <ion-col width-10 class="nomeTime">
+            <ion-col width-10 class="quantidade">
                 {{item.iPontuacao}}
             </ion-col>
-            <ion-col width-5 class="nomeTime">
+            <ion-col width-5 class="quantidade">
                 {{item.partidas}}
             </ion-col>
-            <ion-col width-5 class="nomeTime">
+            <ion-col width-5 class="quantidade">
                 {{item.vitorias}}
             </ion-col>
-            <ion-col width-5 class="nomeTime">
+            <ion-col width-5 class="quantidade">
                 {{item.empates}}
             </ion-col>
-            <ion-col width-5 class="nomeTime">
+            <ion-col width-5 class="quantidade">
                 {{item.derrotas}}
             </ion-col>
-        </ion-row>
+        </ion-row>-->
     </div>
 
     <div *ngIf="screenOrientation.type=='landscape-primary' || screenOrientation.type=='landscape-secondary'">
-        <ion-row class="headTable">
+
+        <ion-item class="headTablelandscape">
+            <p item-right>Pts</p>
+            <p item-right>J</p>
+            <p item-right>V</p>
+            <p item-right>E</p>
+            <p item-right>D</p>
+            <p item-right>GP</p>
+            <p item-right>GC</p>
+            <p item-right>S</p>
+            <p item-right>%</p>
+        </ion-item>
+
+        <ion-list class="landscape">
+            <ion-item *ngFor="let item of ranking; let i = index">
+                <h5 item-left>{{i+1}}º</h5>
+                <ion-avatar item-left>
+                    <img [src]="imagemSimbolo+item.SIMBOLO">
+                </ion-avatar>
+
+                <h6>{{item.sNome}}</h6>
+                <p item-right>{{item.iPontuacao}}</p>
+                <p item-right>{{item.partidas}}</p>
+                <p item-right>{{item.vitorias}}</p>
+                <p item-right>{{item.empates}}</p>
+                <p item-right>{{item.derrotas}}</p>
+                <p item-right>{{item.golsP}}</p>
+                <p item-right>{{item.golsC}}</p>
+                <p item-right>{{item.saldo}}</p>
+                <p item-right>{{item.porcentagem}}</p>
+            </ion-item>
+
+        </ion-list>
+
+        <!--<ion-row class="headTable">
             <ion-col width-50>
-                
+
             </ion-col>
             <ion-col width-10>
                 Pts
@@ -142,7 +202,7 @@
             <ion-col width-5 class="nomeTime">
                 {{item.porcentagem}}
             </ion-col>
-        </ion-row>
+        </ion-row>-->
     </div>
 
 

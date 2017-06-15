@@ -1,10 +1,7 @@
 page-classificacao {
-
-    .classificacao-content {
-        background-size: 100%;
-        background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
-    }
+    background-size: 100%;
+    background-position-y: 50%;
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
 
     .cor {
         background-color: #000000 !important;
@@ -57,5 +54,46 @@ page-classificacao {
         height: 20px;
         width: 20px;
         border-radius: 10px;
+    }
+
+
+    .headTableportrait {
+        background-color: black;
+
+        p {
+            margin: 8px 8px 8px 8px !important;
+            color: white;
+        }
+    }
+
+    .portrait {
+        p {
+            margin: 8px 1px 8px 4px !important;
+            width: 20px;
+            text-align: center;
+        }
+    }
+
+    .headTablelandscape {
+        background-color: black;
+
+        p {
+            margin: 8px 4px 8px 8px !important;
+            text-align: center;
+            width: 25px;
+            color: white;
+        }
+    }
+
+    .landscape {
+        p {
+            margin: 8px 4px 8px 8px !important;
+            width: 25px;
+            text-align: center;
+        }
+    }
+
+    h5 {
+        width: 25px;
     }
 }

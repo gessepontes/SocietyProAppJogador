@@ -1,64 +1,68 @@
 page-login {
-    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;    
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif' !important;
 
-  .societypro{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    color: #ffffff;
-  }
+    .societypro {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        color: #000000;
+    }
 
-  ion-input{
-     font-size: 0.8em !important; 
-  }
+    ion-input {
+        font-size: 0.8em !important;
+    }
 
-  ion-label{
-     font-size: 0.8em !important;
-  }
+    ion-label {
+        font-size: 0.8em !important;
+    }
 
-  .textoLogin{
-    margin-top: 5%;
-    margin-bottom:5%
-  }
+    .textoLogin {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
 
-  .textoNew{
-    color: #ffffff;
-    border-color:  #080715;
-    background-color: #080715;
-    font-size: 1.0em !important; 
-    margin: -5px
-  }
+    .textoNew {
+        color: #000000;
+        border-color: #eeeeee;
+        font-weight: bold;
+        font-size: 1.0em !important;
+        margin: -5px;
+    }
 
- .login-content {   
-  background-size: 100%;
-  background-position-y: 50%;
-  background-color: #080715;
- }
+    .login-content {
+        background-size: 100%;
+        background-position-y: 50%;
+    }
 
- .check{
-     background-color: #080715;
-          color: #ffffff;
- }
+    .check {
+        background-color: #080715;
+        color: #ffffff;
+    }
 
-   .facebook-btn {
-    background-color: #3b5998;
-    margin: auto;
-    width: 100%;
-    margin-bottom: 5px;
-    height: 30px;
-    color: white;
-  }
+    .facebook-btn {
+        background-color: #3b5998;
+        margin: auto;
+        width: 100%;
+        margin-bottom: 5px;
+        color: white;
+        TEXT-TRANSFORM: lowercase;
+        font-style: normal;
+    }
 
-   .log-in-btn {
-    background-color: #3b5998;
-    margin: auto;
-    width: 100%;
-    margin-bottom: 5px;
-    height: 30px;
-    color: white;
-  }    
+    .log-in-btn {
+        background-color: #000000;
+        margin: auto;
+        width: 100%;
+        color: white;
+        TEXT-TRANSFORM: lowercase;
+        font-style: normal;
+    }
 
-  .item-ios.item-block .item-inner{
-   border-bottom: 0px solid #eeeeee !important;
-}
+    .item-ios.item-block .item-inner {
+        border-bottom: 0px solid #eeeeee !important;
+    }
 
+    .logo {
+        width: 70%;
+        vertical-align: bottom;
+    }
 }

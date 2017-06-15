@@ -1,11 +1,82 @@
-﻿<ion-header>
+﻿<ion-header class="header">
     <ion-navbar color="dark">
-        <ion-title>{{TITULO}}</ion-title>
+        <img src="assets/img/logo.png" class="logo">
     </ion-navbar>
 </ion-header>
 <ion-content class="content-modelo">
     <br />
+
     <ion-grid>
+        <ion-row>
+            <ion-col (click)="pessoa()">
+                <ion-icon name="contact" class="imagem"></ion-icon>
+                <p>Usuário</p>
+            </ion-col>
+            <ion-col (click)="times()">
+                <ion-icon name="shirt" class="imagem"></ion-icon>
+                <p>Times</p>
+            </ion-col>
+            <ion-col (click)="jogadores()">
+                <ion-icon name="contacts" class="imagem"></ion-icon>
+                <p>Atletas</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="campeonato()">
+                <ion-icon name="trophy" class="imagem"></ion-icon>
+                <p>Campeonatos</p>
+            </ion-col>
+            <ion-col (click)="amistoso()">
+                <ion-icon name="game-controller-a" class="imagem"></ion-icon>
+                <p>Amistosos</p>
+            </ion-col>
+            <ion-col (click)="ranking()">
+                <ion-icon name="podium" class="imagem"></ion-icon>
+                <p>Ranking</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="artilharia()">
+                <ion-icon name="football" class="imagem"></ion-icon>
+                <p>Artilharia</p>
+            </ion-col>
+            <ion-col (click)="frequencia()">
+                <ion-icon name="walk" class="imagem"></ion-icon>
+                <p>Frequência</p>
+            </ion-col>
+            <ion-col (click)="estatistica()">
+                <ion-icon name="pie" class="imagem"></ion-icon>
+                <p>Estatisticas</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col (click)="campo()">
+                <ion-icon name="globe" class="imagem"></ion-icon>
+                <p>Campos</p>
+            </ion-col>
+            <ion-col (click)="arbitro()">
+                <ion-icon name="flag" class="imagem"></ion-icon>
+                <p>Árbitros</p>
+            </ion-col>
+            <ion-col (click)="ajuda()">
+                <ion-icon name="help-circle" class="imagem"></ion-icon>
+                <p>Ajuda</p>
+            </ion-col>        
+        </ion-row>
+
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col (click)="sair()">
+                <ion-icon name="log-out" class="imagem"></ion-icon>
+                <p>Sair</p>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+    <!--<ion-grid>
         <ion-row>
             <ion-col (click)="pessoa()">
                 <img src="assets/img/pessoa.png" class="imagem">
@@ -49,6 +120,10 @@
             </ion-col>
         </ion-row>
         <ion-row >
+            <ion-col (click)="autorizar()">
+                <img src="assets/img/Check.png" class="imagem">
+                <p>AUTORIZAÇÃO</p>
+            </ion-col>
             <ion-col (click)="arbitro()">
                 <img src="assets/img/arbitro.png" class="imagem">
                 <p>ÁRBITROS</p>
@@ -57,11 +132,14 @@
                 <img src="assets/img/ajuda.png" class="imagem">
                 <p>AJUDA</p>
             </ion-col>
+        </ion-row>
+
+        <ion-row>
             <ion-col (click)="sair()">
                 <img src="assets/img/sair.png" class="imagem">
                 <p>SAIR</p>
             </ion-col>
         </ion-row>
 
-    </ion-grid>
+    </ion-grid>-->
 </ion-content>

@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-navbar hideBackButton="true" color="dark">
+        <ion-icon name="arrow-back" class="voltar" (click)="voltar()"></ion-icon>
+        <ion-title *ngIf="devicePlatform =='Android'" class="left">{{TITULO}}</ion-title>
+        <ion-title *ngIf="devicePlatform !='Android'">{{TITULO}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modelo">
+    <ion-list>
+        <ion-item *ngFor="let item of campeonatos" (click)="listClassificacao(item.ID)" class="lista">
+            <ion-avatar item-left>
+                <img [src]="imagemCampeonato+item.LOGO">
+            </ion-avatar>
+            <h2>{{item.NOME}}</h2>
+        </ion-item>
+    </ion-list>
+</ion-content>

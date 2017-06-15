@@ -1,0 +1,55 @@
+page-frequencia {
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+
+
+    .headTable {
+        background-color: #000000;
+        color: white;
+        text-align: center;
+        height: 35px;
+        font-size: xx-small !important;
+    }
+
+    .content {
+        background: #f8f8f8 !important;
+    }
+
+    ion-col{
+        margin:auto;
+        padding:1px;
+    }
+
+
+    .bodyTable {
+        padding: 1px;
+        border: 0px solid #b8c7ce;
+        text-align: left;
+    }
+
+    .texto {
+        font-size: x-small !important;
+    }
+
+    .textoQuantidade {
+        text-align: center;
+        font-size: xx-small !important;
+    }
+
+    .simbolo {
+        height: 35px;
+        width: 35px;
+        border-radius: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pading {
+        padding: 1px;
+    }
+
+    .card-md {
+        margin: 1px 1px 1px 2px;
+        width: inherit;
+    }
+}

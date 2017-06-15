@@ -1,2 +1,17 @@
 page-campo-list {
+    background-size: 100%;
+    background-position-y: 50%;
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+
+    .voltar {
+        margin-left: 20px;
+        background: black;
+        color: white;
+        font-size: 25px !important;
+    }
+
+    .left {
+        margin-left: 60px;
+        margin-top: -27px;
+    }
 }

@@ -46,22 +46,19 @@ page-app {
     .content-modelo {
         background-size: 100%;
         background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
-        /*background: #37414a;
-        color: #efefef;*/
-        
-        background:#f8f8f8;
+        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif' !important;
+        background: white;
         color: #000000;
 
         .cor {
-            background-color: #1a2226;
+            background-color: #000000;
             margin: auto;
             margin-bottom: 5px;
             color: white;
         }
     }
 
-    .menu-o {
+    /*.menu-o {
         ion-content {
             background-color: #1a2226;
 
@@ -102,7 +99,7 @@ page-app {
         }
 
         font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
-    }
+    }*/
 
     .leftMenu {
         margin-left: 30px;

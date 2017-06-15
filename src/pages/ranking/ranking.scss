@@ -1,10 +1,7 @@
 ﻿page-ranking {
-
-    .ranking-content {
-        background-size: 100%;
-        background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
-    }
+    background-size: 100%;
+    background-position-y: 50%;
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
 
     .cor {
         background-color: #1a2226;
@@ -34,7 +31,57 @@
         text-align: justify;
         height: 35px;
         margin-top: 5px;
+        text-align: center;
     }
+
+    h5 {
+        margin: 8px 8px 8px 0 !important;
+    }
+
+    .headTableportrait {
+        background-color: black;
+
+        p {
+            margin: 8px 8px 8px 8px !important;
+            color: white;
+        }
+    }
+
+    .portrait {
+        p {
+            margin: 8px 1px 8px 4px !important;
+            width: 20px;
+            text-align: center;
+        }
+    }
+
+    .headTablelandscape {
+        background-color: black;
+
+        p {
+            margin: 8px 4px 8px 8px !important;
+            text-align: center;
+            width: 25px;
+            color: white;
+        }
+    }
+
+    .landscape {
+        p {
+            margin: 8px 4px 8px 8px !important;
+            width: 25px;
+            text-align: center;
+        }
+    }
+
+    h5 {
+        width: 30px;
+    }
+
+    h6{
+        font-size:smaller !important;
+    }
+
 
     .bodyTable {
         padding: 5px;
@@ -46,7 +93,10 @@
     .nomeTime {
         margin: auto;
         text-align: left !important;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
+
+    .quantidade {
+        text-align: center;
     }
 
     .voltar {

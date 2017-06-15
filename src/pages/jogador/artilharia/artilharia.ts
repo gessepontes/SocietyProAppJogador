@@ -11,6 +11,7 @@ import { NativeStorage } from 'ionic-native';
 })
 export class ArtilhariaPage {
 
+    loading: any;
     TITULO: string;
     jogadores: Array<any>;
     texto: string;
@@ -26,7 +27,7 @@ export class ArtilhariaPage {
     }
 
     ionViewWillEnter() {
-        //this.IDPESSOA = 64;
+        //this.IDPESSOA = 1;
         //this.listArtilharia(this.IANOTEMPORADA);
 
         NativeStorage.getItem('IDPESSOA').then(data => {
@@ -35,9 +36,24 @@ export class ArtilhariaPage {
             this.IDPESSOA = IDPESSOA;
             this.listArtilharia(this.IANOTEMPORADA);
 
-        });
+        },
+            error => this.limpaCarregando()
+            );
     }
 
+    carregando() {
+        this.loading = this.loadingCtrl.create({
+            content: 'Carregando...',
+            spinner: 'circles',
+
+        });
+
+        this.loading.present();
+    }
+
+    limpaCarregando() {
+        this.loading.dismiss();
+    }
 
     dismiss() {
         this.viewCtrl.dismiss();
@@ -62,26 +78,21 @@ export class ArtilhariaPage {
     }
 
     listArtilharia(IANOTEMPORADA) {
-        let loading = this.loadingCtrl.create({
-            content: 'Carregando...',
-            spinner: 'circles',
 
-        });
-
-        loading.present();
+        this.carregando();
 
         this.societyService.listArtilharia(this.IDPESSOA, IANOTEMPORADA).subscribe(
             data => {
                 this.jogadores = data;
-                loading.dismiss();
+                this.limpaCarregando();
             },
             err => {
                 console.log(err);
-                loading.dismiss();
+                this.limpaCarregando();
                 this.showAlert("Erro ao realizar a operação.");
             },
             () => console.log('Listar Gols Partida')
-        );
+            );
     }
 
 }

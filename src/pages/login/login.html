@@ -1,64 +1,54 @@
 <ion-content id="login" class="login-content">
-
-  <div class="societypro" align="center">
-    <h1>SocietyPRO</h1>
-      <h3>Jogador</h3>
-  </div>
-
-  <ion-row>
-    <ion-col>
-      <div class="societypro" align="center">
-        Entrar
-      </div>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <button block icon-left class="facebook-btn" (click)="doFbLogin()">
-      <ion-icon name="logo-facebook"></ion-icon>
-      Facebook
-    </button>
-    </ion-col>
-  </ion-row> 
-
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="societypro" align="center">
+        <img src="assets/img/logoJogadorP.png" class="logo">
+    </div>
+    <form #registerForm="ngForm">
+        <ion-row class="content-modelo">
+            <ion-col>
+                <ion-item lines>
+                    <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                </ion-item>
+                <ion-item lines>
+                    <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col offset-50 width-50>
+                <ion-item (click)="reenvioPassword()" no-lines>
+                    Esqueceu a senha?
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <br />
+        <ion-row>
+            <ion-col width-100>
+                <button ion-button icon-left block class="log-in-btn" (click)="login()" [disabled]="!registerForm.form.valid">Entrar</button>
+            </ion-col>
+        </ion-row>
+    </form>
     <ion-row>
-    <ion-col>
-      <div class="societypro" align="center">
-        Ou entrar com Email
-      </div>
-    </ion-col>
-  </ion-row> 
-
-  <form #registerForm="ngForm">
-    <ion-row class="content-modelo">
-      <ion-col>
-        <ion-item>
-          <ion-icon name="ios-mail-outline" item-left primary></ion-icon>
-          <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-icon name="ios-lock-outline" item-left primary></ion-icon>
-          <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
-        </ion-item>
-      </ion-col>
+        <ion-col width-100>
+            <button ion-button icon-left block class="facebook-btn" (click)="doFbLogin()">
+                <ion-icon name="logo-facebook"></ion-icon>
+                login com Facebook
+            </button>
+        </ion-col>
     </ion-row>
+    <br />
     <ion-row>
-      <ion-col offset-50 width-50>
-        <button class="log-in-btn" (click)="login()" [disabled]="!registerForm.form.valid">Login</button>
-      </ion-col>
+        <ion-col width-100 style="text-align:center;color:#808080">
+            OU
+        </ion-col>
     </ion-row>
-  </form>
-
-  <ion-row>
-    <ion-item class="textoNew" (click)="reenvioPassword()">
-      Esqueceu a senha?
-    </ion-item>
-  </ion-row>
-  <ion-row>
-    <ion-item class="textoNew" (click)="createAccount()">
-      Criar um novo usuário
-    </ion-item>
-  </ion-row>
-</ion-content>
+    <br />
+    <ion-row>
+        <ion-col width-100>
+            <button ion-button icon-left block class="log-in-btn" (click)="createAccount()">Criar usuário</button>
+        </ion-col>
+    </ion-row>
+</ion-content>  

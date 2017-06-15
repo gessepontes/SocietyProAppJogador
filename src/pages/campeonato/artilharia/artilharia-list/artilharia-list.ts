@@ -26,7 +26,9 @@ export class ArtilhariaCampeonatoListPage {
             let IDPESSOA = data.IDPESSOA;
             this.IDPESSOA = IDPESSOA;
             this.listCampeonato();
-        });
+        },
+            error => this.limpaCarregando()
+        );
 
         //this.IDPESSOA = 1;
         //this.listCampeonato();
@@ -74,8 +76,9 @@ export class ArtilhariaCampeonatoListPage {
         this.loading = this.loadingCtrl.create({
             content: 'Carregando...',
             spinner: 'circles',
-
+             
         });
+
 
         this.loading.present();
     }
