@@ -51,6 +51,7 @@ import { CampoHorarioAgendadoPage } from '../pages/campo/campo-horarios/campo-ho
 import { CampoReciboPage } from '../pages/campo/campo-recibo/campo-recibo';
 
 import { CalendarModule } from "ion2-calendar";
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @NgModule({
     declarations: [
@@ -88,10 +89,7 @@ import { CalendarModule } from "ion2-calendar";
     ],
     imports: [
         ChartsModule,
-        IonicModule.forRoot(MyApp, {
-            iconMode: 'md',
-            tabsPlacement: 'top'
-        }), CalendarModule,
+        IonicModule.forRoot(MyApp), CalendarModule,
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -126,7 +124,7 @@ import { CalendarModule } from "ion2-calendar";
         HomePage2, JogadorListPage, CampeonatoPage, EstatisticaPage
     ],
     providers: [                
-        SocialSharing, ScreenOrientation,
+        SocialSharing, ScreenOrientation, NativeStorage,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         { provide: LOCALE_ID, useValue: "pt-BR" }
     ]

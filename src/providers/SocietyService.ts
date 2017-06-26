@@ -218,7 +218,7 @@ export class SocietyService {
     }
 
     listJogador(IDPESSOA) {
-        var response = this.http.get(url + 'jogadorAPI?IDPESSOA=' + IDPESSOA).map(res => res.json());
+        var response = this.http.get(url + 'jogadorAPI?IDPESSOAJOGADOR=' + IDPESSOA).map(res => res.json());
         return response;
     }
 
@@ -286,7 +286,7 @@ export class SocietyService {
     }
 
     listPartida(IDPESSOA) {
-        var response = this.http.get(url + 'partidaAPI?IDPESSOA=' + IDPESSOA).map(res => res.json());
+        var response = this.http.get(url + 'partidaAPI?IDPESSOAJOGADOR=' + IDPESSOA).map(res => res.json());
         return response;
     }
 
@@ -398,7 +398,7 @@ export class SocietyService {
     }
 
     listEstatistica(ID, IANOTEMPORADA) {
-        var response = this.http.get(url + 'homeapi?IDPESSOAESTATISTICA=' + ID + "&IANOTEMPORADA=" + IANOTEMPORADA).map(res => res.json());
+        var response = this.http.get(url + 'homeapi?IDPESSOAESTATISTICAJOGADOR=' + ID + "&IANOTEMPORADA=" + IANOTEMPORADA).map(res => res.json());
         return response;
     }
 

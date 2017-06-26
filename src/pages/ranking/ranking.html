@@ -13,26 +13,6 @@
         </ion-select>
     </ion-item>
     <div *ngIf="screenOrientation.type=='portrait-primary' || screenOrientation.type=='portrait-secondary'">
-        <!--<ion-row class="headTable">
-            <ion-col width-67>
-
-            </ion-col>
-            <ion-col width-10>
-                Pts
-            </ion-col>
-            <ion-col width-5>
-                J
-            </ion-col>
-            <ion-col width-5>
-                V
-            </ion-col>
-            <ion-col width-5>
-                E
-            </ion-col>
-            <ion-col width-5>
-                D
-            </ion-col>
-        </ion-row>-->
         <ion-item class="headTableportrait">
             <p item-right>Pts</p>
             <p item-right>J</p>
@@ -205,5 +185,8 @@
         </ion-row>-->
     </div>
 
+    <ion-item *ngIf="naocadastrado">
+        <p>Não existe time ativo.</p>
+    </ion-item>
 
 </ion-content>

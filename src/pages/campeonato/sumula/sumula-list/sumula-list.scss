@@ -1,9 +1,9 @@
 page-sumula-list {
-    .sumula-list-content {
-        background-size: 100%;
-        background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    background-size: 100%;
+    background-position-y: 50%;
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
 
+    .sumula-list-content {
         strong {
             font-size: 1.0rem;
         }
@@ -27,7 +27,7 @@ page-sumula-list {
 
     .headTable {
         background-color: #1a2226;
-        color: white;
+        color: #000000;
         text-align: center;
     }
 
@@ -45,8 +45,8 @@ page-sumula-list {
 
 
     .simbolo {
-        height: 30px;
-        width: 30px;
+        height: 40px;
+        width: 40px;
         border-radius: 20px;
         display: block;
         margin-left: auto;

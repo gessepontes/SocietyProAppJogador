@@ -23,6 +23,11 @@
             </ion-item-options>
         </ion-item-sliding>
     </ion-list>
+
+    <ion-item *ngIf="naocadastrado">
+        <p>Não existe time vinculado.</p>
+    </ion-item>
+
     <ion-fab right bottom style="margin-right: 20px;">
         <button ion-fab mini (click)="newTime()" class="cor"><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
     </ion-fab>

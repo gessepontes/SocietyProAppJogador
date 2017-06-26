@@ -7,44 +7,25 @@
     </ion-navbar>
 </ion-header>
 <ion-content class="content-modelo">
-    <ion-row class="headTable">
-        <ion-col width-90>
-            JOGADOR
-        </ion-col>
-        <ion-col width-10>
-            GOLS
-        </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let item of jogadores; let i = index" class="bodyTable">
-        <ion-card>
-            <ion-card-content class="pading">
-                <ion-row>
-                    <ion-col width-90>
-                        <ion-row class="nomeSimbolo">
-                            <ion-col width-10>
-                                {{i+1}}º
-                            </ion-col>
-                            <ion-col width-20>
-                                <ion-avatar>
-                                    <img class="simbolo" [src]="imagemJogador+item.FOTO">
-                                </ion-avatar>
-                            </ion-col>
-                            <ion-col width-20 class="simboloTime">
-                                <ion-avatar>
-                                    <img class="simbolo" [src]="imagemSimbolo+item.SIMBOLO">
-                                </ion-avatar>
-                            </ion-col>
-                            <ion-col width-40 class="texto">
-                                {{item.sNome}}
-                                <p>{{item.sTime}}</p>
-                            </ion-col>
-                        </ion-row>
-                    </ion-col>
-                    <ion-col width-10 class="textoGol">
-                        {{item.iQuantidade}}
-                    </ion-col>
-                </ion-row>
-            </ion-card-content>
-        </ion-card>
-    </ion-row>
+
+    <ion-item style="background:#000000;color:#ffffff">
+        <h6 item-left>Jogador</h6>
+        <h6 item-right>Gols</h6>
+    </ion-item>
+
+    <ion-list>
+        <ion-item *ngFor="let item of jogadores; let i = index">
+            <h5 item-left>{{i+1}}º</h5>
+            <ion-avatar item-left>
+                <img [src]="imagemJogador+item.FOTO">
+            </ion-avatar>
+            <ion-avatar item-left>
+                <img [src]="imagemSimbolo+item.SIMBOLO">
+            </ion-avatar>
+
+            <h6>{{item.sNome}}</h6>
+            <p item-right style="margin:auto">{{item.iQuantidade}}</p>
+        </ion-item>
+
+    </ion-list>
 </ion-content>

@@ -17,6 +17,7 @@ export class SumulaCampeonatoListPage {
     TITULO = "Súmulas";
     IDPESSOA = 0;
     imagemCampeonato: string;
+    naocadastrado: boolean;
 
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController) {
         this.imagemCampeonato = societyService.imagemCampeonato();        
@@ -39,6 +40,17 @@ export class SumulaCampeonatoListPage {
             data => {
                 this.campeonatos = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
+
             },
             err => {
                 this.limpaCarregando();

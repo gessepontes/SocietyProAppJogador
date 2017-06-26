@@ -21,6 +21,7 @@ export class PartidaListPage {
     IDTIME = 0;
     TIME = '';
     TITULO = "Amistosos";
+    naocadastrado: boolean;
 
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public params: NavParams) {
         this.imagemSimbolo = societyService.imagemSimbolo();
@@ -81,6 +82,17 @@ export class PartidaListPage {
             data => {
                 this.partidas = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
+
             },
             err => {
                 this.limpaCarregando();

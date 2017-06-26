@@ -19,6 +19,7 @@ export class FrequenciaPage {
     IANOTEMPORADA = 0;
     IDPESSOA = 0;
     listAno = [2016, 2017, 2018];
+    naocadastrado: boolean;
 
     constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
         this.IANOTEMPORADA = new Date().getFullYear();
@@ -85,6 +86,17 @@ export class FrequenciaPage {
             data => {
                 this.jogadores = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
+
             },
             err => {
                 console.log(err);

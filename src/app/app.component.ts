@@ -36,6 +36,7 @@ export class MyApp {
     pages2: Array<{ title: string, component: any, icon: string }>;
     pages3: Array<{ title: string, component: any, icon: string }>;
     pages4: Array<{ title: string, component: any, icon: string }>;
+    adMobPosition: any;
 
 
     constructor(public platform: Platform, public alertCtrl: AlertController, public menu: MenuController,
@@ -61,6 +62,11 @@ export class MyApp {
             { title: 'Artilharia', component: ArtilhariaCampeonatoListPage, icon: 'football' },
         ];
 
+        this.adMobPosition = {
+            BOTTOM_CENTER: 8
+        };
+
+
         platform.ready().then(() => {
 
             var admobid = { banner: '', interstitial: '' };
@@ -84,6 +90,7 @@ export class MyApp {
             // it will display smart banner at top center, using the default options
             if (AdMob) AdMob.createBanner({
                 adId: admobid.banner,
+                position: this.adMobPosition.BOTTOM_CENTER,
                 autoShow: true
             });
 

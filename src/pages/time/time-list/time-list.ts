@@ -18,6 +18,7 @@ export class TimeListPage {
     IDPESSOA = 0;
     TITULO = "Times";
     imagemSimbolo: string;
+    naocadastrado: boolean;
 
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public params: NavParams) {
         this.imagemSimbolo = societyService.imagemSimbolo();
@@ -40,6 +41,16 @@ export class TimeListPage {
             data => {
                 this.times = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
             },
             err => {
                 this.limpaCarregando();

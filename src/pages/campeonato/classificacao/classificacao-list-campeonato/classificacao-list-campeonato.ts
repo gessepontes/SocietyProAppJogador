@@ -21,6 +21,8 @@ export class ClassificacaoCampeonatoListPage {
     IDPESSOA = 0;
     imagemCampeonato: string;
     devicePlatform = "";
+    naocadastrado: boolean;
+
 
     constructor(public plt: Platform, public navCtrl: NavController, private societyService: SocietyService,
         public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController,
@@ -57,6 +59,16 @@ export class ClassificacaoCampeonatoListPage {
             data => {
                 this.campeonatos = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
             },
             err => {
                 this.limpaCarregando();

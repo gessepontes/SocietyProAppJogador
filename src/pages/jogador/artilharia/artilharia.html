@@ -7,7 +7,7 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
-    
+
     <ion-item no-lines>
         <ion-label>Ano Temporada</ion-label>
         <ion-select [(ngModel)]="IANOTEMPORADA" required name="IANOTEMPORADA" (ionChange)="listArtilharia(IANOTEMPORADA)">
@@ -15,47 +15,27 @@
         </ion-select>
     </ion-item>
 
-    <ion-row class="headTable">
-        <ion-col width-66>
-            JOGADOR
-        </ion-col>
-        <ion-col width-15>
-            GOLS
-        </ion-col>
-        <ion-col width-15>
-            PARTIDAS
-        </ion-col>
-    </ion-row>
+    <ion-item style="background:#000000;color:#ffffff">
+        <h6 item-left>Jogador</h6>
+        <h6 item-right>Gols</h6>
+        <h6 item-right style="margin:auto">Partidas</h6>
+    </ion-item>
 
-    <ion-row *ngFor="let item of jogadores; let i=index" class="bodyTable">
+    <ion-list>
+        <ion-item *ngFor="let item of jogadores; let i = index">
+            <h5 item-left>{{i+1}}º</h5>
+            <ion-avatar item-left>
+                <img [src]="imagemJogador+item.FOTO">
+            </ion-avatar>
 
-        <ion-card>
-            <ion-card-content class="pading">
-                <ion-row>
-                    <ion-col width-66>
-                        <ion-row class="texto">
-                            <ion-col width-10>
-                                {{i + 1}}º
-                            </ion-col>
+            <h6>{{item.sNome}}</h6>
+            <p item-right>{{item.iQuantidade}}</p>
+            <p item-right style="margin:auto">{{item.iTotalPartidaJogador}}/{{item.iTotalPartida}}</p>
+        </ion-item>
 
-                            <ion-col width-20>
-                                <ion-avatar item-left>
-                                    <img class="simbolo" [src]="imagemJogador+item.FOTO">
-                                </ion-avatar>
-                            </ion-col>
-                            <ion-col width-66>
-                                {{item.sNome}}
-                            </ion-col>
-                        </ion-row>
-                    </ion-col>
-                    <ion-col width-15 class="textoQuantidade">
-                        {{item.iQuantidade}}
-                    </ion-col>
-                    <ion-col width-15 class="textoQuantidade">
-                        {{item.iTotalPartidaJogador}}/{{item.iTotalPartida}}
-                    </ion-col>
-                </ion-row>
-            </ion-card-content>
-        </ion-card>
-    </ion-row>
+    </ion-list>
+
+    <ion-item *ngIf="naocadastrado" class="naoencontrado">
+        <p>Não existe gols cadastrado.</p>
+    </ion-item>
 </ion-content>

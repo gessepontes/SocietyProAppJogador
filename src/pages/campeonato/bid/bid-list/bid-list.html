@@ -15,4 +15,8 @@
             <h2>{{item.NOME}}</h2>
         </ion-item>
     </ion-list>
+    <ion-item *ngIf="naocadastrado" class="naoencontrado">
+        <p>Você não está inscrito em nenhum campeonato.</p>
+    </ion-item>
+
 </ion-content>

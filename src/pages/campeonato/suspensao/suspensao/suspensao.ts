@@ -15,6 +15,7 @@ export class SuspensaoPage {
     imagemJogador: string;
     imagemSimbolo: string;
     IDCampeonato = 0;
+    naocadastrado: boolean;
 
     constructor(public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
         this.IDCampeonato = this.params.get('IDCampeonato');
@@ -62,6 +63,14 @@ export class SuspensaoPage {
             data => {
                 this.suspensos = data;
                 loading.dismiss();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                }
             },
             err => {
                 console.log(err);

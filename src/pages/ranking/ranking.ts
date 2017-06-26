@@ -24,6 +24,7 @@ export class RankingPage {
     listAno = [2016, 2017, 2018];
     horizontal: boolean = false;
     devicePlatform = "";
+    naocadastrado: boolean;
 
     constructor(public plt: Platform,public viewCtrl: ViewController, public params: NavParams, private societyService: SocietyService, public alertCtrl: AlertController,
         public loadingCtrl: LoadingController, public toastCtrl: ToastController, private screenOrientation: ScreenOrientation, public navCtrl: NavController) {
@@ -86,6 +87,17 @@ export class RankingPage {
             data => {
                 this.ranking = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
+
             },
             err => {
                 this.limpaCarregando();

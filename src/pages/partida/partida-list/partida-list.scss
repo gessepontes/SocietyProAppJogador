@@ -2,7 +2,6 @@ page-partida-list {
     .partida-list-content {
         background-size: 100%;
         background-position-y: 50%;
-        /*background-color: #37414a;*/        
         font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
 
         strong {
@@ -15,11 +14,15 @@ page-partida-list {
         }
     }
 
+            .naoencontrado{
+            font-size: 1.4rem !important;
+        }
+
     .cor {
         background-color: #1a2226;
         margin: auto;
         margin-bottom: 5px;
-        color:#000000;
+        color: white;
     }
 
     ion-col {
@@ -28,7 +31,7 @@ page-partida-list {
 
     .headTable {
         background-color: #1a2226;
-        color:#000000;
+        color: white;
         text-align: center;
     }
 
@@ -40,14 +43,14 @@ page-partida-list {
 
     .texto {
         margin: auto;
-        color:#000000;
+        color: #000000 !important;
         text-align: center;
     }
 
 
     .simbolo {
-        height: 30px;
-        width: 30px;
+        height: 40px !important;
+        width: 40px !important;
         border-radius: 20px;
         display: block;
         margin-left: auto;
@@ -57,7 +60,7 @@ page-partida-list {
 
     .local {
         margin: 0px;
-        color:#000000;
+        color: #efefef;
         text-align: center;
         font-weight: bold;
     }

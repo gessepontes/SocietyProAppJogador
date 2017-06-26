@@ -19,7 +19,8 @@ export class JogadorListPage {
     IDTIME = 0;
     TIME = '';
     TITULO = "Atletas";
-
+    naocadastrado: boolean;
+    
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController, public params: NavParams, public toastCtrl: ToastController, public platform: Platform,
         public actionsheetCtrl: ActionSheetController) {
         this.imagemJogador = societyService.imagemJogador();
@@ -45,6 +46,17 @@ export class JogadorListPage {
             data => {
                 this.jogadores = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
+
             },
             err => {
                 console.log(err);

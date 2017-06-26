@@ -1,4 +1,4 @@
-<ion-header>
+﻿<ion-header>
     <ion-navbar color="menu-o-t">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
@@ -6,7 +6,6 @@
         <ion-title>{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
-
 <ion-content class="content-modelo">
     <ion-list>
         <ion-item *ngFor="let item of campeonatos" (click)="detailsSuspensao(item.ID)">
@@ -15,7 +14,9 @@
             </ion-avatar>
             <h2>{{item.NOME}}</h2>
         </ion-item>
-
     </ion-list>
-</ion-content>
+    <ion-item *ngIf="naocadastrado" class="naoencontrado">
+        <p>Você não está inscrito em nenhum campeonato.</p>
+    </ion-item>
 
+</ion-content>

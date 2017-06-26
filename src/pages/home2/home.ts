@@ -33,7 +33,7 @@ export class HomePage2 {
         public actionsheetCtrl: ActionSheetController, public menuCtrl: MenuController, private screenOrientation: ScreenOrientation) {
         this.menuCtrl.close();
         this.menuCtrl.enable(false);
-        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 
     times() {

@@ -1,12 +1,15 @@
 <ion-header>
-    <ion-navbar color="dark">
+    <ion-navbar color="menu-o-t">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
         <ion-title>{{TITULO}}</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content class="partida-list-content">
     <ion-row *ngFor="let item of partidas" class="bodyTable">
         <ion-col width-100>
-            <ion-row>
+            <ion-row (click)="openMenu(item.ID,item.EDITAR)">
                 <ion-col width-40>
                     <ion-row>
                         <ion-col width-33>
@@ -20,7 +23,7 @@
                     </ion-row>
                 </ion-col>
                 <ion-col width-20 class="texto">
-                    {{item.GOL1}} x {{item.GOL2}}
+                    <h3 style="margin-top: auto;">{{item.GOL1}} x {{item.GOL2}}</h3>
                 </ion-col>
                 <ion-col width-40>
                     <ion-row>
@@ -36,16 +39,16 @@
                 </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col width-100 class="local">
-                    <p>LOCAL:{{item.sCampo}}</p>
-                    <strong>{{item.DATAPARTIDA | data}} {{item.HORAPARTIDA}}</strong>
-                    <p>STATUS: {{item.STATUS}}</p>
+                <ion-col width-100>
+                    <p>Local: {{item.sCampo}}</p>
+                    <p>Data: {{item.DATAPARTIDA | data}} as {{item.HORAPARTIDA}}</p>
+                    <p>Status: {{item.STATUS}}</p>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col center text-center>
                     <button ion-button icon-left clear small (click)="jogadorPartida(item.ID)">
-                        <ion-icon name="person"></ion-icon>
+                        <ion-icon name="people"></ion-icon>
                         <div>Jogadores</div>
                     </button>
                 </ion-col>
@@ -59,4 +62,8 @@
 
         </ion-col>
     </ion-row>
+
+    <ion-item *ngIf="naocadastrado" class="naoencontrado">
+        Não existe partida cadastrada.
+    </ion-item>
 </ion-content>

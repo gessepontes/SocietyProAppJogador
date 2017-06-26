@@ -1,8 +1,8 @@
 page-partida-list {
     .partida-list-content-campeonato {
-        background-size: 100%;
-        background-position-y: 50%;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    background-size: 100%;
+    background-position-y: 50%;
+    font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
 
         strong {
             font-size: 1.0rem;
@@ -45,8 +45,8 @@ page-partida-list {
 
 
     .simbolo {
-        height: 30px;
-        width: 30px;
+        height: 40px !important;
+        width: 40px !important;
         border-radius: 20px;
         display: block;
         margin-left: auto;

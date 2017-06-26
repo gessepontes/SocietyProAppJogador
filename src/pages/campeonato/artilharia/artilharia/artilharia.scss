@@ -3,25 +3,19 @@ page-artilharia {
     background-position-y: 50%;
     font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
 
-
-    ion-col {
-        padding: 1px;
-        margin: auto;
-    }
-
     .headTable {
-        background-color: #1a2226;
+        background-color: #000000;
         color: white;
         text-align: center;
         height: 35px;
+        font-size: xx-small !important;
     }
 
-    .texto {
+    h6 {
         font-size: x-small !important;
-        font-family: 'Source Sans Pro','Helvetica Neue','Helvetica','Arial','sans-serif';
+    }
 
-        p {
-            font-size: xx-small !important;
-        }
+    h5 {
+        width: 30px;
     }
 }

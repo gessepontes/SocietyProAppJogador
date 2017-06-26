@@ -1,4 +1,4 @@
-<ion-header>
+﻿<ion-header>
     <ion-navbar color="menu-o-t">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
@@ -15,4 +15,8 @@
             <h2>{{item.NOME}}</h2>
         </ion-item>
     </ion-list>
+    <ion-item *ngIf="naocadastrado" class="naoencontrado">
+        <p>Você não está inscrito em nenhum campeonato.</p>
+    </ion-item>
+
 </ion-content>

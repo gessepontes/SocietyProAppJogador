@@ -27,7 +27,7 @@ export class CampeonatoPage {
             this.devicePlatform = "Android";
         }
 
-        //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 
     voltar() {

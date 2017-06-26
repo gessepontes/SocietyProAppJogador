@@ -17,6 +17,7 @@ export class ArtilhariaCampeonatoListPage {
     TITULO = "Artilharia";
     IDPESSOA = 0;
     imagemCampeonato: string;
+    naocadastrado: boolean;
 
     constructor(public navCtrl: NavController, private societyService: SocietyService, public loadingCtrl: LoadingController, public modalCtrl: ModalController, public alertCtrl: AlertController) {
         this.carregando();
@@ -39,6 +40,17 @@ export class ArtilhariaCampeonatoListPage {
             data => {
                 this.campeonatos = data;
                 this.limpaCarregando();
+
+                if (data != null) {
+                    if (data.length == 0) {
+                        this.naocadastrado = true;
+                    } else {
+                        this.naocadastrado = false;
+                    }
+                } else {
+                    this.naocadastrado = true;
+                }
+
             },
             err => {
                 this.limpaCarregando();
