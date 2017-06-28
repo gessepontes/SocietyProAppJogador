@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, AlertController, MenuController, ActionSheetController } from 'ionic-angular';
-import {Splashscreen, NativeStorage, StatusBar, AdMob } from 'ionic-native';
+import {Splashscreen, NativeStorage, StatusBar } from 'ionic-native';
 
 import { LoginPage } from '../pages/login/login';
 //import { HomePage } from '../pages/home/home';
@@ -62,43 +62,45 @@ export class MyApp {
             { title: 'Artilharia', component: ArtilhariaCampeonatoListPage, icon: 'football' },
         ];
 
-        this.adMobPosition = {
-            BOTTOM_CENTER: 8
-        };
+        //this.adMobPosition = {
+        //    BOTTOM_CENTER: 8
+        //};
 
 
         platform.ready().then(() => {
 
-            var admobid = { banner: '', interstitial: '' };
-            if (/(android)/i.test(navigator.userAgent)) { // for android & amazon-fireos
-                admobid = {
-                    banner: 'ca-app-pub-7516616142146754/8243844620',
-                    interstitial: 'ca-app-pub-7516616142146754/8147943026'
-                };
-            } else if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
-                admobid = {
-                    banner: 'ca-app-pub-7516616142146754/8243844620',
-                    interstitial: 'ca-app-pub-7516616142146754/8147943026'
-                };
-            } else { // for windows phone
-                admobid = {
-                    banner: 'ca-app-pub-7516616142146754/8243844620',
-                    interstitial: 'ca-app-pub-7516616142146754/8147943026'
-                };
-            }
+            //var admobid = { banner: '', interstitial: '' };
+            //if (/(android)/i.test(navigator.userAgent)) { // for android & amazon-fireos
+            //    admobid = {
+            //        banner: 'ca-app-pub-7516616142146754/8243844620',
+            //        interstitial: 'ca-app-pub-7516616142146754/8147943026'
+            //    };
+            //} else if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+            //    admobid = {
+            //        //banner: 'ca-app-pub-7516616142146754/8243844620',
+            //        //interstitial: 'ca-app-pub-7516616142146754/8147943026'
+            //        banner: 'ca-app-pub-7516616142146754/8243844620',
+            //        interstitial: 'ca-app-pub-7516616142146754/8147943026'
+            //    };
+            //} else { // for windows phone
+            //    admobid = {
+            //        banner: 'ca-app-pub-7516616142146754/8243844620',
+            //        interstitial: 'ca-app-pub-7516616142146754/8147943026'
+            //    };
+            //}
 
-            // it will display smart banner at top center, using the default options
-            if (AdMob) AdMob.createBanner({
-                adId: admobid.banner,
-                position: this.adMobPosition.BOTTOM_CENTER,
-                autoShow: true
-            });
+            //// it will display smart banner at top center, using the default options
+            //if (AdMob) AdMob.createBanner({
+            //    adId: admobid.banner,
+            //    position: this.adMobPosition.BOTTOM_CENTER,
+            //    autoShow: true
+            //});
 
-            // preppare and load ad resource in background, e.g. at begining of game level
-            if (AdMob) AdMob.prepareInterstitial({ adId: admobid.interstitial, autoShow: false });
+            //// preppare and load ad resource in background, e.g. at begining of game level
+            //if (AdMob) AdMob.prepareInterstitial({ adId: admobid.interstitial, autoShow: false });
 
-            // show the interstitial later, e.g. at end of game level
-            if (AdMob) AdMob.showInterstitial();
+            //// show the interstitial later, e.g. at end of game level
+            //if (AdMob) AdMob.showInterstitial();
 
 
 
@@ -147,8 +149,8 @@ export class MyApp {
         this.social.shareViaWhatsAppToReceiver('8596590632', "Mensagem iniciada pelo App SocietyPro", null, "www.societypro.com.br")
             .then(() => {
             },
-            () => {
-            })
+                () => {
+                })
     }
 
     openMenu() {
