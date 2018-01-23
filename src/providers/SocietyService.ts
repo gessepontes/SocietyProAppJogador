@@ -5,34 +5,6 @@ import 'rxjs/add/operator/map';
 import { Network } from 'ionic-native';
 import { Platform } from 'ionic-angular';
 
-//let url = 'http://gessepontes-001-site3.gtempurl.com/api/'
-//let url = 'http://localhost:51833/api/'
-let url = 'http://societypro.com.br/api/'
-
-let imagemResponsavel = 'http://www.societypro.com.br/imagens/foto/'
-let imagemSimbolo = 'http://www.societypro.com.br/imagens/simbolo/'
-let imagemFotoOficial = 'http://www.societypro.com.br/imagens/fotooficial/'
-let imagemJogador = 'http://www.societypro.com.br/imagens/fotojogador/'
-let imagemCampeonato = 'http://www.societypro.com.br/imagens/fotocampeonato/'
-let imagemCampo = 'http://www.societypro.com.br/imagens/fotocampo/'
-let imagemCartaoBola = 'http://www.societypro.com.br/imagens/table_icon/'
-
-//let imagemResponsavel = 'http://gessepontes-001-site3.gtempurl.com/imagens/foto/'
-//let imagemSimbolo = 'http://gessepontes-001-site3.gtempurl.com/imagens/simbolo/'
-//let imagemFotoOficial = 'http://gessepontes-001-site3.gtempurl.com/imagens/fotooficial/'
-//let imagemJogador = 'http://gessepontes-001-site3.gtempurl.com/imagens/fotojogador/'
-//let imagemCampeonato = 'http://gessepontes-001-site3.gtempurl.com/imagens/fotocampeonato/'
-//let imagemCampo = 'http://gessepontes-001-site3.gtempurl.com/imagens/fotocampo/'
-//let imagemCartaoBola = 'http://gessepontes-001-site3.gtempurl.com/imagens/table_icon/'
-
-//let imagemResponsavel = 'http://localhost:51833/imagens/foto/'
-//let imagemSimbolo = 'http://localhost:51833/imagens/simbolo/'
-//let imagemFotoOficial = 'http://localhost:51833/imagens/fotooficial/'
-//let imagemJogador = 'http://localhost:51833/imagens/fotojogador/'
-//let imagemCampeonato = 'http://localhost:51833/imagens/fotocampeonato/'
-//let imagemCampo = 'http://localhost:51833/imagens/fotocampo/'
-//let imagemCartaoBola = 'http://localhost:51833/imagens/table_icon/'
-
 declare var Connection;
 
 @Injectable()
